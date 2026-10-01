@@ -1,36 +1,70 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Sofiane ASMA — Portfolio Freelance
 
-## Getting Started
+Site portfolio / landing page de conversion pour les services de développement web & mobile de **Sofiane ASMA**.
 
-First, run the development server:
+## Stack
+
+- **Next.js 16** (App Router, Server Components)
+- **TypeScript** strict
+- **Tailwind CSS 4** + composants **Shadcn/UI**
+- **Framer Motion** (animations)
+- **next-intl** (FR, EN, AR avec RTL)
+- **React Hook Form + Zod** (formulaire de contact)
+- **Lucide React** (icônes)
+- **SEO** : Metadata API, JSON-LD, sitemap, robots, Open Graph dynamique
+
+## Démarrage
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Site : [http://localhost:3000/fr](http://localhost:3000/fr)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Routes
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Route | Description |
+|-------|-------------|
+| `/fr` | Accueil français |
+| `/en` | Accueil anglais |
+| `/ar` | Accueil arabe (RTL) |
+| `/[locale]/projects/[slug]` | Pages projets |
+| `/sitemap.xml` | Sitemap multi-langues |
+| `/robots.txt` | Robots.txt |
+| `/api/og` | Images Open Graph dynamiques |
 
-## Learn More
+## Configuration
 
-To learn more about Next.js, take a look at the following resources:
+Définir l'URL publique dans les variables d'environnement :
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```env
+NEXT_PUBLIC_SITE_URL=https://sofianeasma.com
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## WhatsApp
 
-## Deploy on Vercel
+Numéro intégré : `+213 551 797 313`  
+Lien direct : `https://wa.me/213551797313`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Structure
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```
+src/
+├── app/
+│   ├── [locale]/
+│   │   ├── layout.tsx          # Layout racine i18n (RTL, fonts, SEO)
+│   │   ├── page.tsx            # Landing page
+│   │   └── projects/[slug]/    # Pages projets
+│   ├── api/og/                 # OG images dynamiques
+│   ├── sitemap.ts
+│   └── robots.ts
+├── components/
+│   ├── layout/                 # Navbar, Footer, LanguageSwitcher
+│   ├── sections/               # Hero, Services, Projects, ...
+│   ├── ui/                     # Composants Shadcn
+│   └── SEO/                    # JSON-LD
+├── content/                    # Données projets & tech stack
+├── i18n/                       # Routing, request, navigation
+└── messages/                   # fr.json, en.json, ar.json
+```

@@ -1,0 +1,229 @@
+{
+  "metadata": {
+    "title": "Sofiane ASMA — Full-Stack Web & Mobile Developer",
+    "description": "Expert Full-Stack developer specializing in Next.js, React, Node.js. Custom web apps, SaaS and mobile solutions. Free quote within 24h.",
+    "keywords": [
+      "web developer",
+      "mobile developer",
+      "Next.js",
+      "React",
+      "SaaS",
+      "freelance",
+      "Sofiane ASMA"
+    ]
+  },
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "projects": "Projects",
+    "process": "Process",
+    "about": "About",
+    "contact": "Contact",
+    "language": "Language",
+    "menu": "Menu",
+    "close": "Close"
+  },
+  "hero": {
+    "badge": "Availability: Open for new projects",
+    "title": "Full-Stack Web & Mobile Developer",
+    "highlight": "I turn your ideas into high-performance applications",
+    "subtitle": "Bespoke modern web applications, SaaS platforms and mobile solutions (iOS/Android). Mastered timelines and scalable architecture.",
+    "ctaPrimary": "Get a free quote",
+    "ctaSecondary": "Chat on WhatsApp",
+    "reassurance": [
+      "Availability: Open for new projects",
+      "Quote within 24h",
+      "Clean & Optimized Code"
+    ],
+    "stats": {
+      "projects": "Projects delivered",
+      "experience": "Years of experience",
+      "clients": "Happy clients",
+      "response": "Response time"
+    }
+  },
+  "services": {
+    "title": "Services",
+    "subtitle": "Complete technical solutions to accelerate your digital growth",
+    "cta": "Discuss my project",
+    "items": [
+      {
+        "title": "Custom Web & SaaS Development",
+        "description": "High-performance web applications and SaaS platforms built with Next.js, React and Node.js. Scalable architecture, PostgreSQL, enterprise-grade security.",
+        "features": ["Next.js & React", "Node.js & REST APIs", "PostgreSQL", "Auth & Multi-tenant"]
+      },
+      {
+        "title": "Cross-Platform Mobile Apps",
+        "description": "High-performance iOS & Android applications with polished user experience. Hybrid or native development based on your needs.",
+        "features": ["iOS & Android", "Flutter Mobile", "React Native", "Mobile-first UI/UX", "Store publishing"]
+      },
+      {
+        "title": "Redesign, Optimization & SEO",
+        "description": "Modernize your digital presence, improve Core Web Vitals and organic search visibility to maximize your reach.",
+        "features": ["Core Web Vitals", "Technical SEO", "Migrations", "Design systems"]
+      },
+      {
+        "title": "Maintenance, Architecture & Consulting",
+        "description": "Ongoing technical partnership: audits, monitoring, architecture scaling and guidance for your technology decisions.",
+        "features": ["Tech audits", "Monitoring", "Scaling", "Stack advisory"]
+      }
+    ]
+  },
+  "projects": {
+    "title": "Featured projects",
+    "subtitle": "A selection of work that reflects my technical and creative approach",
+    "viewProject": "View project",
+    "live": "Visit live",
+    "stack": "Tech stack",
+    "focus": "Key highlights",
+    "items": [
+      {
+        "title": "Dental Clinic Management SaaS",
+        "description": "Complete SaaS platform for dental practice management: appointments, patient records and billing.",
+        "focus": "Practitioner-friendly UX, high data security, strong performance."
+      },
+      {
+        "title": "Papernote",
+        "description": "AI-powered SaaS tool for reviewing, analyzing and summarizing academic research papers.",
+        "focus": "AI integration, fast complex document processing, clean interface."
+      },
+      {
+        "title": "MYKS Radio",
+        "description": "Online radio web platform integrated with the Icecast API, featuring a custom video admin interface.",
+        "focus": "Real-time audio streaming, dynamic media flow management, custom dashboard."
+      },
+      {
+        "title": "Tiberium Consulting",
+        "description": "Consulting web app with real-time messaging and a modern client-expert exchange interface.",
+        "focus": "Real-time communication (WebSockets), scalable MERN architecture."
+      }
+    ]
+  },
+  "tech": {
+    "title": "Tech stack",
+    "subtitle": "Proven technologies to build robust, scalable products",
+    "categories": {
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "mobile": "Mobile",
+      "tools": "Tools & DevOps"
+    }
+  },
+  "process": {
+    "title": "How I work",
+    "subtitle": "A clear, transparent method to take your project from idea to production",
+    "steps": [
+      {
+        "title": "Discovery & Scoping",
+        "description": "Needs analysis and goal definition. We align technical vision with your business challenges."
+      },
+      {
+        "title": "Design & Architecture",
+        "description": "UX/UI mockups and tech stack selection. A solid plan before writing the first line of code."
+      },
+      {
+        "title": "Agile Development",
+        "description": "Continuous deployment and regular demos. You see progress every sprint, no surprises."
+      },
+      {
+        "title": "Delivery & Maintenance",
+        "description": "Production launch, SEO optimization and support. Partnership to ensure your product's longevity."
+      }
+    ]
+  },
+  "testimonials": {
+    "title": "Testimonials",
+    "subtitle": "What clients who trusted me have to say",
+    "items": [
+      {
+        "name": "Karim B.",
+        "role": "Founder, Dental Clinic",
+        "content": "Sofiane delivered a flawless SaaS platform. Clear communication, respected deadlines and rare code quality."
+      },
+      {
+        "name": "Sarah M.",
+        "role": "Product Owner, EdTech",
+        "content": "Our AI review tool was built brilliantly. The interface is intuitive and performance is top-notch."
+      },
+      {
+        "name": "Yassine K.",
+        "role": "CEO, Tiberium Consulting",
+        "content": "Solid MERN expertise and a real ability to understand business challenges. Highly recommended."
+      }
+    ]
+  },
+  "about": {
+    "title": "About",
+    "subtitle": "Your technical partner for outstanding digital products",
+    "description": "I'm Sofiane ASMA, a passionate Full-Stack developer specializing in modern web applications and high-performance mobile solutions. With years of experience across SaaS, e-commerce and real-time platforms, I help startups and enterprises digitally transform their products.",
+    "highlights": [
+      "Next.js / React / Node.js expertise",
+      "Performance & SEO focused approach",
+      "Transparent, responsive communication",
+      "Agile delivery with regular demos"
+    ],
+    "cta": "Let's work together"
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Let's talk about your project. Reply within 24 business hours.",
+    "form": {
+      "name": "Full name",
+      "email": "Email address",
+      "phone": "Phone number (optional)",
+      "projectType": "Project type",
+      "budget": "Estimated budget",
+      "description": "Project description",
+      "submit": "Send my quote request",
+      "submitting": "Sending...",
+      "success": "Thank you! Your request has been sent. I'll get back to you shortly.",
+      "projectTypes": {
+        "web": "Website / Web app",
+        "mobile": "Mobile app",
+        "saas": "SaaS / Platform",
+        "refonte": "Redesign / SEO / Performance"
+      },
+      "budgets": {
+        "lt50k": "< 50,000 DA",
+        "50k-150k": "50,000 DA – 150,000 DA",
+        "150k-300k": "150,000 DA – 300,000 DA",
+        "undecided": "To be defined together"
+      },
+      "errors": {
+        "name": "Please enter your name (min. 2 characters)",
+        "email": "Please enter a valid email address",
+        "phone": "Invalid phone number",
+        "projectType": "Please select a project type",
+        "budget": "Please select a budget range",
+        "description": "Describe your project (min. 10 characters)"
+      }
+    },
+    "whatsapp": {
+      "title": "Need a quick response?",
+      "description": "Message me directly on WhatsApp to discuss your project in real time.",
+      "cta": "Open WhatsApp"
+    },
+    "info": {
+      "email": "Email",
+      "phone": "Phone",
+      "location": "Location",
+      "availability": "Availability"
+    }
+  },
+  "footer": {
+    "tagline": "Full-Stack developer specializing in modern web applications and bespoke mobile solutions.",
+    "quickLinks": "Quick links",
+    "services": "Services",
+    "contactTitle": "Contact",
+    "rights": "All rights reserved.",
+    "builtWith": "Built with Next.js & Tailwind CSS"
+  },
+  "whatsappButton": {
+    "label": "Chat on WhatsApp"
+  },
+  "common": {
+    "loading": "Loading...",
+    "back": "Back",
+    "learnMore": "Learn more"
+  }
+}

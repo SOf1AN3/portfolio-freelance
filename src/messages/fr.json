@@ -1,0 +1,230 @@
+{
+  "metadata": {
+    "title": "Sofiane ASMA — Développeur Web & Mobile Full-Stack",
+    "description": "Développeur Full-Stack expert Next.js, React, Node.js. Applications web, SaaS et mobiles sur-mesure. Devis gratuit sous 24h.",
+    "keywords": [
+      "développeur web",
+      "développeur mobile",
+      "Next.js",
+      "React",
+      "SaaS",
+      "freelance",
+      "Algérie",
+      "Sofiane ASMA"
+    ]
+  },
+  "nav": {
+    "home": "Accueil",
+    "services": "Services",
+    "projects": "Projets",
+    "process": "Processus",
+    "about": "À propos",
+    "contact": "Contact",
+    "language": "Langue",
+    "menu": "Menu",
+    "close": "Fermer"
+  },
+  "hero": {
+    "badge": "Disponibilité : Nouveaux projets",
+    "title": "Développeur Web & Mobile Full-Stack",
+    "highlight": "Je transforme vos idées en applications performantes",
+    "subtitle": "Conception sur-mesure d'applications web modernes, SaaS et solutions mobiles (iOS/Android). Délais maîtrisés et architecture scalable.",
+    "ctaPrimary": "Demander un devis gratuit",
+    "ctaSecondary": "Discuter sur WhatsApp",
+    "reassurance": [
+      "Disponibilité : Nouveaux projets",
+      "Devis sous 24h",
+      "Code Propre & Optimisé"
+    ],
+    "stats": {
+      "projects": "Projets livrés",
+      "experience": "Ans d'expérience",
+      "clients": "Clients satisfaits",
+      "response": "Temps de réponse"
+    }
+  },
+  "services": {
+    "title": "Services",
+    "subtitle": "Des solutions techniques complètes pour accélérer votre croissance digitale",
+    "cta": "Parler de mon projet",
+    "items": [
+      {
+        "title": "Développement Web & SaaS sur-mesure",
+        "description": "Applications web performantes et plateformes SaaS avec Next.js, React et Node.js. Architecture scalable, base PostgreSQL, sécurité au niveau entreprise.",
+        "features": ["Next.js & React", "Node.js & API REST", "PostgreSQL", "Auth & Multi-tenant"]
+      },
+      {
+        "title": "Applications Mobiles Multiplateformes",
+        "description": "Applications iOS & Android performantes avec une expérience utilisateur soignée. Développement hybride ou natif selon vos besoins.",
+        "features": ["iOS & Android", "Flutter Mobile", "React Native", "UI/UX mobile-first", "Publication stores"]
+      },
+      {
+        "title": "Refonte, Optimisation & SEO",
+        "description": "Modernisation de votre présence digitale, amélioration des Core Web Vitals et référencement naturel pour maximiser votre visibilité.",
+        "features": ["Core Web Vitals", "SEO technique", "Migrations", "Design system"]
+      },
+      {
+        "title": "Maintenance, Architecture & Consulting",
+        "description": "Accompagnement technique continu : audit, monitoring, scaling d'architecture et conseils pour vos décisions technologiques.",
+        "features": ["Audit technique", "Monitoring", "Scaling", "Conseil stack"]
+      }
+    ]
+  },
+  "projects": {
+    "title": "Projets phares",
+    "subtitle": "Une sélection de réalisations qui illustrent mon approche technique et créative",
+    "viewProject": "Voir le projet",
+    "live": "Voir en ligne",
+    "stack": "Stack technique",
+    "focus": "Points clés",
+    "items": [
+      {
+        "title": "SaaS de Gestion de Clinique Dentaire",
+        "description": "Plateforme SaaS complète de gestion de cabinet dentaire : rendez-vous, dossiers patients et facturation.",
+        "focus": "UX ergonomique pour praticiens, haute sécurité des données, performance élevée."
+      },
+      {
+        "title": "Papernote",
+        "description": "Outil SaaS alimenté par l'IA dédié à la révision, l'analyse et la synthèse de papiers de recherche académique.",
+        "focus": "Intégration IA, traitement rapide de documents complexes, interface épurée."
+      },
+      {
+        "title": "MYKS Radio",
+        "description": "Plateforme web de radio en ligne intégrée avec l'API Icecast et dotée d'une interface d'administration vidéo personnalisée.",
+        "focus": "Streaming audio temps réel, gestion dynamique de flux média, dashboard sur-mesure."
+      },
+      {
+        "title": "Tiberium Consulting",
+        "description": "Application web de consulting avec messagerie en temps réel et interface moderne d'échange client-expert.",
+        "focus": "Communication temps réel (WebSockets), architecture scalable MERN."
+      }
+    ]
+  },
+  "tech": {
+    "title": "Stack technique",
+    "subtitle": "Des technologies éprouvées pour construire des produits robustes et évolutifs",
+    "categories": {
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "mobile": "Mobile",
+      "tools": "Outils & DevOps"
+    }
+  },
+  "process": {
+    "title": "Processus de travail",
+    "subtitle": "Une méthode claire et transparente pour mener votre projet de l'idée à la production",
+    "steps": [
+      {
+        "title": "Échange & Cadrage",
+        "description": "Analyse du besoin et définition des objectifs. Nous alignons la vision technique avec vos enjeux business."
+      },
+      {
+        "title": "Conception & Architecture",
+        "description": "Maquettage UX/UI et choix de la stack technique. Un plan solide avant d'écrire la première ligne de code."
+      },
+      {
+        "title": "Développement Agile",
+        "description": "Déploiement continu et démos régulières. Vous voyez l'avancement à chaque sprint, sans mauvaise surprise."
+      },
+      {
+        "title": "Livraison & Maintenance",
+        "description": "Mise en production, optimisation SEO et support. Un accompagnement pour garantir la pérennité de votre produit."
+      }
+    ]
+  },
+  "testimonials": {
+    "title": "Témoignages",
+    "subtitle": "Ce que disent les clients qui m'ont fait confiance",
+    "items": [
+      {
+        "name": "Karim B.",
+        "role": "Fondateur, Clinique Dentaire",
+        "content": "Sofiane a livré une plateforme SaaS impeccable. Communication claire, délais respectés et un code d'une qualité rare."
+      },
+      {
+        "name": "Sarah M.",
+        "role": "Product Owner, EdTech",
+        "content": "Notre outil de révision IA a été développé avec brio. L'interface est intuitive et la performance au rendez-vous."
+      },
+      {
+        "name": "Yassine K.",
+        "role": "CEO, Tiberium Consulting",
+        "content": "Une expertise MERN solide et une vraie capacité à comprendre les enjeux business. Recommandé les yeux fermés."
+      }
+    ]
+  },
+  "about": {
+    "title": "À propos",
+    "subtitle": "Votre partenaire technique pour des produits digitaux d'excellence",
+    "description": "Je suis Sofiane ASMA, développeur Full-Stack passionné, spécialisé dans la conception d'applications web modernes et de solutions mobiles performantes. Avec plusieurs années d'expérience sur des projets SaaS, e-commerce et plateformes temps réel, j'accompagne startups et entreprises dans la transformation numérique de leur produit.",
+    "highlights": [
+      "Expertise Next.js / React / Node.js",
+      "Approche orientée performance & SEO",
+      "Communication transparente et réactive",
+      "Livraison agile avec démos régulières"
+    ],
+    "cta": "Travaillons ensemble"
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Parlons de votre projet. Réponse sous 24h ouvrées.",
+    "form": {
+      "name": "Nom complet",
+      "email": "Adresse email",
+      "phone": "Numéro de téléphone (optionnel)",
+      "projectType": "Type de projet",
+      "budget": "Budget estimé",
+      "description": "Description du projet",
+      "submit": "Envoyer ma demande de devis",
+      "submitting": "Envoi en cours...",
+      "success": "Merci ! Votre demande a bien été envoyée. Je vous réponds très vite.",
+      "projectTypes": {
+        "web": "Site web / Application web",
+        "mobile": "Application mobile",
+        "saas": "SaaS / Plateforme",
+        "refonte": "Refonte / SEO / Performance"
+      },
+      "budgets": {
+        "lt50k": "< 50 000 DA",
+        "50k-150k": "50 000 DA – 150 000 DA",
+        "150k-300k": "150 000 DA – 300 000 DA",
+        "undecided": "À définir ensemble"
+      },
+      "errors": {
+        "name": "Veuillez saisir votre nom (2 caractères min.)",
+        "email": "Veuillez saisir une adresse email valide",
+        "phone": "Numéro de téléphone invalide",
+        "projectType": "Veuillez sélectionner un type de projet",
+        "budget": "Veuillez sélectionner une fourchette de budget",
+        "description": "Décrivez votre projet (10 caractères min.)"
+      }
+    },
+    "whatsapp": {
+      "title": "Besoin d'une réponse rapide ?",
+      "description": "Contactez-moi directement sur WhatsApp pour discuter de votre projet en temps réel.",
+      "cta": "Ouvrir WhatsApp"
+    },
+    "info": {
+      "email": "Email",
+      "phone": "Téléphone",
+      "location": "Localisation",
+      "availability": "Disponibilité"
+    }
+  },
+  "footer": {
+    "tagline": "Développeur Full-Stack spécialisé dans les applications web modernes et les solutions mobiles sur-mesure.",
+    "quickLinks": "Liens rapides",
+    "services": "Services",
+    "contactTitle": "Contact",
+    "rights": "Tous droits réservés.",
+    "builtWith": "Conçu avec Next.js & Tailwind CSS"
+  },
+  "whatsappButton": {
+    "label": "Discuter sur WhatsApp"
+  },
+  "common": {
+    "loading": "Chargement...",
+    "back": "Retour",
+    "learnMore": "En savoir plus"
+  }
+}

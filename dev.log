@@ -1,0 +1,18 @@
+
+> sofiane-portfolio@0.1.0 dev
+> next dev
+
+▲ Next.js 16.3.8 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.1.4:3000
+✓ Ready in 284ms
+✓ Running next.config.ts took 52ms
+
+ GET /fr 200 in 2.5s (next.js: 1764ms, proxy.ts: 120ms, generate-params: 293ms, application-code: 276ms)
+ GET /en 200 in 99ms (next.js: 10ms, proxy.ts: 4ms, generate-params: 4ms, application-code: 81ms)
+ GET /ar 200 in 93ms (next.js: 4ms, proxy.ts: 5ms, generate-params: 0.0ms, application-code: 84ms)
+ GET /fr/projects/papernote 200 in 727ms (next.js: 364ms, proxy.ts: 5ms, generate-params: 303ms, application-code: 55ms)
+ GET /sitemap.xml 200 in 190ms (next.js: 176ms, application-code: 15ms)
+ GET /robots.txt 200 in 82ms (next.js: 79ms, application-code: 3ms)
+ GET /fr 200 in 113ms (next.js: 5ms, proxy.ts: 14ms, generate-params: 5ms, application-code: 89ms)
+^C^CTerminer le programme de commandes (O/N)�? 
