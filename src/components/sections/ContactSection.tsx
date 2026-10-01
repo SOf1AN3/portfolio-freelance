@@ -27,6 +27,7 @@ import {
   WHATSAPP_NUMBER,
   DEFAULT_WHATSAPP_MESSAGE,
 } from "@/lib/utils";
+import { CONTACT_EMAIL } from "@/lib/contact";
 
 type ProjectType = "web" | "mobile" | "saas" | "refonte";
 type Budget = "lt50k" | "50k-150k" | "150k-300k" | "undecided";
@@ -95,12 +96,34 @@ export function ContactSection() {
   const budgetValue = watch("budget");
 
   async function onSubmit(values: FormValues) {
-    // Simulated submit — integrate with email API / Formspree / WhatsApp redirect as needed
-    await new Promise((r) => setTimeout(r, 800));
-    console.log("Quote request:", values);
-    setSubmitted(true);
-    reset();
-    setTimeout(() => setSubmitted(false), 6000);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(values),
+      });
+
+      const data = (await res.json()) as {
+        ok?: boolean;
+        mailto?: string;
+        error?: string;
+      };
+
+      if (!res.ok || !data.ok) {
+        console.error("Contact submit failed:", data.error || res.status);
+        return;
+      }
+
+      if (data.mailto) {
+        window.location.href = data.mailto;
+      }
+
+      setSubmitted(true);
+      reset();
+      setTimeout(() => setSubmitted(false), 6000);
+    } catch (error) {
+      console.error("Contact submit error:", error);
+    }
   }
 
   return (
@@ -332,7 +355,7 @@ export function ContactSection() {
                       {t("info.email")}
                     </div>
                     <div className="text-sm font-medium">
-                      contact@sofianeasma.com
+                      {CONTACT_EMAIL}
                     </div>
                   </div>
                 </div>

@@ -7,6 +7,7 @@ import { Link } from "@/i18n/navigation";
 import { Container } from "@/components/ui/container";
 import { Separator } from "@/components/ui/separator";
 import { WHATSAPP_NUMBER, whatsappLink } from "@/lib/utils";
+import { CONTACT_EMAIL } from "@/lib/contact";
 
 type FooterProps = {
   locale: string;
@@ -150,7 +151,7 @@ export function Footer({ locale }: FooterProps) {
             <ul className="space-y-3 text-sm text-muted-foreground">
               <li className="flex items-start gap-2">
                 <Mail className="mt-0.5 size-4 shrink-0 text-primary" />
-                <span>contact@sofianeasma.com</span>
+                <span>{CONTACT_EMAIL}</span>
               </li>
               <li className="flex items-start gap-2">
                 <svg viewBox="0 0 24 24" className="mt-0.5 size-4 shrink-0 text-[#22c55e]" fill="currentColor">
