@@ -105,7 +105,7 @@ export function HeroSection() {
 
             <motion.dl
               variants={item}
-              className="mt-10 grid grid-cols-2 gap-x-6 gap-y-6 sm:grid-cols-4 lg:max-w-2xl"
+              className="mt-10 grid grid-cols-2 gap-x-6 gap-y-6 sm:grid-cols-3 lg:max-w-2xl"
             >
               {stats.map((stat) => (
                 <div key={stat.label} className="text-center lg:text-start">

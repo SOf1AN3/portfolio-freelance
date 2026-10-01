@@ -13,6 +13,7 @@ import {
   SiOpenapiinitiative,
   SiGraphql,
   SiExpo,
+  SiPwa,
   SiFlutter,
   SiDart,
   SiApple,
@@ -110,6 +111,7 @@ export const techGroups: TechGroup[] = [
     items: [
       { name: "React Native", icon: TbDeviceMobile, color: "#61DAFB" },
       { name: "Expo", icon: SiExpo, color: "#E6E6E6" },
+      { name: "Progressive Web Apps", icon: SiPwa, color: "#5A0FC8" },
       { name: "Flutter", icon: SiFlutter, color: "#02569B" },
       { name: "Dart", icon: SiDart, color: "#0175C2" },
       { name: "iOS", icon: SiApple, color: "#F5F5F7" },
@@ -126,7 +128,6 @@ export const techGroups: TechGroup[] = [
     items: [
       { name: "PostgreSQL", icon: SiPostgresql, color: "#4169E1" },
       { name: "MongoDB", icon: SiMongodb, color: "#47A248" },
-      { name: "MongoDB Atlas", icon: SiMongodb, color: "#47A248" },
       { name: "Neon", icon: SiNeon, color: "#00E599" },
       { name: "Supabase", icon: SiSupabase, color: "#3ECF8E" },
       { name: "Prisma", icon: SiPrisma, color: "#A8A9AD" },

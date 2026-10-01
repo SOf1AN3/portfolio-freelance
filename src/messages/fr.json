@@ -35,7 +35,6 @@
       "items": [
         { "value": "+5", "label": "Ans d'expérience" },
         { "value": "+20", "label": "Projets livrés" },
-        { "value": "Info", "label": "Diplôme en informatique" },
         { "value": "24h", "label": "Devis gratuit" }
       ]
     }
@@ -76,6 +75,12 @@
     "focus": "Points clés",
     "back": "Retour",
     "contactCta": "Discuter de ce projet",
+    "categories": {
+      "saas": "SaaS",
+      "ai": "IA",
+      "media": "Médias",
+      "consulting": "Consulting"
+    },
     "items": [
       {
         "title": "SaaS de Gestion de Clinique Dentaire",
@@ -151,19 +156,22 @@
     "subtitle": "Ce que disent les clients qui m'ont fait confiance",
     "items": [
       {
-        "name": "Karim B.",
+        "name": "Ahcen B.",
         "role": "Fondateur, Clinique Dentaire",
-        "content": "Sofiane a livré une plateforme SaaS impeccable. Communication claire, délais respectés et un code d'une qualité rare."
+        "project": "Plateforme SaaS de gestion dentaire",
+        "content": "On utilise son SaaS au cabinet depuis quelques semaines et ça nous sauve un temps fou au quotidien. Sofiane a tout de suite compris la réalité de notre métier, il a corrigé les petits retours hyper vite pendant la phase de test. Bref, travail propre et efficace."
       },
       {
         "name": "Sarah M.",
-        "role": "Product Owner, EdTech",
-        "content": "Notre outil de révision IA a été développé avec brio. L'interface est intuitive et la performance au rendez-vous."
+        "role": "Responsable E-Commerce, Retail",
+        "project": "Boutique en ligne & catalogue produits",
+        "content": "Notre ancien site ramait et on perdait des ventes sur mobile. Sofiane nous a refait une boutique ultra rapide, fluide et super facile à gérer au quotidien pour l'équipe. Les retours de nos clients sont tops et le parcours de commande est enfin nickel."
       },
       {
-        "name": "Yassine K.",
+        "name": "Karim O.",
         "role": "CEO, Tiberium Consulting",
-        "content": "Une expertise MERN solide et une vraie capacité à comprendre les enjeux business. Recommandé les yeux fermés."
+        "project": "Application web de consulting avec messagerie temps réel",
+        "content": "C'est rare de tomber sur un dev fullstack qui capte aussi vite ce qu'on veut sans qu'on ait besoin de rédiger un cahier des charges de 50 pages. La messagerie en temps réel tourne nickel, les délais ont été tenus et le suivi après livraison était au rendez-vous."
       }
     ]
   },

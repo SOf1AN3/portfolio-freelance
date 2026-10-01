@@ -34,7 +34,6 @@
       "items": [
         { "value": "+5", "label": "Years of experience" },
         { "value": "+20", "label": "Projects delivered" },
-        { "value": "Info", "label": "Degree in Computer Science" },
         { "value": "24h", "label": "Free quote" }
       ]
     }
@@ -73,8 +72,14 @@
     "live": "Visit live",
     "stack": "Tech stack",
     "focus": "Key highlights",
-    "back": "Back",
-    "contactCta": "Discuss this project",
+"back": "Back",
+    "contactCta": "Discuss about this project",
+    "categories": {
+      "saas": "SaaS",
+      "ai": "AI",
+      "media": "Media",
+      "consulting": "Consulting"
+    },
     "items": [
       {
         "title": "Dental Clinic Management SaaS",
@@ -150,19 +155,22 @@
     "subtitle": "What clients who trusted me have to say",
     "items": [
       {
-        "name": "Karim B.",
+        "name": "Ahcen B.",
         "role": "Founder, Dental Clinic",
-        "content": "Sofiane delivered a flawless SaaS platform. Clear communication, respected deadlines and rare code quality."
+        "project": "Dental practice management SaaS platform",
+        "content": "We've been using his SaaS at the clinic for a few weeks and it saves us an incredible amount of time every day. Sofiane immediately understood the reality of our work, and he fixed the small feedback points incredibly fast during the testing phase. In short, clean and efficient work."
       },
       {
         "name": "Sarah M.",
-        "role": "Product Owner, EdTech",
-        "content": "Our AI review tool was built brilliantly. The interface is intuitive and performance is top-notch."
+        "role": "E-Commerce Manager, Retail",
+        "project": "Online store & product catalog",
+        "content": "Our old site was slow and we were losing sales on mobile. Sofiane rebuilt us a shop that's ultra fast, smooth and really easy for the team to manage day to day. Our customers' feedback is great and the checkout flow is finally perfect."
       },
       {
-        "name": "Yassine K.",
+        "name": "Karim O.",
         "role": "CEO, Tiberium Consulting",
-        "content": "Solid MERN expertise and a real ability to understand business challenges. Highly recommended."
+        "project": "Consulting web app with real-time messaging",
+        "content": "It's rare to find a fullstack dev who grasps what you want so quickly without needing a 50-page spec document. The real-time messaging runs smoothly, deadlines were met and post-delivery support was there."
       }
     ]
   },

@@ -12,6 +12,7 @@ export function TestimonialsSection() {
   const items = t.raw("items") as {
     name: string;
     role: string;
+    project: string;
     content: string;
   }[];
 
@@ -44,12 +45,17 @@ export function TestimonialsSection() {
               whileHover={{ y: -4 }}
               className="relative flex flex-col rounded-2xl border border-border bg-card p-6 sm:p-8"
             >
-              <Quote className="size-8 text-primary/30" />
+              <div className="flex items-start justify-between gap-3">
+                <Quote className="size-8 shrink-0 text-primary/30" />
+                <span className="rounded-full border border-primary/20 bg-primary/5 px-2.5 py-1 text-end text-[11px] font-medium leading-tight text-primary/80">
+                  {testimonial.project}
+                </span>
+              </div>
               <blockquote className="mt-4 flex-1 text-sm leading-relaxed text-muted-foreground sm:text-base">
                 {testimonial.content}
               </blockquote>
               <figcaption className="mt-6 flex items-center gap-3 border-t border-border pt-5">
-                <div className="flex size-11 items-center justify-center rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 text-sm font-bold text-white">
+                <div className="flex size-11 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 text-sm font-bold text-white">
                   {testimonial.name.charAt(0)}
                 </div>
                 <div>

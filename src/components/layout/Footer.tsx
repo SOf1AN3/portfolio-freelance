@@ -33,12 +33,7 @@ export function Footer({ locale }: FooterProps) {
       <Container className="py-12 lg:py-16">
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
           <div className="space-y-4">
-            <div className="flex items-center gap-2">
-              <span className="flex size-10 items-center justify-center rounded-xl bg-gradient-to-br from-blue-500 to-indigo-600 text-sm font-black text-white">
-                SA
-              </span>
-              <span className="text-lg font-bold">Sofiane ASMA</span>
-            </div>
+            <span className="block text-lg font-bold">Sofiane ASMA</span>
             <p className="max-w-sm text-sm leading-relaxed text-muted-foreground">
               {t("tagline")}
             </p>
