@@ -104,8 +104,23 @@
     "categories": {
       "frontend": "Frontend",
       "backend": "Backend",
+      "data": "Databases",
       "mobile": "Mobile",
+      "desktop": "Desktop",
       "tools": "Tools & DevOps"
+    },
+    "categoryDescriptions": {
+      "frontend": "Modern frontend frameworks and custom design systems, built for performance and accessibility.",
+      "backend": "REST, GraphQL and real-time APIs, in Node.js, Python or Java depending on what the project needs.",
+      "mobile": "iOS and Android apps shipped to both stores, with a carefully polished UX.",
+      "data": "Relational, NoSQL and managed platforms, with schemas designed to grow with the product.",
+      "desktop": "Cross-platform desktop software in Electron, Flutter, .NET, Java or Python, from the interface down to native packaging.",
+      "tools": "Versioning, containerization and continuous delivery pipelines."
+    },
+    "cta": {
+      "title": "Questions about a technology?",
+      "description": "I'll walk you through the benefits, trade-offs and learning curve of each option for your project.",
+      "action": "Let's talk"
     }
   },
   "process": {
@@ -161,6 +176,12 @@
       "Transparent, responsive communication",
       "Agile delivery with regular demos"
     ],
+    "role": "Full-Stack Developer",
+    "expertise": {
+      "web": "Web",
+      "desktop": "Desktop",
+      "mobile": "Mobile"
+    },
     "cta": "Let's work together"
   },
   "contact": {

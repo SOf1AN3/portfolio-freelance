@@ -5,14 +5,21 @@
 ▲ Next.js 16.3.8 (Turbopack)
 - Local:         http://localhost:3000
 - Network:       http://192.168.1.4:3000
-✓ Ready in 284ms
-✓ Running next.config.ts took 52ms
+- Environments: .env.local
+✓ Ready in 334ms
+✓ Running next.config.ts took 62ms
 
- GET /fr 200 in 2.5s (next.js: 1764ms, proxy.ts: 120ms, generate-params: 293ms, application-code: 276ms)
- GET /en 200 in 99ms (next.js: 10ms, proxy.ts: 4ms, generate-params: 4ms, application-code: 81ms)
- GET /ar 200 in 93ms (next.js: 4ms, proxy.ts: 5ms, generate-params: 0.0ms, application-code: 84ms)
- GET /fr/projects/papernote 200 in 727ms (next.js: 364ms, proxy.ts: 5ms, generate-params: 303ms, application-code: 55ms)
- GET /sitemap.xml 200 in 190ms (next.js: 176ms, application-code: 15ms)
- GET /robots.txt 200 in 82ms (next.js: 79ms, application-code: 3ms)
- GET /fr 200 in 113ms (next.js: 5ms, proxy.ts: 14ms, generate-params: 5ms, application-code: 89ms)
-^C^CTerminer le programme de commandes (O/N)�? 
+ GET /fr 200 in 986ms (next.js: 109ms, proxy.ts: 166ms, generate-params: 342ms, application-code: 369ms)
+ GET /manifest.webmanifest 200 in 65ms (next.js: 52ms, application-code: 13ms)
+ GET /fr 200 in 137ms (next.js: 5ms, proxy.ts: 5ms, generate-params: 4ms, application-code: 122ms)
+ GET /fr 200 in 121ms (next.js: 6ms, proxy.ts: 3ms, generate-params: 5ms, application-code: 107ms)
+ GET /en 200 in 108ms (next.js: 6ms, proxy.ts: 4ms, generate-params: 0.0ms, application-code: 98ms)
+ GET /ar 200 in 121ms (next.js: 5ms, proxy.ts: 4ms, generate-params: 4ms, application-code: 107ms)
+ GET /fr/projects/dental-clinic-saas 200 in 1036ms (next.js: 543ms, proxy.ts: 6ms, generate-params: 398ms, application-code: 90ms)
+ GET /fr/projects/papernote 200 in 92ms (next.js: 6ms, proxy.ts: 4ms, generate-params: 8ms, application-code: 74ms)
+ GET /fr 200 in 91ms (next.js: 5ms, proxy.ts: 5ms, generate-params: 4ms, application-code: 79ms)
+ GET /manifest.webmanifest 200 in 8ms (next.js: 3ms, application-code: 5ms)
+ GET /fr 200 in 85ms (next.js: 5ms, proxy.ts: 4ms, generate-params: 3ms, application-code: 73ms)
+ GET /manifest.webmanifest 200 in 7ms (next.js: 3ms, application-code: 4ms)
+ GET /fr 200 in 104ms (next.js: 4ms, proxy.ts: 4ms, generate-params: 4ms, application-code: 91ms)
+ GET /manifest.webmanifest 200 in 9ms (next.js: 3ms, application-code: 7ms)

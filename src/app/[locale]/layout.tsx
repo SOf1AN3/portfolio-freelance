@@ -84,7 +84,7 @@ export default async function LocaleLayout({
     >
       <body className="flex min-h-full flex-col">
         <JsonLd data={structuredData} />
-        <NextIntlClientProvider messages={messages}>
+        <NextIntlClientProvider locale={locale} messages={messages}>
           <Navbar locale={locale as Locale} />
           <main className="flex-1">{children}</main>
           <Footer locale={locale as Locale} />

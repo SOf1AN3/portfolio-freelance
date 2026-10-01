@@ -1,15 +1,38 @@
 import { getRequestConfig } from "next-intl/server";
+import { locale as getRootLocale } from "next/root-params";
 import { routing } from "./routing";
+import ar from "../messages/ar.json";
+import en from "../messages/en.json";
+import fr from "../messages/fr.json";
 
-export default getRequestConfig(async ({ requestLocale }) => {
-  let locale = await requestLocale;
+const messagesByLocale = {
+  ar,
+  en,
+  fr,
+} as const;
 
-  if (!locale || !(routing.locales as readonly string[]).includes(locale)) {
-    locale = routing.defaultLocale;
+function resolveLocale(value: string | undefined): string {
+  if (value && (routing.locales as readonly string[]).includes(value)) {
+    return value;
+  }
+  return routing.defaultLocale;
+}
+
+export default getRequestConfig(async ({ locale: localeOverride }) => {
+  let locale = localeOverride;
+
+  if (!locale) {
+    try {
+      locale = await getRootLocale();
+    } catch {
+      locale = undefined;
+    }
   }
 
+  const resolved = resolveLocale(locale);
+
   return {
-    locale,
-    messages: (await import(`../messages/${locale}.json`)).default,
+    locale: resolved,
+    messages: messagesByLocale[resolved as keyof typeof messagesByLocale],
   };
 });
