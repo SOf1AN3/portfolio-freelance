@@ -5,7 +5,7 @@ import { Link } from "@/i18n/navigation";
 import { hasLocale } from "next-intl";
 import { routing, type Locale } from "@/i18n/routing";
 import { getProjectBySlug, projects } from "@/content/projectsData";
-import { getProjectStructuredData, generateLocaleMetadata } from "@/lib/seo";
+import { getProjectStructuredData, generateLocaleMetadata, getBaseUrl } from "@/lib/seo";
 import { getProjectImage } from "@/lib/images";
 import { JsonLd } from "@/components/SEO/JsonLd";
 import { Container } from "@/components/ui/container";
@@ -81,7 +81,7 @@ export default async function ProjectPage({ params }: Props) {
   const structuredData = getProjectStructuredData(locale as Locale, {
     title,
     description,
-    url: `https://sofianeasma.com/${locale}/projects/${slug}`,
+    url: `${getBaseUrl()}/${locale}/projects/${slug}`,
     stack: project.stack,
   });
 
@@ -92,11 +92,11 @@ export default async function ProjectPage({ params }: Props) {
         <Button asChild variant="ghost" size="sm" className="mb-8">
           <Link href="/">
             <ArrowLeft className="size-4 rtl:rotate-180" />
-            {t("viewProject")}
+            {t("back")}
           </Link>
         </Button>
 
-        <div className="mx-auto max-w-4xl">
+        <article className="mx-auto max-w-4xl">
           <Badge variant="outline" className="mb-4">
             {project.year}
           </Badge>
@@ -162,12 +162,12 @@ export default async function ProjectPage({ params }: Props) {
             </Button>
             <Button asChild variant="outline" size="lg">
               <Link href="/#contact">
-                {t("viewProject")}
+                {t("contactCta")}
                 <ArrowRight className="size-4 rtl:rotate-180" />
               </Link>
             </Button>
           </div>
-        </div>
+        </article>
       </Container>
     </div>
   );

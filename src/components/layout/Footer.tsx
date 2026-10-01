@@ -8,6 +8,8 @@ import { Container } from "@/components/ui/container";
 import { Separator } from "@/components/ui/separator";
 import { WHATSAPP_NUMBER, whatsappLink } from "@/lib/utils";
 import { CONTACT_EMAIL } from "@/lib/contact";
+import { SOCIAL_LINKS } from "@/lib/socials";
+import { projects } from "@/content/projectsData";
 
 type FooterProps = {
   locale: string;
@@ -15,10 +17,9 @@ type FooterProps = {
 
 export function Footer({ locale }: FooterProps) {
   const t = useTranslations("footer");
-  const ts = useTranslations("services");
   const tn = useTranslations("nav");
+  const tp = useTranslations("projects");
 
-  const serviceTitles = ts.raw("items") as { title: string }[];
   const year = new Date().getFullYear();
   const waMessage =
     locale === "ar"
@@ -43,7 +44,7 @@ export function Footer({ locale }: FooterProps) {
             </p>
             <div className="flex items-center gap-3">
               <a
-                href="https://github.com/"
+                href={SOCIAL_LINKS.github}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex size-9 items-center justify-center rounded-lg border border-border text-muted-foreground transition-colors hover:bg-accent hover:text-foreground"
@@ -54,7 +55,7 @@ export function Footer({ locale }: FooterProps) {
                 </svg>
               </a>
               <a
-                href="https://linkedin.com/"
+                href={SOCIAL_LINKS.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex size-9 items-center justify-center rounded-lg border border-border text-muted-foreground transition-colors hover:bg-accent hover:text-foreground"
@@ -128,19 +129,24 @@ export function Footer({ locale }: FooterProps) {
 
           <div>
             <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-muted-foreground">
-              {t("services")}
+              {t("projects")}
             </h3>
             <ul className="space-y-2.5">
-              {serviceTitles.map((service) => (
-                <li key={service.title}>
-                  <a
-                    href="#services"
-                    className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-                  >
-                    {service.title}
-                  </a>
-                </li>
-              ))}
+              {projects.map((project) => {
+                const title = tp(
+                  project.titleKey.replace("projects.", ""),
+                );
+                return (
+                  <li key={project.slug}>
+                    <Link
+                      href={`/projects/${project.slug}`}
+                      className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                    >
+                      {title}
+                    </Link>
+                  </li>
+                );
+              })}
             </ul>
           </div>
 
@@ -151,7 +157,12 @@ export function Footer({ locale }: FooterProps) {
             <ul className="space-y-3 text-sm text-muted-foreground">
               <li className="flex items-start gap-2">
                 <Mail className="mt-0.5 size-4 shrink-0 text-primary" />
-                <span>{CONTACT_EMAIL}</span>
+                <a
+                  href={`mailto:${CONTACT_EMAIL}`}
+                  className="transition-colors hover:text-foreground"
+                >
+                  {CONTACT_EMAIL}
+                </a>
               </li>
               <li className="flex items-start gap-2">
                 <svg viewBox="0 0 24 24" className="mt-0.5 size-4 shrink-0 text-[#22c55e]" fill="currentColor">

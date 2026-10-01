@@ -1,4 +1,4 @@
-import { getBaseUrl } from "@/lib/seo";
+"use client";
 
 type JsonLdProps = {
   data: Record<string, unknown> | Record<string, unknown>[];
@@ -15,6 +15,4 @@ export function JsonLd({ data }: JsonLdProps) {
   );
 }
 
-export function buildOgImageUrl(locale: string, title?: string) {
-  return `${getBaseUrl()}/api/og?locale=${locale}${title ? `&title=${encodeURIComponent(title)}` : ""}`;
-}
+export { buildOgImageUrl } from "@/lib/seo";

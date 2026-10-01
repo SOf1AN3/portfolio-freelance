@@ -31,16 +31,13 @@
     "subtitle": "Conception sur-mesure d'applications web modernes, SaaS et solutions mobiles (iOS/Android). Délais maîtrisés et architecture scalable.",
     "ctaPrimary": "Demander un devis gratuit",
     "ctaSecondary": "Discuter sur WhatsApp",
-    "reassurance": [
-      "Disponibilité : Nouveaux projets",
-      "Devis sous 24h",
-      "Code Propre & Optimisé"
-    ],
     "stats": {
-      "projects": "Projets livrés",
-      "experience": "Ans d'expérience",
-      "clients": "Clients satisfaits",
-      "response": "Temps de réponse"
+      "items": [
+        { "value": "+5", "label": "Ans d'expérience" },
+        { "value": "+20", "label": "Projets livrés" },
+        { "value": "Info", "label": "Diplôme en informatique" },
+        { "value": "24h", "label": "Devis gratuit" }
+      ]
     }
   },
   "services": {
@@ -77,6 +74,8 @@
     "live": "Voir en ligne",
     "stack": "Stack technique",
     "focus": "Points clés",
+    "back": "Retour",
+    "contactCta": "Discuter de ce projet",
     "items": [
       {
         "title": "SaaS de Gestion de Clinique Dentaire",
@@ -215,9 +214,15 @@
     "tagline": "Développeur Full-Stack spécialisé dans les applications web modernes et les solutions mobiles sur-mesure.",
     "quickLinks": "Liens rapides",
     "services": "Services",
+    "projects": "Projets sélectionnés",
     "contactTitle": "Contact",
     "rights": "Tous droits réservés.",
     "builtWith": "Conçu avec Next.js & Tailwind CSS"
+  },
+  "notFound": {
+    "title": "Page introuvable",
+    "description": "La page que vous recherchez n'existe pas ou a été déplacée.",
+    "home": "Retour à l'accueil"
   },
   "whatsappButton": {
     "label": "Discuter sur WhatsApp"

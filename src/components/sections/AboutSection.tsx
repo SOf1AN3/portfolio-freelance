@@ -76,7 +76,6 @@ export function AboutSection() {
                       alt="Sofiane ASMA"
                       width={128}
                       height={128}
-                      priority
                       className="h-full w-full object-cover"
                     />
                   </div>

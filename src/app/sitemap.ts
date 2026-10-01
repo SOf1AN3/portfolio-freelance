@@ -15,9 +15,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency: "weekly" as const,
     priority: 1,
     alternates: {
-      languages: Object.fromEntries(
-        locales.map((l) => [l, `${base}/${l}`]),
-      ),
+      languages: {
+        ...Object.fromEntries(locales.map((l) => [l, `${base}/${l}`])),
+        "x-default": `${base}/${routing.defaultLocale}`,
+      },
     },
   }));
 
@@ -28,9 +29,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly" as const,
       priority: 0.8,
       alternates: {
-        languages: Object.fromEntries(
-          locales.map((l) => [l, `${base}/${l}/projects/${project.slug}`]),
-        ),
+        languages: {
+          ...Object.fromEntries(
+            locales.map((l) => [l, `${base}/${l}/projects/${project.slug}`]),
+          ),
+          "x-default": `${base}/${routing.defaultLocale}/projects/${project.slug}`,
+        },
       },
     })),
   );

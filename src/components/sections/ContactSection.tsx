@@ -3,7 +3,7 @@
 import * as React from "react";
 import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
-import { useForm } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { Send, MessageCircle, Mail, MapPin, Loader2 } from "lucide-react";
@@ -35,9 +35,9 @@ type Budget = "lt50k" | "50k-150k" | "150k-300k" | "undecided";
 type FormValues = {
   name: string;
   email: string;
-  phone?: string;
-  projectType: ProjectType;
-  budget: Budget;
+  phone: string;
+  projectType: "" | ProjectType;
+  budget: "" | Budget;
   description: string;
 };
 
@@ -52,23 +52,33 @@ export function ContactSection() {
   const schema = React.useMemo(
     () =>
       z.object({
-        name: z.string().min(2, errors.name),
-        email: z.string().email(errors.email),
+        name: z.string().trim().min(2, errors.name),
+        email: z.string().trim().email(errors.email),
         phone: z
           .string()
-          .optional()
           .refine(
             (v) => !v || /^[\d\s+\-()]{8,20}$/.test(v),
             errors.phone,
           ),
-        projectType: z.enum(["web", "mobile", "saas", "refonte"], {
-          message: errors.projectType,
-        }),
-        budget: z.enum(
-          ["lt50k", "50k-150k", "150k-300k", "undecided"],
-          { message: errors.budget },
-        ),
-        description: z.string().min(10, errors.description),
+        projectType: z
+          .union([
+            z.literal("web"),
+            z.literal("mobile"),
+            z.literal("saas"),
+            z.literal("refonte"),
+            z.literal(""),
+          ])
+          .refine((v) => v !== "", { message: errors.projectType }),
+        budget: z
+          .union([
+            z.literal("lt50k"),
+            z.literal("50k-150k"),
+            z.literal("150k-300k"),
+            z.literal("undecided"),
+            z.literal(""),
+          ])
+          .refine((v) => v !== "", { message: errors.budget }),
+        description: z.string().trim().min(10, errors.description),
       }),
     [errors],
   );
@@ -77,8 +87,8 @@ export function ContactSection() {
     register,
     handleSubmit,
     setValue,
-    watch,
     reset,
+    control,
     formState: { errors: formErrors, isSubmitting },
   } = useForm<FormValues>({
     resolver: zodResolver(schema),
@@ -86,21 +96,26 @@ export function ContactSection() {
       name: "",
       email: "",
       phone: "",
-      projectType: undefined,
-      budget: undefined,
+      projectType: "",
+      budget: "",
       description: "",
     },
+    mode: "onSubmit",
   });
-
-  const projectTypeValue = watch("projectType");
-  const budgetValue = watch("budget");
 
   async function onSubmit(values: FormValues) {
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(values),
+        body: JSON.stringify({
+          name: values.name,
+          email: values.email,
+          phone: values.phone,
+          projectType: values.projectType,
+          budget: values.budget,
+          description: values.description,
+        }),
       });
 
       const data = (await res.json()) as {
@@ -114,13 +129,23 @@ export function ContactSection() {
         return;
       }
 
+      setSubmitted(true);
+      reset({
+        name: "",
+        email: "",
+        phone: "",
+        projectType: "",
+        budget: "",
+        description: "",
+      });
+
       if (data.mailto) {
-        window.location.href = data.mailto;
+        window.setTimeout(() => {
+          window.location.href = data.mailto as string;
+        }, 100);
       }
 
-      setSubmitted(true);
-      reset();
-      setTimeout(() => setSubmitted(false), 6000);
+      window.setTimeout(() => setSubmitted(false), 8000);
     } catch (error) {
       console.error("Contact submit error:", error);
     }
@@ -212,31 +237,43 @@ export function ContactSection() {
                     </div>
 
                     <div className="space-y-2">
-                      <Label>{t("form.projectType")}</Label>
-                      <Select
-                        value={projectTypeValue}
-                        onValueChange={(v) =>
-                          setValue("projectType", v as ProjectType, {
-                            shouldValidate: true,
-                          })
-                        }
-                      >
-                        <SelectTrigger aria-label={t("form.projectType")}>
-                          <SelectValue placeholder={t("form.projectType")} />
-                        </SelectTrigger>
-                        <SelectContent>
-                          {(
-                            Object.entries(projectTypes) as [
-                              ProjectType,
-                              string,
-                            ][]
-                          ).map(([value, label]) => (
-                            <SelectItem key={value} value={value}>
-                              {label}
-                            </SelectItem>
-                          ))}
-                        </SelectContent>
-                      </Select>
+                      <Label htmlFor="projectType">{t("form.projectType")}</Label>
+                      <Controller
+                        control={control}
+                        name="projectType"
+                        render={({ field }) => (
+                          <Select
+                            value={field.value || ""}
+                            onValueChange={(v) => {
+                              field.onChange(v);
+                              setValue("projectType", v as ProjectType, {
+                                shouldValidate: true,
+                                shouldDirty: true,
+                              });
+                            }}
+                          >
+                            <SelectTrigger
+                              id="projectType"
+                              aria-label={t("form.projectType")}
+                              className="w-full"
+                            >
+                              <SelectValue placeholder={t("form.projectType")} />
+                            </SelectTrigger>
+                            <SelectContent>
+                              {(
+                                Object.entries(projectTypes) as [
+                                  ProjectType,
+                                  string,
+                                ][]
+                              ).map(([value, label]) => (
+                                <SelectItem key={value} value={value}>
+                                  {label}
+                                </SelectItem>
+                              ))}
+                            </SelectContent>
+                          </Select>
+                        )}
+                      />
                       {formErrors.projectType && (
                         <p className="text-xs text-destructive">
                           {formErrors.projectType.message}
@@ -246,28 +283,40 @@ export function ContactSection() {
                   </div>
 
                   <div className="space-y-2">
-                    <Label>{t("form.budget")}</Label>
-                    <Select
-                      value={budgetValue}
-                      onValueChange={(v) =>
-                        setValue("budget", v as Budget, {
-                          shouldValidate: true,
-                        })
-                      }
-                    >
-                      <SelectTrigger aria-label={t("form.budget")}>
-                        <SelectValue placeholder={t("form.budget")} />
-                      </SelectTrigger>
-                      <SelectContent>
-                        {(Object.entries(budgets) as [Budget, string][]).map(
-                          ([value, label]) => (
-                            <SelectItem key={value} value={value}>
-                              {label}
-                            </SelectItem>
-                          ),
-                        )}
-                      </SelectContent>
-                    </Select>
+                    <Label htmlFor="budget">{t("form.budget")}</Label>
+                    <Controller
+                      control={control}
+                      name="budget"
+                      render={({ field }) => (
+                        <Select
+                          value={field.value || ""}
+                          onValueChange={(v) => {
+                            field.onChange(v);
+                            setValue("budget", v as Budget, {
+                              shouldValidate: true,
+                              shouldDirty: true,
+                            });
+                          }}
+                        >
+                          <SelectTrigger
+                            id="budget"
+                            aria-label={t("form.budget")}
+                            className="w-full"
+                          >
+                            <SelectValue placeholder={t("form.budget")} />
+                          </SelectTrigger>
+                          <SelectContent>
+                            {(Object.entries(budgets) as [Budget, string][]).map(
+                              ([value, label]) => (
+                                <SelectItem key={value} value={value}>
+                                  {label}
+                                </SelectItem>
+                              ),
+                            )}
+                          </SelectContent>
+                        </Select>
+                      )}
+                    />
                     {formErrors.budget && (
                       <p className="text-xs text-destructive">
                         {formErrors.budget.message}

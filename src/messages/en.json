@@ -30,16 +30,13 @@
     "subtitle": "Bespoke modern web applications, SaaS platforms and mobile solutions (iOS/Android). Mastered timelines and scalable architecture.",
     "ctaPrimary": "Get a free quote",
     "ctaSecondary": "Chat on WhatsApp",
-    "reassurance": [
-      "Availability: Open for new projects",
-      "Quote within 24h",
-      "Clean & Optimized Code"
-    ],
     "stats": {
-      "projects": "Projects delivered",
-      "experience": "Years of experience",
-      "clients": "Happy clients",
-      "response": "Response time"
+      "items": [
+        { "value": "+5", "label": "Years of experience" },
+        { "value": "+20", "label": "Projects delivered" },
+        { "value": "Info", "label": "Degree in Computer Science" },
+        { "value": "24h", "label": "Free quote" }
+      ]
     }
   },
   "services": {
@@ -76,6 +73,8 @@
     "live": "Visit live",
     "stack": "Tech stack",
     "focus": "Key highlights",
+    "back": "Back",
+    "contactCta": "Discuss this project",
     "items": [
       {
         "title": "Dental Clinic Management SaaS",
@@ -214,9 +213,15 @@
     "tagline": "Full-Stack developer specializing in modern web applications and bespoke mobile solutions.",
     "quickLinks": "Quick links",
     "services": "Services",
+    "projects": "Selected projects",
     "contactTitle": "Contact",
     "rights": "All rights reserved.",
     "builtWith": "Built with Next.js & Tailwind CSS"
+  },
+  "notFound": {
+    "title": "Page not found",
+    "description": "The page you're looking for doesn't exist or has been moved.",
+    "home": "Back to home"
   },
   "whatsappButton": {
     "label": "Chat on WhatsApp"
