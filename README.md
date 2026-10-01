@@ -39,7 +39,7 @@ Site : [http://localhost:3000/fr](http://localhost:3000/fr)
 Définir l'URL publique dans les variables d'environnement :
 
 ```env
-NEXT_PUBLIC_SITE_URL=https://sofianeasma.com
+NEXT_PUBLIC_SITE_URL=https://sofianeasma.me
 ```
 
 ## WhatsApp
