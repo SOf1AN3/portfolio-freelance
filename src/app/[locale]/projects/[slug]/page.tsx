@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
+import { sectionHref } from "@/lib/anchors";
 import { hasLocale } from "next-intl";
 import { routing, type Locale } from "@/i18n/routing";
 import { getProjectBySlug, projects } from "@/content/projectsData";
@@ -77,6 +78,9 @@ export default async function ProjectPage({ params }: Props) {
   const title = t(project.titleKey.replace("projects.", ""));
   const description = t(project.descriptionKey.replace("projects.", ""));
   const focus = t(project.focusKey.replace("projects.", ""));
+  const context = t(project.contextKey.replace("projects.", ""));
+  const role = t(project.roleKey.replace("projects.", ""));
+  const status = t(`statuses.${project.status}`);
 
   const structuredData = getProjectStructuredData(locale as Locale, {
     title,
@@ -97,9 +101,15 @@ export default async function ProjectPage({ params }: Props) {
         </Button>
 
         <article className="mx-auto max-w-4xl">
-          <Badge variant="outline" className="mb-4">
-            {project.year}
-          </Badge>
+          <div className="mb-4 flex flex-wrap items-center gap-2">
+            <Badge variant="outline">{project.year}</Badge>
+            <Badge
+              variant="outline"
+              className="border-[#22c55e]/30 text-[#22c55e]"
+            >
+              {status}
+            </Badge>
+          </div>
           <h1 className="text-balance text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
             {title}
           </h1>
@@ -147,6 +157,28 @@ export default async function ProjectPage({ params }: Props) {
                 </p>
               </CardContent>
             </Card>
+
+            <Card>
+              <CardContent className="p-6">
+                <h2 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">
+                  {t("context")}
+                </h2>
+                <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+                  {context}
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardContent className="p-6">
+                <h2 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">
+                  {t("role")}
+                </h2>
+                <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+                  {role}
+                </p>
+              </CardContent>
+            </Card>
           </div>
 
           <div className="mt-10 flex flex-wrap gap-4">
@@ -161,7 +193,7 @@ export default async function ProjectPage({ params }: Props) {
               </a>
             </Button>
             <Button asChild variant="outline" size="lg">
-              <Link href="/#contact">
+              <Link href={sectionHref("contact")}>
                 {t("contactCta")}
                 <ArrowRight className="size-4 rtl:rotate-180" />
               </Link>

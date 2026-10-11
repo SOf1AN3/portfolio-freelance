@@ -78,6 +78,16 @@
     "focus": "Key highlights",
 "back": "Back",
     "contactCta": "Discuss about this project",
+    "statuses": {
+      "published": "Live online",
+      "client": "Delivered for a client",
+      "personal": "Personal project",
+      "prototype": "Prototype",
+      "wip": "In development"
+    },
+    "status": "Status",
+    "role": "Role",
+    "context": "Problem addressed",
     "categories": {
       "saas": "SaaS",
       "ai": "AI",
@@ -88,22 +98,30 @@
       {
         "title": "Dental Clinic Management SaaS",
         "description": "Complete SaaS platform for dental practice management: appointments, patient records and billing.",
-        "focus": "Practitioner-friendly UX, high data security, strong performance."
+        "focus": "Practitioner-friendly UX, high data security, strong performance.",
+        "context": "Centralising appointments, patient records and billing for a dental practice in a single tool, accessible from any browser.",
+        "role": "Design, full-stack development and launch."
       },
       {
         "title": "Papernote",
         "description": "AI-powered SaaS tool for reviewing, analyzing and summarizing academic research papers.",
-        "focus": "AI integration, fast complex document processing, clean interface."
+        "focus": "AI integration, fast complex document processing, clean interface.",
+        "context": "Reading and summarising scientific papers faster: summary, detailed analysis and scoring in a single pass.",
+        "role": "Design, full-stack development and launch, AI model integration."
       },
       {
         "title": "MYKS Radio",
         "description": "Online radio web platform integrated with the Icecast API, featuring a custom video admin interface.",
-        "focus": "Real-time audio streaming, dynamic media flow management, custom dashboard."
+        "focus": "Real-time audio streaming, dynamic media flow management, custom dashboard.",
+        "context": "Streaming a radio station online and managing audio and video feeds from a custom dashboard.",
+        "role": "Design, full-stack development and launch, custom admin interface."
       },
       {
         "title": "Tiberium Consulting",
         "description": "Consulting web app with real-time messaging and a modern client-expert exchange interface.",
-        "focus": "Real-time communication (WebSockets), scalable MERN architecture."
+        "focus": "Real-time communication (WebSockets), scalable MERN architecture.",
+        "context": "Connecting consultants and clients through a messaging space with real-time chat, instead of emails and phone calls.",
+        "role": "Design, full-stack development and launch, real-time features."
       }
     ]
   },

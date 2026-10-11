@@ -79,6 +79,16 @@
     "focus": "Points clés",
     "back": "Retour",
     "contactCta": "Discuter de ce projet",
+    "statuses": {
+      "published": "En ligne",
+      "client": "Livré pour un client",
+      "personal": "Projet personnel",
+      "prototype": "Prototype",
+      "wip": "En développement"
+    },
+    "status": "Statut",
+    "role": "Rôle",
+    "context": "Problème adressé",
     "categories": {
       "saas": "SaaS",
       "ai": "IA",
@@ -89,22 +99,30 @@
       {
         "title": "SaaS de Gestion de Clinique Dentaire",
         "description": "Plateforme SaaS complète de gestion de cabinet dentaire : rendez-vous, dossiers patients et facturation.",
-        "focus": "UX ergonomique pour praticiens, haute sécurité des données, performance élevée."
+        "focus": "UX ergonomique pour praticiens, haute sécurité des données, performance élevée.",
+        "context": "Centraliser les rendez-vous, les dossiers patients et la facturation d'un cabinet dentaire dans un seul outil, accessible depuis n'importe quel navigateur.",
+        "role": "Conception, développement et mise en ligne (full-stack)."
       },
       {
         "title": "Papernote",
         "description": "Outil SaaS alimenté par l'IA dédié à la révision, l'analyse et la synthèse de papiers de recherche académique.",
-        "focus": "Intégration IA, traitement rapide de documents complexes, interface épurée."
+        "focus": "Intégration IA, traitement rapide de documents complexes, interface épurée.",
+        "context": "Lire et synthétiser plus vite des articles scientifiques : résumé, analyse détaillée et notation en une seule passe.",
+        "role": "Conception, développement et mise en ligne (full-stack), intégration d'un modèle d'IA."
       },
       {
         "title": "MYKS Radio",
         "description": "Plateforme web de radio en ligne intégrée avec l'API Icecast et dotée d'une interface d'administration vidéo personnalisée.",
-        "focus": "Streaming audio temps réel, gestion dynamique de flux média, dashboard sur-mesure."
+        "focus": "Streaming audio temps réel, gestion dynamique de flux média, dashboard sur-mesure.",
+        "context": "Diffuser une radio en ligne et gérer les flux audio et vidéo depuis un tableau de bord personnalisé.",
+        "role": "Conception, développement et mise en ligne (full-stack), interface d'administration sur mesure."
       },
       {
         "title": "Tiberium Consulting",
         "description": "Application web de consulting avec messagerie en temps réel et interface moderne d'échange client-expert.",
-        "focus": "Communication temps réel (WebSockets), architecture scalable MERN."
+        "focus": "Communication temps réel (WebSockets), architecture scalable MERN.",
+        "context": "Mettre en relation consultants et clients autour d'un espace d'échange avec messagerie en temps réel, plutôt que par emails et téléphonie.",
+        "role": "Conception, développement et mise en ligne (full-stack), fonctionnalités temps réel."
       }
     ]
   },

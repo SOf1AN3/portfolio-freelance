@@ -39,6 +39,8 @@ export function ProjectsSection() {
       title: t(project.titleKey.replace("projects.", "")),
       description: t(project.descriptionKey.replace("projects.", "")),
       focus: t(project.focusKey.replace("projects.", "")),
+      context: t(project.contextKey.replace("projects.", "")),
+      status: t(`statuses.${project.status}`),
       category: t(`categories.${project.category}`),
     };
   }
@@ -91,12 +93,18 @@ export function ProjectsSection() {
               />
               <div className="absolute inset-x-0 -bottom-px top-1/2 bg-gradient-to-t from-card to-transparent" />
 
-              <div className="absolute inset-x-0 bottom-0 flex items-center gap-3 p-6 sm:p-8">
+              <div className="absolute inset-x-0 bottom-0 flex flex-wrap items-center gap-3 p-6 sm:p-8">
                 <Badge
                   variant="secondary"
                   className="relative bg-background/80 backdrop-blur"
                 >
                   {featured.year}
+                </Badge>
+                <Badge
+                  variant="outline"
+                  className="relative backdrop-blur bg-background/80 border-[#22c55e]/30 text-[#22c55e]"
+                >
+                  {projectText(featured).status}
                 </Badge>
                 <Badge
                   variant="outline"
@@ -115,11 +123,20 @@ export function ProjectsSection() {
                 <p className="mt-4 leading-relaxed text-muted-foreground">
                   {projectText(featured).description}
                 </p>
+
+                <div className="mt-6">
+                  <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                    {t("context")}
+                  </p>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                    {projectText(featured).context}
+                  </p>
+                </div>
               </div>
 
               <div className="flex flex-col justify-between gap-6">
                 <div>
-                  <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground/70">
+                  <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
                     {t("focus")}
                   </p>
                   <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
@@ -144,7 +161,7 @@ export function ProjectsSection() {
 
         <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {rest.map((project, i) => {
-            const { title, description, focus, category } =
+            const { title, description, focus, category, status } =
               projectText(project);
 
             return (
@@ -176,12 +193,20 @@ export function ProjectsSection() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent" />
 
-                  <Badge
-                    variant="secondary"
-                    className="absolute end-3 top-3 bg-background/80 backdrop-blur"
-                  >
-                    {project.year}
-                  </Badge>
+                  <div className="absolute end-3 top-3 flex flex-col items-end gap-2">
+                    <Badge
+                      variant="secondary"
+                      className="bg-background/80 backdrop-blur"
+                    >
+                      {project.year}
+                    </Badge>
+                    <Badge
+                      variant="outline"
+                      className="backdrop-blur bg-background/80 border-[#22c55e]/30 text-[#22c55e]"
+                    >
+                      {status}
+                    </Badge>
+                  </div>
                 </div>
 
                 <div className="relative flex flex-1 flex-col p-5">
