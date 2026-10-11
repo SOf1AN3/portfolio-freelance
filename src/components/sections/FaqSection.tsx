@@ -25,7 +25,7 @@ export function FaqSection() {
   };
 
   return (
-    <section id="faq" className="scroll-mt-20 py-20 lg:py-28">
+    <section id="faq" className="scroll-mt-16 py-20 lg:py-28">
       <JsonLd data={structuredData} />
       <Container>
         <motion.div

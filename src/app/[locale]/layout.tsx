@@ -80,10 +80,16 @@ export default async function LocaleLayout({
     <html
       lang={locale}
       dir={isRtl ? "rtl" : "ltr"}
+      data-scroll-behavior="smooth"
       className={`${jakarta.variable} ${cairo.variable} ${jetbrains.variable} h-full antialiased`}
     >
-      <body className="flex min-h-full flex-col">
+      <body className="relative flex min-h-full flex-col">
         <JsonLd data={structuredData} />
+        {/* Fond unifié : halo bleu en haut de page, identique au hero. */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[90vh] bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(30,64,175,0.4),transparent_60%)]"
+        />
         <NextIntlClientProvider locale={locale} messages={messages}>
           <Navbar locale={locale as Locale} />
           <main className="flex-1">{children}</main>

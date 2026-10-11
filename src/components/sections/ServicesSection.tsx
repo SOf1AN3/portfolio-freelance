@@ -27,7 +27,7 @@ export function ServicesSection() {
   }[];
 
   return (
-    <section id="services" className="scroll-mt-20 py-20 lg:py-28">
+    <section id="services" className="scroll-mt-16 py-20 lg:py-28">
       <Container>
         <motion.div
           initial={{ opacity: 0, y: 24 }}

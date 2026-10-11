@@ -34,8 +34,8 @@
     "ctaSecondary": "See my work",
     "stats": {
       "items": [
-        { "value": "4", "label": "Projects live online" },
-        { "value": "FR · EN · AR", "label": "Trilingual interfaces" },
+        { "value": "5", "label": "Projects live online" },
+        { "value": "+3", "label": "Years of experience" },
         { "value": "24h", "label": "Reply within 1 business day" }
       ]
     }

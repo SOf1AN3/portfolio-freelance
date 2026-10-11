@@ -14,7 +14,7 @@ export function ProcessSection() {
   const steps = t.raw("steps") as { title: string; description: string }[];
 
   return (
-    <section id="process" className="scroll-mt-20 py-20 lg:py-28">
+    <section id="process" className="scroll-mt-16 py-20 lg:py-28">
       <Container>
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -50,7 +50,7 @@ export function ProcessSection() {
                     <div className="flex size-14 items-center justify-center rounded-2xl border border-primary/30 bg-background text-primary shadow-lg shadow-primary/10">
                       <Icon className="size-6" />
                     </div>
-                    <span className="mt-2 text-xs font-bold text-muted-foreground/60">
+                    <span className="mt-2 text-xs font-bold text-muted-foreground">
                       0{i + 1}
                     </span>
                   </div>

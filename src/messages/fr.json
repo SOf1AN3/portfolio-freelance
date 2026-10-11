@@ -35,8 +35,8 @@
     "ctaSecondary": "Voir mes réalisations",
     "stats": {
       "items": [
-        { "value": "4", "label": "Projets publiés en ligne" },
-        { "value": "FR · EN · AR", "label": "Interfaces trilingues" },
+        { "value": "5", "label": "Projets publiés en ligne" },
+        { "value": "+3", "label": "Ans d'expérience" },
         { "value": "24h", "label": "Réponse sous 24h ouvrées" }
       ]
     }

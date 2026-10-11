@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { Send, MessageCircle, Mail, MapPin, Loader2 } from "lucide-react";
+import { Send, Mail, MapPin, Loader2 } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
 import { Badge } from "@/components/ui/badge";
@@ -28,6 +28,7 @@ import {
   DEFAULT_WHATSAPP_MESSAGE,
 } from "@/lib/utils";
 import { CONTACT_EMAIL } from "@/lib/contact";
+import { WhatsappIcon } from "@/components/icons/WhatsappIcon";
 
 type ProjectType = "web" | "mobile" | "saas" | "refonte";
 type Budget = "lt50k" | "50k-150k" | "150k-300k" | "undecided";
@@ -39,26 +40,27 @@ type FormValues = {
   projectType: "" | ProjectType;
   budget: "" | Budget;
   description: string;
+  company: string;
 };
 
 export function ContactSection() {
   const t = useTranslations("contact");
   const [submitted, setSubmitted] = React.useState(false);
+  const [submitError, setSubmitError] = React.useState<string | null>(null);
 
-  const errors = t.raw("form.errors") as Record<string, string>;
   const projectTypes = t.raw("form.projectTypes") as Record<string, string>;
   const budgets = t.raw("form.budgets") as Record<string, string>;
 
   const schema = React.useMemo(
     () =>
       z.object({
-        name: z.string().trim().min(2, errors.name),
-        email: z.string().trim().email(errors.email),
+        name: z.string().trim().min(2, t("form.errors.name")),
+        email: z.string().trim().email(t("form.errors.email")),
         phone: z
           .string()
           .refine(
             (v) => !v || /^[\d\s+\-()]{8,20}$/.test(v),
-            errors.phone,
+            t("form.errors.phone"),
           ),
         projectType: z
           .union([
@@ -68,7 +70,7 @@ export function ContactSection() {
             z.literal("refonte"),
             z.literal(""),
           ])
-          .refine((v) => v !== "", { message: errors.projectType }),
+          .refine((v) => v !== "", { message: t("form.errors.projectType") }),
         budget: z
           .union([
             z.literal("lt50k"),
@@ -77,16 +79,20 @@ export function ContactSection() {
             z.literal("undecided"),
             z.literal(""),
           ])
-          .refine((v) => v !== "", { message: errors.budget }),
-        description: z.string().trim().min(10, errors.description),
+          .refine((v) => v !== "", { message: t("form.errors.budget") }),
+        description: z
+          .string()
+          .trim()
+          .min(10, t("form.errors.description")),
+        // Honeypot kept in the schema so the value survives validation.
+        company: z.string(),
       }),
-    [errors],
+    [t],
   );
 
   const {
     register,
     handleSubmit,
-    setValue,
     reset,
     control,
     formState: { errors: formErrors, isSubmitting },
@@ -99,11 +105,14 @@ export function ContactSection() {
       projectType: "",
       budget: "",
       description: "",
+      company: "",
     },
     mode: "onSubmit",
   });
 
   async function onSubmit(values: FormValues) {
+    setSubmitError(null);
+
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
@@ -115,10 +124,11 @@ export function ContactSection() {
           projectType: values.projectType,
           budget: values.budget,
           description: values.description,
+          company: values.company,
         }),
       });
 
-      const data = (await res.json()) as {
+      const data = (await res.json().catch(() => ({}))) as {
         ok?: boolean;
         mailto?: string;
         error?: string;
@@ -126,6 +136,7 @@ export function ContactSection() {
 
       if (!res.ok || !data.ok) {
         console.error("Contact submit failed:", data.error || res.status);
+        setSubmitError(t("form.error"));
         return;
       }
 
@@ -137,6 +148,7 @@ export function ContactSection() {
         projectType: "",
         budget: "",
         description: "",
+        company: "",
       });
 
       if (data.mailto) {
@@ -148,11 +160,12 @@ export function ContactSection() {
       window.setTimeout(() => setSubmitted(false), 8000);
     } catch (error) {
       console.error("Contact submit error:", error);
+      setSubmitError(t("form.error"));
     }
   }
 
   return (
-    <section id="contact" className="scroll-mt-20 py-20 lg:py-28">
+    <section id="contact" className="scroll-mt-16 py-20 lg:py-28">
       <Container>
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -179,13 +192,28 @@ export function ContactSection() {
           >
             <Card className="h-full border-border/60 bg-card/80 backdrop-blur">
               <CardContent className="p-6 sm:p-8">
-                {submitted && (
-                  <div className="mb-6 rounded-lg border border-[#22c55e]/30 bg-[#22c55e]/10 px-4 py-3 text-sm text-[#22c55e]">
-                    {t("form.success")}
-                  </div>
-                )}
+                <div aria-live="polite" aria-atomic="true">
+                  {submitted && (
+                    <div className="mb-6 rounded-lg border border-[#22c55e]/30 bg-[#22c55e]/10 px-4 py-3 text-sm text-[#22c55e]">
+                      {t("form.success")}
+                    </div>
+                  )}
 
-                <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+                  {submitError && (
+                    <div
+                      role="alert"
+                      className="mb-6 rounded-lg border border-destructive/40 bg-destructive/10 px-4 py-3 text-sm text-destructive"
+                    >
+                      {submitError}
+                    </div>
+                  )}
+                </div>
+
+                <form
+                  onSubmit={handleSubmit(onSubmit)}
+                  className="relative space-y-5"
+                  noValidate
+                >
                   <div className="grid gap-5 sm:grid-cols-2">
                     <div className="space-y-2">
                       <Label htmlFor="name">{t("form.name")}</Label>
@@ -193,10 +221,14 @@ export function ContactSection() {
                         id="name"
                         autoComplete="name"
                         placeholder="John Doe"
+                        aria-invalid={Boolean(formErrors.name)}
+                        aria-describedby={
+                          formErrors.name ? "name-error" : undefined
+                        }
                         {...register("name")}
                       />
                       {formErrors.name && (
-                        <p className="text-xs text-destructive">
+                        <p id="name-error" className="text-xs text-destructive">
                           {formErrors.name.message}
                         </p>
                       )}
@@ -209,10 +241,14 @@ export function ContactSection() {
                         type="email"
                         autoComplete="email"
                         placeholder="you@example.com"
+                        aria-invalid={Boolean(formErrors.email)}
+                        aria-describedby={
+                          formErrors.email ? "email-error" : undefined
+                        }
                         {...register("email")}
                       />
                       {formErrors.email && (
-                        <p className="text-xs text-destructive">
+                        <p id="email-error" className="text-xs text-destructive">
                           {formErrors.email.message}
                         </p>
                       )}
@@ -227,10 +263,14 @@ export function ContactSection() {
                         type="tel"
                         autoComplete="tel"
                         placeholder="+213 555 00 00 00"
+                        aria-invalid={Boolean(formErrors.phone)}
+                        aria-describedby={
+                          formErrors.phone ? "phone-error" : undefined
+                        }
                         {...register("phone")}
                       />
                       {formErrors.phone && (
-                        <p className="text-xs text-destructive">
+                        <p id="phone-error" className="text-xs text-destructive">
                           {formErrors.phone.message}
                         </p>
                       )}
@@ -244,17 +284,17 @@ export function ContactSection() {
                         render={({ field }) => (
                           <Select
                             value={field.value || ""}
-                            onValueChange={(v) => {
-                              field.onChange(v);
-                              setValue("projectType", v as ProjectType, {
-                                shouldValidate: true,
-                                shouldDirty: true,
-                              });
-                            }}
+                            onValueChange={field.onChange}
                           >
                             <SelectTrigger
                               id="projectType"
                               aria-label={t("form.projectType")}
+                              aria-invalid={Boolean(formErrors.projectType)}
+                              aria-describedby={
+                                formErrors.projectType
+                                  ? "projectType-error"
+                                  : undefined
+                              }
                               className="w-full"
                             >
                               <SelectValue placeholder={t("form.projectType")} />
@@ -275,7 +315,10 @@ export function ContactSection() {
                         )}
                       />
                       {formErrors.projectType && (
-                        <p className="text-xs text-destructive">
+                        <p
+                          id="projectType-error"
+                          className="text-xs text-destructive"
+                        >
                           {formErrors.projectType.message}
                         </p>
                       )}
@@ -290,21 +333,19 @@ export function ContactSection() {
                       render={({ field }) => (
                         <Select
                           value={field.value || ""}
-                          onValueChange={(v) => {
-                            field.onChange(v);
-                            setValue("budget", v as Budget, {
-                              shouldValidate: true,
-                              shouldDirty: true,
-                            });
-                          }}
-                        >
-                          <SelectTrigger
-                            id="budget"
-                            aria-label={t("form.budget")}
-                            className="w-full"
+onValueChange={field.onChange}
                           >
-                            <SelectValue placeholder={t("form.budget")} />
-                          </SelectTrigger>
+                            <SelectTrigger
+                              id="budget"
+                              aria-label={t("form.budget")}
+                              aria-invalid={Boolean(formErrors.budget)}
+                              aria-describedby={
+                                formErrors.budget ? "budget-error" : undefined
+                              }
+                              className="w-full"
+                            >
+                              <SelectValue placeholder={t("form.budget")} />
+                            </SelectTrigger>
                           <SelectContent>
                             {(Object.entries(budgets) as [Budget, string][]).map(
                               ([value, label]) => (
@@ -317,8 +358,8 @@ export function ContactSection() {
                         </Select>
                       )}
                     />
-                    {formErrors.budget && (
-                      <p className="text-xs text-destructive">
+{formErrors.budget && (
+                      <p id="budget-error" className="text-xs text-destructive">
                         {formErrors.budget.message}
                       </p>
                     )}
@@ -330,13 +371,31 @@ export function ContactSection() {
                       id="description"
                       rows={5}
                       placeholder="..."
+                      aria-invalid={Boolean(formErrors.description)}
+                      aria-describedby={
+                        formErrors.description ? "description-error" : undefined
+                      }
                       {...register("description")}
                     />
                     {formErrors.description && (
-                      <p className="text-xs text-destructive">
+                      <p id="description-error" className="text-xs text-destructive">
                         {formErrors.description.message}
                       </p>
                     )}
+                  </div>
+
+                  <div
+                    aria-hidden="true"
+                    className="absolute top-auto h-px w-px overflow-hidden [inset-inline-start:-9999px]"
+                  >
+                    <label htmlFor="company">Company</label>
+                    <input
+                      id="company"
+                      type="text"
+                      tabIndex={-1}
+                      autoComplete="off"
+                      {...register("company")}
+                    />
                   </div>
 
                   <Button
@@ -372,7 +431,7 @@ export function ContactSection() {
             <Card className="relative overflow-hidden border-[#22c55e]/30 bg-gradient-to-br from-[#22c55e]/10 via-card to-card">
               <CardContent className="p-6">
                 <div className="flex size-12 items-center justify-center rounded-xl bg-[#22c55e]/15 text-[#22c55e]">
-                  <MessageCircle className="size-6" />
+                  <WhatsappIcon className="size-6" />
                 </div>
                 <h3 className="mt-4 text-lg font-semibold">
                   {t("whatsapp.title")}
@@ -386,7 +445,7 @@ export function ContactSection() {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <MessageCircle className="size-4" />
+                    <WhatsappIcon className="size-4" />
                     {t("whatsapp.cta")}
                   </a>
                 </Button>
@@ -411,7 +470,7 @@ export function ContactSection() {
 
                 <div className="flex items-center gap-3">
                   <div className="flex size-10 items-center justify-center rounded-lg bg-[#22c55e]/10 text-[#22c55e]">
-                    <MessageCircle className="size-4" />
+                    <WhatsappIcon className="size-4" />
                   </div>
                   <div>
                     <div className="text-xs uppercase tracking-wider text-muted-foreground">

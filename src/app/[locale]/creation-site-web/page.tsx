@@ -6,7 +6,6 @@ import {
   BookOpen,
   CircleCheck,
   Hammer,
-  MessageCircle,
   MonitorSmartphone,
   PenLine,
   Rocket,
@@ -22,6 +21,7 @@ import { routing } from "@/i18n/routing";
 import { sectionHref } from "@/lib/anchors";
 import { generateLocaleMetadata } from "@/lib/seo";
 import { whatsappLink } from "@/lib/utils";
+import { WhatsappIcon } from "@/components/icons/WhatsappIcon";
 import { FaqSection } from "@/components/sections/FaqSection";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -117,7 +117,7 @@ function CtaButtons({
           target="_blank"
           rel="noopener noreferrer"
         >
-          <MessageCircle className="size-4" aria-hidden="true" />
+          <WhatsappIcon className="size-4" />
           {secondaryLabel}
         </a>
       </Button>

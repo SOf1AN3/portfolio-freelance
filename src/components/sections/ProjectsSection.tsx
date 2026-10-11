@@ -46,7 +46,7 @@ export function ProjectsSection() {
   }
 
   return (
-    <section id="projects" className="scroll-mt-20 py-20 lg:py-28">
+    <section id="projects" className="scroll-mt-16 py-20 lg:py-28">
       <Container>
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -69,7 +69,10 @@ export function ProjectsSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.5 }}
-            whileHover={{ y: -4 }}
+            whileHover={{
+              y: [0, -10, 0, -5, 0],
+              transition: { duration: 0.7, ease: "easeInOut" },
+            }}
             className="group relative mt-14 overflow-hidden rounded-3xl border border-border bg-card transition-colors hover:border-primary/40"
           >
             <Link
@@ -89,7 +92,7 @@ export function ProjectsSection() {
                 fill
                 priority
                 sizes="(max-width: 1280px) 100vw, 1280px"
-                className="transform-gpu object-cover object-top transition-transform duration-700 will-change-transform group-hover:scale-[1.03]"
+                className="transform-gpu object-cover object-top transition-transform duration-700 will-change-transform"
               />
               <div className="absolute inset-x-0 -bottom-px top-1/2 bg-gradient-to-t from-card to-transparent" />
 
@@ -171,7 +174,10 @@ export function ProjectsSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-60px" }}
                 transition={{ duration: 0.5, delay: i * 0.08 }}
-                whileHover={{ y: -6 }}
+                whileHover={{
+                  y: [0, -8, 0, -4, 0],
+                  transition: { duration: 0.65, ease: "easeInOut" },
+                }}
                 className="group relative flex flex-col overflow-hidden rounded-2xl border border-border bg-card transition-colors hover:border-primary/40"
               >
                 <Link
@@ -189,7 +195,7 @@ export function ProjectsSection() {
                     alt={title}
                     fill
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                    className="object-cover object-top transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent" />
 
