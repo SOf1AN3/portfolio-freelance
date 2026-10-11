@@ -11,7 +11,7 @@ import { sectionHref, type SectionId } from "@/lib/anchors";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { LanguageSwitcher } from "./LanguageSwitcher";
-import { cn } from "@/lib/utils";
+import { cn, whatsappLink, DEFAULT_WHATSAPP_MESSAGE } from "@/lib/utils";
 
 const navItems = [
   { id: "services", key: "services" },
@@ -70,8 +70,14 @@ export function Navbar({ locale }: NavbarProps) {
         <div className="flex items-center gap-2">
           <LanguageSwitcher locale={locale} className="hidden sm:inline-flex" />
 
-          <Button asChild size="sm" className="hidden md:inline-flex">
-            <Link href={sectionHref("contact")}>{th("ctaPrimary")}</Link>
+          <Button asChild variant="whatsapp" size="sm" className="hidden md:inline-flex">
+            <a
+              href={whatsappLink(DEFAULT_WHATSAPP_MESSAGE)}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {th("ctaPrimary")}
+            </a>
           </Button>
 
           <Sheet open={open} onOpenChange={setOpen}>
@@ -121,10 +127,15 @@ export function Navbar({ locale }: NavbarProps) {
 
               <div className="flex flex-col gap-3 border-t border-border p-6">
                 <LanguageSwitcher locale={locale} className="w-full justify-between" />
-                <Button asChild className="w-full">
-                  <Link href={sectionHref("contact")} onClick={() => setOpen(false)}>
+                <Button asChild variant="whatsapp" className="w-full">
+                  <a
+                    href={whatsappLink(DEFAULT_WHATSAPP_MESSAGE)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => setOpen(false)}
+                  >
                     {th("ctaPrimary")}
-                  </Link>
+                  </a>
                 </Button>
                 <Button asChild variant="outline" className="w-full">
                   <Link href={sectionHref("projects")} onClick={() => setOpen(false)}>
