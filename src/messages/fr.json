@@ -173,6 +173,36 @@
       }
     ]
   },
+  "faq": {
+    "title": "Questions fréquentes",
+    "subtitle": "Les réponses aux questions les plus courantes avant de démarrer",
+    "items": [
+      {
+        "question": "Combien de temps faut-il pour créer un site ?",
+        "answer": "Cela dépend du périmètre : un site vitrine se construit en général en quelques semaines, une application sur-mesure demande davantage de temps. Le calendrier exact est fixé avec vous au démarrage, avant la première ligne de code."
+      },
+      {
+        "question": "Comment se déroule un projet ?",
+        "answer": "Quatre étapes : échange et cadrage du besoin, conception (maquettes et architecture), développement avec des points réguliers, puis mise en ligne. Vous validez chaque étape avant de passer à la suivante."
+      },
+      {
+        "question": "Comment obtenir un devis ?",
+        "answer": "Le devis est gratuit et sans engagement. Décrivez votre projet via le formulaire ou WhatsApp : je vous recontacte pour cadrer le besoin, puis je vous envoie un devis détaillé (périmètre, délais, prix). Aucun paiement n'est demandé avant votre validation."
+      },
+      {
+        "question": "Assurez-vous la maintenance après la mise en ligne ?",
+        "answer": "Oui, en option : mises à jour, corrections de bugs, sauvegardes et évolutions. Les modalités (fréquence, périmètre, prix) sont définies dans le devis, et un accompagnement ponctuel reste possible même sans contrat."
+      },
+      {
+        "question": "Qui gère l'hébergement et le nom de domaine ?",
+        "answer": "Je vous oriente vers un hébergeur adapté à votre budget et je peux m'occuper de la mise en ligne. Le nom de domaine et l'hébergement sont enregistrés à votre nom : vous restez propriétaire de votre site et de ses données."
+      },
+      {
+        "question": "Je n'ai pas de textes ni de photos, est-ce un problème ?",
+        "answer": "Non. Je vous aide à structurer le contenu (textes, images, pages) et je vous indique ce qu'il faut préparer. Le contenu est une étape du projet, pas un prérequisite."
+      }
+    ]
+  },
   "about": {
     "title": "À propos",
     "subtitle": "Votre partenaire technique pour des produits digitaux d'excellence",

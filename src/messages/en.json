@@ -172,6 +172,36 @@
       }
     ]
   },
+  "faq": {
+    "title": "Frequently asked questions",
+    "subtitle": "Answers to the most common questions before we start",
+    "items": [
+      {
+        "question": "How long does it take to build a website?",
+        "answer": "It depends on the scope: a brochure site usually takes a few weeks, a custom application takes longer. The exact schedule is agreed when we start, before the first line of code."
+      },
+      {
+        "question": "How does a project run?",
+        "answer": "Four stages: discussion and scoping, design (mockups and architecture), development with regular check-ins, then launch. You validate each stage before moving to the next."
+      },
+      {
+        "question": "How do I get a quote?",
+        "answer": "The quote is free and non-binding. Describe your project through the form or on WhatsApp: I get back to you to scope the need, then send a detailed quote (scope, schedule, price). No payment is requested before you approve it."
+      },
+      {
+        "question": "Do you provide maintenance after launch?",
+        "answer": "Yes, as an option: updates, bug fixes, backups and improvements. The terms (frequency, scope, price) are set in the quote, and one-off support remains available even without a contract."
+      },
+      {
+        "question": "Who handles hosting and the domain name?",
+        "answer": "I point you to a host that fits your budget and can handle the launch. The domain name and hosting are registered in your name: you keep ownership of your website and its data."
+      },
+      {
+        "question": "I have no texts or photos, is that a problem?",
+        "answer": "No. I help you structure the content (copy, images, pages) and tell you what to prepare. Content is a stage of the project, not a prerequisite."
+      }
+    ]
+  },
   "about": {
     "title": "About",
     "subtitle": "Your technical partner for outstanding digital products",
