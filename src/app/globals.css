@@ -12,6 +12,8 @@
   --popover-foreground: oklch(0.985 0 0);
   --primary: oklch(0.623 0.214 259.815);
   --primary-foreground: oklch(0.97 0 0);
+  /* Solid primary surface (buttons): white text needs >= 4.5:1 */
+  --primary-strong: oklch(0.546 0.245 262.881);
   --secondary: oklch(0.22 0.01 285.823);
   --secondary-foreground: oklch(0.985 0 0);
   --muted: oklch(0.22 0.01 285.823);
@@ -21,7 +23,7 @@
   --destructive: oklch(0.704 0.191 22.216);
   --destructive-foreground: oklch(0.97 0 0);
   --border: oklch(1 0 0 / 0.1);
-  --input: oklch(1 0 0 / 0.15);
+  --input: oklch(1 0 0 / 0.4);
   --ring: oklch(0.623 0.214 259.823);
 }
 
@@ -34,6 +36,7 @@
   --color-popover-foreground: var(--popover-foreground);
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
+  --color-primary-strong: var(--primary-strong);
   --color-secondary: var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
   --color-muted: var(--muted);

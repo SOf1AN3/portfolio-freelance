@@ -15,7 +15,7 @@ import { getProjectImage } from "@/lib/images";
 const categoryColors: Record<string, string> = {
   saas: "from-blue-500/20 to-cyan-500/10",
   ai: "from-violet-500/20 to-fuchsia-500/10",
-  media: "from-amber-500/20 to-orange-500/10",
+  delivery: "from-rose-500/20 to-orange-500/10",
   consulting: "from-emerald-500/20 to-teal-500/10",
 };
 
@@ -24,7 +24,7 @@ const FEATURED_SLUG = "tiberium-consulting";
 const categoryAccents: Record<string, string> = {
   saas: "bg-blue-500/10 text-blue-400 border-blue-500/20",
   ai: "bg-violet-500/10 text-violet-400 border-violet-500/20",
-  media: "bg-amber-500/10 text-amber-400 border-amber-500/20",
+  delivery: "bg-rose-500/10 text-rose-400 border-rose-500/20",
   consulting: "bg-emerald-500/10 text-emerald-400 border-emerald-500/20",
 };
 

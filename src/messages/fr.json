@@ -159,7 +159,7 @@
     "categories": {
       "saas": "SaaS",
       "ai": "IA",
-      "media": "Médias",
+      "delivery": "Livraison",
       "consulting": "Consulting"
     },
     "items": [
@@ -178,11 +178,11 @@
         "role": "Conception, développement et mise en ligne (full-stack), intégration d'un modèle d'IA."
       },
       {
-        "title": "MYKS Radio",
-        "description": "Plateforme web de radio en ligne intégrée avec l'API Icecast et dotée d'une interface d'administration vidéo personnalisée.",
-        "focus": "Streaming audio temps réel, gestion dynamique de flux média, dashboard sur-mesure.",
-        "context": "Diffuser une radio en ligne et gérer les flux audio et vidéo depuis un tableau de bord personnalisé.",
-        "role": "Conception, développement et mise en ligne (full-stack), interface d'administration sur mesure."
+        "title": "Delyx Delivery",
+        "description": "Plateforme de livraison à moto partout en Algérie : les clients décrivent leur course, choisissent leur livreur, suivent la course en direct et règlent en espèces.",
+        "focus": "Choix et favorisation du livreur, suivi en temps réel, prix annoncé à l'avance, identités vérifiées.",
+        "context": "Organiser une livraison à moto de bout en bout : mise en relation client/livreur, suivi de la course en direct et paiement en espèces, avec gestion des comptes et des favoris.",
+        "role": "Conception, développement et mise en ligne (full-stack)."
       },
       {
         "title": "Tiberium Consulting",

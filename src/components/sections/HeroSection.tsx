@@ -43,7 +43,7 @@ export function HeroSection() {
       </div>
 
       <Container>
-        <div className="mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16">
+        <div className="mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-[1.3fr_0.7fr] lg:gap-14">
           <motion.div
             variants={container}
             initial="hidden"
@@ -127,7 +127,7 @@ export function HeroSection() {
             initial={{ opacity: 0, scale: 0.94, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 0.65, delay: 0.12, ease: "easeOut" }}
-            className="relative mx-auto w-full max-w-sm lg:max-w-none"
+            className="relative mx-auto w-full max-w-[240px] sm:max-w-[260px] lg:max-w-[280px]"
           >
             <div className="relative mx-auto w-fit">
               <div className="absolute -inset-1 rounded-[1.5rem] bg-gradient-to-br from-blue-400/70 via-indigo-400/50 to-sky-400/60" />
@@ -135,8 +135,8 @@ export function HeroSection() {
                 <Image
                   src={images.sofiane}
                   alt="Sofiane ASMA"
-                  width={480}
-                  height={560}
+                  width={280}
+                  height={327}
                   priority
                   className="h-auto w-full object-cover object-top"
                 />

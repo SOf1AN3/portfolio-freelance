@@ -9,7 +9,7 @@ export type Project = {
   link: string;
   image: string;
   year: string;
-  category: "saas" | "ai" | "media" | "consulting";
+  category: "saas" | "ai" | "delivery" | "consulting";
   status: "published" | "client" | "personal" | "prototype" | "wip";
 };
 
@@ -48,17 +48,17 @@ export const projects: Project[] = [
     status: "published",
   },
   {
-    slug: "myks-radio",
+    slug: "delyx-delivery",
     titleKey: "projects.items.2.title",
     descriptionKey: "projects.items.2.description",
     focusKey: "projects.items.2.focus",
     contextKey: "projects.items.2.context",
     roleKey: "projects.items.2.role",
-    stack: ["React / Next.js", "Icecast API", "Custom Admin Dashboard"],
-    link: "https://myks-radio.vercel.app/",
-    image: "/projects/myks-radio.svg",
-    year: "2024",
-    category: "media",
+    stack: ["Next.js", "PostgreSQL", "TypeScript", "Tailwind CSS"],
+    link: "https://delyx-delivery.vercel.app/",
+    image: "/projects/delyx-delivery.svg",
+    year: "2026",
+    category: "delivery",
     status: "published",
   },
   {

@@ -1,13 +1,13 @@
 import dentalImage from "@/assets/dental.png";
 import papernoteImage from "@/assets/papernote.png";
-import radioMyksImage from "@/assets/radio-myks.png";
+import delyxImage from "@/assets/delyx.png";
 import tiberiumImage from "@/assets/tiberium.png";
 import sofianeImage from "@/assets/sofiane.png";
 
 export const images = {
   dental: dentalImage,
   papernote: papernoteImage,
-  radioMyks: radioMyksImage,
+  delyx: delyxImage,
   tiberium: tiberiumImage,
   sofiane: sofianeImage,
 };
@@ -15,7 +15,7 @@ export const images = {
 export const projectImages: Record<string, typeof dentalImage> = {
   "dental-clinic-saas": dentalImage,
   papernote: papernoteImage,
-  "myks-radio": radioMyksImage,
+  "delyx-delivery": delyxImage,
   "tiberium-consulting": tiberiumImage,
 };
 

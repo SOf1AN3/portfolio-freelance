@@ -7,6 +7,8 @@ import { CheckCircle2, ArrowRight, Globe, Monitor, Smartphone } from "lucide-rea
 
 import { Container } from "@/components/ui/container";
 import { Badge } from "@/components/ui/badge";
+import { Link } from "@/i18n/navigation";
+import { sectionHref } from "@/lib/anchors";
 import { Button } from "@/components/ui/button";
 import { images } from "@/lib/images";
 
@@ -57,10 +59,10 @@ export function AboutSection() {
             </ul>
 
             <Button asChild size="lg" className="mt-8">
-              <a href="#contact">
+              <Link href={sectionHref("contact")}>
                 {t("cta")}
                 <ArrowRight className="size-4 rtl:rotate-180" />
-              </a>
+              </Link>
             </Button>
           </motion.div>
 
