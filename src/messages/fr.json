@@ -1,14 +1,15 @@
 {
   "metadata": {
-    "title": "Sofiane ASMA — Développeur Web & Mobile Full-Stack",
-    "description": "Développeur Full-Stack expert Next.js, React, Node.js. Applications web, SaaS et mobiles sur-mesure. Devis gratuit sous 24h.",
+    "title": "Sofiane ASMA — Création de sites web pour PME & applications sur-mesure",
+    "description": "Développeur full-stack freelance : création de sites web professionnels pour petites entreprises, applications web, dashboards et plateformes SaaS sur-mesure.",
     "keywords": [
-      "développeur web",
-      "développeur mobile",
+      "création site web",
+      "site web professionnel",
+      "petite entreprise",
+      "développeur web freelance",
       "Next.js",
       "React",
       "SaaS",
-      "freelance",
       "Algérie",
       "Sofiane ASMA"
     ]
@@ -22,47 +23,50 @@
     "contact": "Contact",
     "language": "Langue",
     "menu": "Menu",
-    "close": "Fermer"
+    "close": "Fermer",
+    "mainNav": "Navigation principale"
   },
   "hero": {
-    "badge": "Disponibilité : Nouveaux projets",
-    "title": "Développeur Web & Mobile Full-Stack",
-    "highlight": "Je transforme vos idées en applications performantes",
-    "subtitle": "Conception sur-mesure d'applications web modernes, SaaS et solutions mobiles (iOS/Android). Délais maîtrisés et architecture scalable.",
-    "ctaPrimary": "Demander un devis gratuit",
-    "ctaSecondary": "Discuter sur WhatsApp",
+    "badge": "Disponible pour de nouveaux projets",
+    "title": "Sites web professionnels pour petites entreprises",
+    "highlight": "Développeur web & mobile full-stack",
+    "subtitle": "Cabinet médical, commerce, artisanat, cabinet de conseil : je conçois un site rapide, simple à gérer et pensé pour transformer vos visiteurs en clients. Applications web sur mesure et plateformes SaaS en second.",
+    "ctaPrimary": "Discuter de mon projet",
+    "ctaSecondary": "Voir mes réalisations",
     "stats": {
       "items": [
-        { "value": "+5", "label": "Ans d'expérience" },
-        { "value": "+20", "label": "Projets livrés" },
-        { "value": "24h", "label": "Devis gratuit" }
+        { "value": "4", "label": "Projets publiés en ligne" },
+        { "value": "FR · EN · AR", "label": "Interfaces trilingues" },
+        { "value": "24h", "label": "Réponse sous 24h ouvrées" }
       ]
     }
   },
   "services": {
     "title": "Services",
-    "subtitle": "Des solutions techniques complètes pour accélérer votre croissance digitale",
+    "subtitle": "Une offre principale pour les petites entreprises, et du développement sur-mesure pour les produits ambitieux",
     "cta": "Parler de mon projet",
+    "discover": "Découvrir l'offre",
     "items": [
       {
-        "title": "Développement Web & SaaS sur-mesure",
-        "description": "Applications web performantes et plateformes SaaS avec Next.js, React et Node.js. Architecture scalable, base PostgreSQL, sécurité au niveau entreprise.",
-        "features": ["Next.js & React", "Node.js & API REST", "PostgreSQL", "Auth & Multi-tenant"]
+        "title": "Création de sites web professionnels",
+        "description": "Site vitrine, page de présentation avec prise de rendez-vous ou catalogue : un site rapide, clair et adapté à votre activité, conçu pour générer des demandes de contact.",
+        "features": ["Site vitrine", "Responsive mobile", "SEO de base", "Mise en ligne"],
+        "link": "/creation-site-web"
       },
       {
-        "title": "Applications Mobiles Multiplateformes",
-        "description": "Applications iOS & Android performantes avec une expérience utilisateur soignée. Développement hybride ou natif selon vos besoins.",
-        "features": ["iOS & Android", "Flutter Mobile", "React Native", "UI/UX mobile-first", "Publication stores"]
+        "title": "Applications web & SaaS sur-mesure",
+        "description": "Tableau de bord interne, espace client ou plateforme SaaS : une application adaptée à vos processus, développée avec des technologies web éprouvées. Applications mobiles (iOS/Android) sur demande.",
+        "features": ["Next.js & React", "API Node.js", "PostgreSQL", "Tableaux de bord", "Mobile en option"]
       },
       {
-        "title": "Refonte, Optimisation & SEO",
-        "description": "Modernisation de votre présence digitale, amélioration des Core Web Vitals et référencement naturel pour maximiser votre visibilité.",
+        "title": "Refonte, performance & SEO",
+        "description": "Votre site actuel est lent, difficile à lire sur mobile ou invisible sur Google : amélioration des performances, de la structure et du référencement naturel.",
         "features": ["Core Web Vitals", "SEO technique", "Migrations", "Design system"]
       },
       {
-        "title": "Maintenance, Architecture & Consulting",
-        "description": "Accompagnement technique continu : audit, monitoring, scaling d'architecture et conseils pour vos décisions technologiques.",
-        "features": ["Audit technique", "Monitoring", "Scaling", "Conseil stack"]
+        "title": "Maintenance & accompagnement technique",
+        "description": "Mises à jour, corrections, sauvegardes et conseils techniques après la mise en ligne : votre site ou votre application reste fiable dans la durée.",
+        "features": ["Corrections & évolutions", "Sauvegardes", "Monitoring", "Conseil technique"]
       }
     ]
   },
@@ -151,39 +155,15 @@
       }
     ]
   },
-  "testimonials": {
-    "title": "Témoignages",
-    "subtitle": "Ce que disent les clients qui m'ont fait confiance",
-    "items": [
-      {
-        "name": "Ahcen B.",
-        "role": "Fondateur, Clinique Dentaire",
-        "project": "Plateforme SaaS de gestion dentaire",
-        "content": "On utilise son SaaS au cabinet depuis quelques semaines et ça nous sauve un temps fou au quotidien. Sofiane a tout de suite compris la réalité de notre métier, il a corrigé les petits retours hyper vite pendant la phase de test. Bref, travail propre et efficace."
-      },
-      {
-        "name": "Sarah M.",
-        "role": "Responsable E-Commerce, Retail",
-        "project": "Boutique en ligne & catalogue produits",
-        "content": "Notre ancien site ramait et on perdait des ventes sur mobile. Sofiane nous a refait une boutique ultra rapide, fluide et super facile à gérer au quotidien pour l'équipe. Les retours de nos clients sont tops et le parcours de commande est enfin nickel."
-      },
-      {
-        "name": "Karim O.",
-        "role": "CEO, Tiberium Consulting",
-        "project": "Application web de consulting avec messagerie temps réel",
-        "content": "C'est rare de tomber sur un dev fullstack qui capte aussi vite ce qu'on veut sans qu'on ait besoin de rédiger un cahier des charges de 50 pages. La messagerie en temps réel tourne nickel, les délais ont été tenus et le suivi après livraison était au rendez-vous."
-      }
-    ]
-  },
   "about": {
     "title": "À propos",
     "subtitle": "Votre partenaire technique pour des produits digitaux d'excellence",
-    "description": "Je suis Sofiane ASMA, développeur Full-Stack passionné, spécialisé dans la conception d'applications web modernes et de solutions mobiles performantes. Avec plusieurs années d'expérience sur des projets SaaS, e-commerce et plateformes temps réel, j'accompagne startups et entreprises dans la transformation numérique de leur produit.",
+    "description": "Je suis Sofiane ASMA, développeur web & mobile full-stack. Je crée des sites web professionnels pour les petites entreprises et développe des applications web, dashboards et plateformes SaaS sur-mesure. Je travaille directement avec vous, sans intermédiaire, du premier échange jusqu'à la mise en ligne.",
     "highlights": [
-      "Expertise Next.js / React / Node.js",
-      "Approche orientée performance & SEO",
-      "Communication transparente et réactive",
-      "Livraison agile avec démos régulières"
+      "Sites web pensés pour la conversion et le mobile",
+      "Développement Next.js / React / Node.js",
+      "Communication directe et réactive",
+      "Livraison claire avec étapes et validation"
     ],
     "role": "Développeur Full-Stack",
     "expertise": {
@@ -206,6 +186,7 @@
       "submit": "Envoyer ma demande de devis",
       "submitting": "Envoi en cours...",
       "success": "Merci ! Votre demande a bien été envoyée. Je vous réponds très vite.",
+      "error": "Votre demande n'a pas pu être envoyée. Réessayez dans quelques instants, ou contactez-moi directement par WhatsApp.",
       "projectTypes": {
         "web": "Site web / Application web",
         "mobile": "Application mobile",
@@ -240,7 +221,7 @@
     }
   },
   "footer": {
-    "tagline": "Développeur Full-Stack spécialisé dans les applications web modernes et les solutions mobiles sur-mesure.",
+    "tagline": "Développeur web & mobile full-stack : création de sites web pour petites entreprises et applications sur-mesure.",
     "quickLinks": "Liens rapides",
     "services": "Services",
     "projects": "Projets sélectionnés",
