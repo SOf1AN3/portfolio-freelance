@@ -19,7 +19,7 @@ const categoryColors: Record<string, string> = {
   consulting: "from-emerald-500/20 to-teal-500/10",
 };
 
-const FEATURED_SLUG = "tiberium-consulting";
+const FEATURED_SLUG = "delyx-delivery";
 
 const categoryAccents: Record<string, string> = {
   saas: "bg-blue-500/10 text-blue-400 border-blue-500/20",
@@ -78,7 +78,7 @@ export function ProjectsSection() {
               aria-label={t("viewProject")}
             />
 
-            <div className="relative aspect-[2.08/1] overflow-hidden bg-card">
+            <div className="relative aspect-video overflow-hidden bg-card">
               <div
                 className={`absolute inset-0 bg-gradient-to-br ${categoryColors[featured.category] || categoryColors.saas}`}
               />
