@@ -1,5 +1,17 @@
 import { NextResponse } from "next/server";
 import { CONTACT_EMAIL, mailtoLink } from "@/lib/contact";
+import { clientKey, rateLimit } from "@/lib/rate-limit";
+
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+const LIMITS = {
+  name: 120,
+  email: 254,
+  phone: 40,
+  description: 5000,
+  projectType: 20,
+  budget: 20,
+} as const;
 
 type ContactBody = {
   name?: string;
@@ -8,9 +20,25 @@ type ContactBody = {
   projectType?: string;
   budget?: string;
   description?: string;
+  company?: string;
 };
 
 export async function POST(request: Request) {
+  const limited = rateLimit(clientKey(request), {
+    limit: 5,
+    windowMs: 60_000,
+  });
+
+  if (!limited.ok) {
+    return NextResponse.json(
+      { error: "Too many requests" },
+      {
+        status: 429,
+        headers: { "Retry-After": String(limited.retryAfterSeconds) },
+      },
+    );
+  }
+
   let body: ContactBody;
 
   try {
@@ -19,11 +47,30 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Invalid JSON" }, { status: 400 });
   }
 
-  const name = body.name?.trim() || "";
-  const email = body.email?.trim() || "";
-  const description = body.description?.trim() || "";
+  // Honeypot: silently pretend success so bots do not learn they were filtered.
+  if (body.company) {
+    return NextResponse.json({ ok: true, via: "ignored" });
+  }
 
-  if (!name || !email || description.length < 10) {
+  const name = (body.name ?? "").trim();
+  const email = (body.email ?? "").trim();
+  const phone = (body.phone ?? "").trim();
+  const projectType = (body.projectType ?? "").trim();
+  const budget = (body.budget ?? "").trim();
+  const description = (body.description ?? "").trim();
+
+  if (
+    !name ||
+    !email ||
+    description.length < 10 ||
+    name.length > LIMITS.name ||
+    email.length > LIMITS.email ||
+    phone.length > LIMITS.phone ||
+    projectType.length > LIMITS.projectType ||
+    budget.length > LIMITS.budget ||
+    description.length > LIMITS.description ||
+    !EMAIL_RE.test(email)
+  ) {
     return NextResponse.json(
       { error: "Missing required fields" },
       { status: 400 },
@@ -33,9 +80,9 @@ export async function POST(request: Request) {
   const lines = [
     `Nom: ${name}`,
     `Email: ${email}`,
-    body.phone ? `Téléphone: ${body.phone}` : null,
-    body.projectType ? `Type de projet: ${body.projectType}` : null,
-    body.budget ? `Budget: ${body.budget}` : null,
+    phone ? `Téléphone: ${phone}` : null,
+    projectType ? `Type de projet: ${projectType}` : null,
+    budget ? `Budget: ${budget}` : null,
     "",
     "Description:",
     description,
@@ -46,9 +93,12 @@ export async function POST(request: Request) {
     body: lines.join("\n"),
   });
 
-  // SMTP optional: set SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS, SMTP_FROM
+  // SMTP optional: set SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS, SMTP_FROM.
+  // SMTP_FROM is mandatory: the sender must never be the visitor's address.
   const smtpHost = process.env.SMTP_HOST;
-  if (smtpHost) {
+  const smtpFrom = process.env.SMTP_FROM;
+
+  if (smtpHost && smtpFrom) {
     try {
       const nodemailer = await import("nodemailer");
       const transporter = nodemailer.createTransport({
@@ -62,7 +112,7 @@ export async function POST(request: Request) {
       });
 
       await transporter.sendMail({
-        from: process.env.SMTP_FROM || email,
+        from: smtpFrom,
         to: CONTACT_EMAIL,
         replyTo: email,
         subject: `Demande de devis — ${name}`,
@@ -73,6 +123,8 @@ export async function POST(request: Request) {
     } catch (error) {
       console.error("SMTP send failed:", error);
     }
+  } else if (smtpHost && !smtpFrom) {
+    console.warn("SMTP_HOST is set but SMTP_FROM is missing; skipping SMTP");
   }
 
   return NextResponse.json({ ok: true, via: "mailto", mailto });
