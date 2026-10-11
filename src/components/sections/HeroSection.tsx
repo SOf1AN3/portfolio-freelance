@@ -5,6 +5,8 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { ArrowRight, MessageCircle } from "lucide-react";
 
+import { Link } from "@/i18n/navigation";
+import { sectionHref } from "@/lib/anchors";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Container } from "@/components/ui/container";
@@ -85,21 +87,21 @@ export function HeroSection() {
               variants={item}
               className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row lg:justify-start"
             >
-              <Button asChild size="lg" className="w-full sm:w-auto">
-                <a href="#contact">
-                  {t("ctaPrimary")}
-                  <ArrowRight className="size-4 rtl:rotate-180" />
-                </a>
-              </Button>
               <Button asChild variant="whatsapp" size="lg" className="w-full sm:w-auto">
                 <a
                   href={whatsappLink(DEFAULT_WHATSAPP_MESSAGE)}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
+                  {t("ctaPrimary")}
                   <MessageCircle className="size-4" />
-                  {t("ctaSecondary")}
                 </a>
+              </Button>
+              <Button asChild variant="outline" size="lg" className="w-full sm:w-auto">
+                <Link href={sectionHref("projects")}>
+                  {t("ctaSecondary")}
+                  <ArrowRight className="size-4 rtl:rotate-180" />
+                </Link>
               </Button>
             </motion.div>
 

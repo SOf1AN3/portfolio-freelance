@@ -2,24 +2,24 @@
 
 import { useState, useEffect } from "react";
 import { useTranslations } from "next-intl";
-import { motion, AnimatePresence } from "framer-motion";
-import { Menu, MessageCircle } from "lucide-react";
+import { motion } from "framer-motion";
+import { Menu } from "lucide-react";
 
 import { Link } from "@/i18n/navigation";
 import type { Locale } from "@/i18n/routing";
+import { sectionHref, type SectionId } from "@/lib/anchors";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { LanguageSwitcher } from "./LanguageSwitcher";
-import { cn, whatsappLink, DEFAULT_WHATSAPP_MESSAGE } from "@/lib/utils";
-import { useSmoothAnchors, scrollToId } from "@/lib/scrollTo";
+import { cn } from "@/lib/utils";
 
 const navItems = [
-  { href: "#services", key: "services" },
-  { href: "#projects", key: "projects" },
-  { href: "#process", key: "process" },
-  { href: "#about", key: "about" },
-  { href: "#contact", key: "contact" },
-] as const;
+  { id: "services", key: "services" },
+  { id: "projects", key: "projects" },
+  { id: "process", key: "process" },
+  { id: "about", key: "about" },
+  { id: "contact", key: "contact" },
+] as const satisfies readonly { id: SectionId; key: string }[];
 
 type NavbarProps = {
   locale: Locale;
@@ -31,24 +31,12 @@ export function Navbar({ locale }: NavbarProps) {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
-  useSmoothAnchors();
-
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
-
-  function handleAnchorClick(
-    event: React.MouseEvent<HTMLAnchorElement>,
-    href: string,
-  ) {
-    event.preventDefault();
-    setOpen(false);
-    const id = href.replace(/^#/, "");
-    window.setTimeout(() => scrollToId(id), open ? 220 : 0);
-  }
 
   return (
     <header
@@ -67,16 +55,15 @@ export function Navbar({ locale }: NavbarProps) {
           Sofiane ASMA
         </Link>
 
-        <nav className="hidden items-center gap-1 lg:flex">
+        <nav className="hidden items-center gap-1 lg:flex" aria-label={t("mainNav")}>
           {navItems.map((item) => (
-            <a
+            <Link
               key={item.key}
-              href={item.href}
-              onClick={(e) => handleAnchorClick(e, item.href)}
+              href={sectionHref(item.id)}
               className="rounded-lg px-3 py-2 text-sm text-muted-foreground transition-colors hover:bg-accent hover:text-foreground"
             >
               {t(item.key)}
-            </a>
+            </Link>
           ))}
         </nav>
 
@@ -84,12 +71,7 @@ export function Navbar({ locale }: NavbarProps) {
           <LanguageSwitcher locale={locale} className="hidden sm:inline-flex" />
 
           <Button asChild size="sm" className="hidden md:inline-flex">
-            <a
-              href="#contact"
-              onClick={(e) => handleAnchorClick(e, "#contact")}
-            >
-              {th("ctaPrimary")}
-            </a>
+            <Link href={sectionHref("contact")}>{th("ctaPrimary")}</Link>
           </Button>
 
           <Sheet open={open} onOpenChange={setOpen}>
@@ -103,7 +85,10 @@ export function Navbar({ locale }: NavbarProps) {
                 <Menu className="size-5" />
               </Button>
             </SheetTrigger>
-            <SheetContent side={locale === "ar" ? "left" : "right"} className="flex w-[300px] flex-col p-0">
+            <SheetContent
+              side={locale === "ar" ? "left" : "right"}
+              className="flex w-[300px] flex-col p-0"
+            >
               <SheetHeader className="border-b border-border p-6">
                 <SheetTitle className="text-lg font-bold">
                   Sofiane ASMA
@@ -111,44 +96,40 @@ export function Navbar({ locale }: NavbarProps) {
               </SheetHeader>
 
               <div className="flex-1 overflow-y-auto p-6">
-                <nav className="flex flex-col gap-1">
-                  <AnimatePresence>
-                    {navItems.map((item, i) => (
-                      <motion.a
-                        key={item.key}
-                        href={item.href}
-                        initial={{ opacity: 0, x: 20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: i * 0.05 }}
-                        onClick={(e) => handleAnchorClick(e, item.href)}
-                        className="rounded-lg px-3 py-3 text-base text-muted-foreground transition-colors hover:bg-accent hover:text-foreground"
+                <nav
+                  className="flex flex-col gap-1"
+                  aria-label={t("mainNav")}
+                >
+                  {navItems.map((item, i) => (
+                    <motion.div
+                      key={item.key}
+                      initial={{ opacity: 0, x: locale === "ar" ? -20 : 20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: i * 0.05 }}
+                    >
+                      <Link
+                        href={sectionHref(item.id)}
+                        onClick={() => setOpen(false)}
+                        className="block rounded-lg px-3 py-3 text-base text-muted-foreground transition-colors hover:bg-accent hover:text-foreground"
                       >
                         {t(item.key)}
-                      </motion.a>
-                    ))}
-                  </AnimatePresence>
+                      </Link>
+                    </motion.div>
+                  ))}
                 </nav>
               </div>
 
               <div className="flex flex-col gap-3 border-t border-border p-6">
                 <LanguageSwitcher locale={locale} className="w-full justify-between" />
                 <Button asChild className="w-full">
-                  <a
-                    href="#contact"
-                    onClick={(e) => handleAnchorClick(e, "#contact")}
-                  >
+                  <Link href={sectionHref("contact")} onClick={() => setOpen(false)}>
                     {th("ctaPrimary")}
-                  </a>
+                  </Link>
                 </Button>
-                <Button asChild variant="whatsapp" className="w-full">
-                  <a
-                    href={whatsappLink(DEFAULT_WHATSAPP_MESSAGE)}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <MessageCircle className="size-4" />
+                <Button asChild variant="outline" className="w-full">
+                  <Link href={sectionHref("projects")} onClick={() => setOpen(false)}>
                     {th("ctaSecondary")}
-                  </a>
+                  </Link>
                 </Button>
               </div>
             </SheetContent>
