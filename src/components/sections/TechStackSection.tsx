@@ -6,6 +6,8 @@ import { MessageCircle, ArrowRight } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
 import { Badge } from "@/components/ui/badge";
+import { Link } from "@/i18n/navigation";
+import { sectionHref } from "@/lib/anchors";
 import { Button } from "@/components/ui/button";
 import { techGroups } from "@/content/techStackData";
 
@@ -109,10 +111,10 @@ export function TechStackSection() {
           </div>
 
           <Button asChild variant="outline" className="shrink-0">
-            <a href="#contact">
+            <Link href={sectionHref("contact")}>
               {t("cta.action")}
               <ArrowRight className="rtl:rotate-180" />
-            </a>
+            </Link>
           </Button>
         </motion.div>
       </Container>

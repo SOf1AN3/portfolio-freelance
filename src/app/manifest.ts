@@ -9,8 +9,8 @@ export default function manifest(): MetadataRoute.Manifest {
       "Développeur Full-Stack expert Next.js, React, Node.js. Applications web, SaaS et mobiles sur-mesure.",
     start_url: "/",
     display: "standalone",
-    background_color: "#020617",
-    theme_color: "#3b5bdb",
+    background_color: "#070a12",
+    theme_color: "#2b7fff",
     icons: [
       {
         src: "/favicon.ico",
@@ -18,12 +18,12 @@ export default function manifest(): MetadataRoute.Manifest {
         type: "image/x-icon",
       },
       {
-        src: `${getBaseUrl()}/icon.png`,
+        src: `${getBaseUrl()}/icon`,
         sizes: "32x32",
         type: "image/png",
       },
       {
-        src: `${getBaseUrl()}/apple-icon.png`,
+        src: `${getBaseUrl()}/apple-icon`,
         sizes: "180x180",
         type: "image/png",
       },

@@ -1,10 +1,10 @@
 "use client";
 
+import { Check, Languages } from "lucide-react";
 import { useTranslations } from "next-intl";
-import { Languages } from "lucide-react";
 
 import { routing, localeNames, localeFlags, type Locale } from "@/i18n/routing";
-import { Link, usePathname, useRouter } from "@/i18n/navigation";
+import { Link, usePathname } from "@/i18n/navigation";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -22,7 +22,6 @@ type LanguageSwitcherProps = {
 export function LanguageSwitcher({ locale, className }: LanguageSwitcherProps) {
   const t = useTranslations("nav");
   const pathname = usePathname();
-  const router = useRouter();
 
   return (
     <DropdownMenu>
@@ -39,29 +38,32 @@ export function LanguageSwitcher({ locale, className }: LanguageSwitcherProps) {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="min-w-[160px]">
-        {routing.locales.map((l) => (
-          <DropdownMenuItem
-            key={l}
-            onSelect={() => {
-              router.replace(pathname, { locale: l });
-            }}
-            className={cn(
-              "flex items-center justify-between gap-2",
-              l === locale && "font-semibold text-primary",
-            )}
-          >
-            <span className="flex items-center gap-2">
-              <span>{localeFlags[l]}</span>
-              <span>{localeNames[l]}</span>
-            </span>
-            <Link
-              href={pathname}
-              locale={l}
-              className="absolute inset-0"
-              aria-label={localeNames[l]}
-            />
-          </DropdownMenuItem>
-        ))}
+        {routing.locales.map((l) => {
+          const isActive = l === locale;
+
+          return (
+            <DropdownMenuItem key={l} asChild>
+              <Link
+                href={pathname}
+                locale={l}
+                hrefLang={l}
+                aria-current={isActive ? "true" : undefined}
+                className={cn(
+                  "flex items-center justify-between gap-2",
+                  isActive && "font-semibold text-primary",
+                )}
+              >
+                <span className="flex items-center gap-2">
+                  <span aria-hidden>{localeFlags[l]}</span>
+                  <span>{localeNames[l]}</span>
+                </span>
+                {isActive ? (
+                  <Check className="size-4" aria-hidden />
+                ) : null}
+              </Link>
+            </DropdownMenuItem>
+          );
+        })}
       </DropdownMenuContent>
     </DropdownMenu>
   );

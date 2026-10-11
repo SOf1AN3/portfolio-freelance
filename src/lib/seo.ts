@@ -5,6 +5,13 @@ import { SOCIAL_LINKS } from "@/lib/socials";
 const BASE_URL =
   process.env.NEXT_PUBLIC_SITE_URL || "https://sofianeasma.me";
 
+/** Open Graph requires a `language_TERRITORY` locale, not a bare language code. */
+const OG_LOCALES: Record<Locale, string> = {
+  fr: "fr_FR",
+  en: "en_US",
+  ar: "ar_SA",
+};
+
 export function getBaseUrl() {
   return BASE_URL.replace(/\/$/, "");
 }
@@ -50,8 +57,10 @@ export function generateLocaleMetadata({
     },
     openGraph: {
       type,
-      locale,
-      alternateLocale: routing.locales.filter((l) => l !== locale),
+      locale: OG_LOCALES[locale],
+      alternateLocale: routing.locales
+        .filter((l) => l !== locale)
+        .map((l) => OG_LOCALES[l]),
       url,
       siteName: "Sofiane ASMA",
       title,
@@ -93,7 +102,7 @@ export function getStructuredData(locale: Locale) {
         url: `${getBaseUrl()}/${locale}`,
         telephone: "+213551797313",
         areaServed: "Worldwide",
-        priceRange: "€€",
+        priceRange: "DZD",
         knowsLanguage: routing.locales,
       },
       {
@@ -101,7 +110,7 @@ export function getStructuredData(locale: Locale) {
         "@id": `${getBaseUrl()}/#organization`,
         name: "Sofiane ASMA",
         url: `${getBaseUrl()}/${locale}`,
-        logo: `${getBaseUrl()}/api/og?locale=${locale}`,
+        logo: `${getBaseUrl()}/apple-icon`,
         sameAs,
       },
       {
@@ -159,18 +168,13 @@ export function getProjectStructuredData(
           {
             "@type": "ListItem",
             position: 1,
-            name: "Accueil",
+            name:
+              locale === "ar" ? "الرئيسية" : locale === "en" ? "Home" : "Accueil",
             item: `${getBaseUrl()}/${locale}`,
           },
           {
             "@type": "ListItem",
             position: 2,
-            name: "Projets",
-            item: `${getBaseUrl()}/${locale}#projects`,
-          },
-          {
-            "@type": "ListItem",
-            position: 3,
             name: project.title,
             item: project.url,
           },

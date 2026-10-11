@@ -2,6 +2,7 @@
 
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
+import { sectionHref } from "@/lib/anchors";
 import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
@@ -30,7 +31,7 @@ export function NotFoundClient() {
             </Link>
           </Button>
           <Button asChild variant="outline" size="lg">
-            <Link href="/#projects">{tn("projects")}</Link>
+            <Link href={sectionHref("projects")}>{tn("projects")}</Link>
           </Button>
         </div>
       </Container>
