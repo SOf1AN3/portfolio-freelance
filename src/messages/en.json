@@ -69,6 +69,73 @@
       }
     ]
   },
+  "websiteOffer": {
+    "badge": "Main offer",
+    "title": "Professional website development for small businesses",
+    "subtitle": "A fast, clear website tailored to your business, designed to generate enquiries — without the technical jargon.",
+    "ctaPrimary": "Request a quote",
+    "ctaSecondary": "Chat on WhatsApp",
+    "audience": {
+      "title": "Who is this offer for?",
+      "subtitle": "Professionals who need a serious online presence without handling the technical side themselves.",
+      "items": [
+        { "title": "Shops & retail", "description": "Show your products, opening hours and location, with contact available instantly on mobile." },
+        { "title": "Clinics & health professionals", "description": "Present your services, keep patients informed and make online booking easy." },
+        { "title": "Craftspeople & service providers", "description": "Showcase your expertise, display your past work and receive qualified quote requests." },
+        { "title": "Associations & sole practitioners", "description": "A clear, up-to-date showcase for your activity, updatable without depending on a technician." }
+      ]
+    },
+    "problems": {
+      "title": "Problems I solve",
+      "items": [
+        "Your business is not (or no longer) online, and clients only find you by word of mouth.",
+        "A Facebook page is no longer enough: it does not inspire trust and ranks poorly.",
+        "Your current website is slow, hard to read on mobile or outdated.",
+        "You lose enquiries because there is no clear contact channel on your site."
+      ]
+    },
+    "deliverables": {
+      "title": "What you get",
+      "items": [
+        { "title": "Tailored design", "description": "Mockups validated with you before development, matched to your identity and your business." },
+        { "title": "Responsive and fast website", "description": "A polished experience on mobile and desktop, with pages that load quickly." },
+        { "title": "Foundational SEO", "description": "Structure, tags and structured data set up so Google can understand your site." },
+        { "title": "Launch", "description": "Hosting and domain name configured, then the website published." },
+        { "title": "Handover", "description": "A clear explanation of how to update your content, with the documentation you need." }
+      ]
+    },
+    "options": {
+      "title": "Additional options",
+      "subtitle": "Added according to your needs, quoted separately.",
+      "items": [
+        { "title": "Content writing", "description": "I help you write the copy for every page." },
+        { "title": "Online booking", "description": "A booking module integrated into your website." },
+        { "title": "Online shop", "description": "Product sales with payment, if your business needs it." },
+        { "title": "Maintenance", "description": "Updates, backups and improvements after launch." },
+        { "title": "Multilingual", "description": "A version of your site in one or more additional languages." }
+      ],
+      "pricing": {
+        "title": "Pricing",
+        "note": "Each project is quoted according to its scope. Describe your needs and you receive a free, detailed quote."
+      }
+    },
+    "steps": {
+      "title": "How we work together",
+      "items": [
+        { "title": "Discussion", "description": "You describe your business and goals. I ask the useful questions and tell you honestly whether the project makes sense." },
+        { "title": "Quote", "description": "You receive a detailed quote (pages, features, schedule, price). Nothing starts without your approval." },
+        { "title": "Design", "description": "I design the structure and the mockups. You approve them before I build." },
+        { "title": "Development", "description": "I build the website and show you progress regularly. Your feedback is included." },
+        { "title": "Launch", "description": "I publish the site, configure hosting and hand over the access and documentation." }
+      ]
+    },
+    "cta": {
+      "title": "Let's talk about your project",
+      "description": "Describe your business and what you expect from your website: I reply with a clear proposal.",
+      "form": "Request a quote",
+      "whatsapp": "Message on WhatsApp"
+    }
+  },
   "projects": {
     "title": "Featured projects",
     "subtitle": "A selection of work that reflects my technical and creative approach",
@@ -182,7 +249,7 @@
       },
       {
         "question": "How does a project run?",
-        "answer": "Four stages: discussion and scoping, design (mockups and architecture), development with regular check-ins, then launch. You validate each stage before moving to the next."
+        "answer": "Five stages: discussion and scoping, a detailed quote, design (mockups and architecture), development with regular check-ins, then launch. You validate each stage before moving to the next."
       },
       {
         "question": "How do I get a quote?",
@@ -270,6 +337,7 @@
   "footer": {
     "tagline": "Full-stack web & mobile developer: websites for small businesses and custom web applications.",
     "quickLinks": "Quick links",
+    "websiteOffer": "Website development",
     "services": "Services",
     "projects": "Selected projects",
     "contactTitle": "Contact",

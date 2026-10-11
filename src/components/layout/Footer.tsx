@@ -4,6 +4,7 @@ import { useTranslations } from "next-intl";
 import { Mail, MapPin } from "lucide-react";
 
 import { Link } from "@/i18n/navigation";
+import { sectionHref } from "@/lib/anchors";
 import { Container } from "@/components/ui/container";
 import { Separator } from "@/components/ui/separator";
 import { WHATSAPP_NUMBER, whatsappLink } from "@/lib/utils";
@@ -88,36 +89,44 @@ export function Footer({ locale }: FooterProps) {
                 </Link>
               </li>
               <li>
-                <a
-                  href="#services"
+                <Link
+                  href="/creation-site-web"
+                  className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                >
+                  {t("websiteOffer")}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href={sectionHref("services")}
                   className="text-sm text-muted-foreground transition-colors hover:text-foreground"
                 >
                   {tn("services")}
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="#projects"
+                <Link
+                  href={sectionHref("projects")}
                   className="text-sm text-muted-foreground transition-colors hover:text-foreground"
                 >
                   {tn("projects")}
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="#process"
+                <Link
+                  href={sectionHref("process")}
                   className="text-sm text-muted-foreground transition-colors hover:text-foreground"
                 >
                   {tn("process")}
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="#contact"
+                <Link
+                  href={sectionHref("contact")}
                   className="text-sm text-muted-foreground transition-colors hover:text-foreground"
                 >
                   {tn("contact")}
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

@@ -70,6 +70,73 @@
       }
     ]
   },
+  "websiteOffer": {
+    "badge": "Offre principale",
+    "title": "Création de sites web professionnels pour petites entreprises",
+    "subtitle": "Un site rapide, clair et adapté à votre activité, conçu pour générer des demandes de contact — sans jargon technique.",
+    "ctaPrimary": "Demander un devis",
+    "ctaSecondary": "Discuter sur WhatsApp",
+    "audience": {
+      "title": "À qui s'adresse cette offre ?",
+      "subtitle": "Des professionnels qui ont besoin d'une présence en ligne sérieuse, sans internaliser le technique.",
+      "items": [
+        { "title": "Commerces & boutiques", "description": "Présenter vos produits, vos horaires et votre adresse, avec une prise de contact immédiate depuis le mobile." },
+        { "title": "Cabinets & professionnels de santé", "description": "Présenter vos services, informer vos patients et faciliter la prise de rendez-vous en ligne." },
+        { "title": "Artisans & prestataires", "description": "Valoriser votre savoir-faire, montrer vos réalisations et recevoir des demandes de devis qualifiées." },
+        { "title": "Associations & professions libérales", "description": "Une vitrine claire et à jour pour votre activité, actualisable sans dépendre d'un technicien." }
+      ]
+    },
+    "problems": {
+      "title": "Les problèmes que je résous",
+      "items": [
+        "Votre entreprise n'existe pas (ou plus) en ligne, et vos clients vous trouvent uniquement par le bouche-à-oreille.",
+        "Une page Facebook ne suffit plus : elle n'inspire pas confiance et se référence mal.",
+        "Votre site actuel est lent, difficile à lire sur mobile ou obsolète.",
+        "Vous perdez des demandes faute de canal de contact clair sur votre site."
+      ]
+    },
+    "deliverables": {
+      "title": "Ce que vous recevez",
+      "items": [
+        { "title": "Conception sur-mesure", "description": "Maquettes validées avec vous avant le développement, adaptées à votre identité et à votre métier." },
+        { "title": "Site responsive et rapide", "description": "Expérience soignée sur mobile comme sur ordinateur, avec des pages rapides à charger." },
+        { "title": "Référencement de base", "description": "Structure, balises et données structurées posées pour que Google puisse comprendre votre site." },
+        { "title": "Mise en ligne", "description": "Configuration de l'hébergement et du nom de domaine, puis publication du site." },
+        { "title": "Prise en main", "description": "Explication claire de la façon de mettre à jour vos contenus, avec la documentation nécessaire." }
+      ]
+    },
+    "options": {
+      "title": "Options supplémentaires",
+      "subtitle": "À ajouter selon vos besoins, chiffrées séparément dans le devis.",
+      "items": [
+        { "title": "Rédaction des contenus", "description": "Je vous aide à écrire les textes de chaque page." },
+        { "title": "Prise de rendez-vous en ligne", "description": "Un module de réservation intégré à votre site." },
+        { "title": "Boutique en ligne", "description": "Vente de produits avec paiement, si votre activité le demande." },
+        { "title": "Maintenance", "description": "Mises à jour, sauvegardes et évolutions après la mise en ligne." },
+        { "title": "Multilingue", "description": "Version du site dans une ou plusieurs langues supplémentaires." }
+      ],
+      "pricing": {
+        "title": "Tarifs",
+        "note": "Chaque projet est chiffré selon son périmètre. Décrivez votre besoin : vous recevez un devis gratuit et détaillé."
+      }
+    },
+    "steps": {
+      "title": "Comment se déroule notre collaboration",
+      "items": [
+        { "title": "Échange", "description": "Vous décrivez votre activité et vos objectifs. Je pose les questions utiles et vous dis honnêtement si le projet a du sens." },
+        { "title": "Devis", "description": "Vous recevez un devis détaillé (pages, fonctionnalités, délais, prix). Rien ne démarre sans votre accord." },
+        { "title": "Conception", "description": "Je conçois la structure et les maquettes. Vous validez avant que je développe." },
+        { "title": "Développement", "description": "Je construis le site et vous le montre régulièrement. Vos retours sont intégrés." },
+        { "title": "Mise en ligne", "description": "Je publie le site, configure l'hébergement et vous transmets les accès et la documentation." }
+      ]
+    },
+    "cta": {
+      "title": "Parlons de votre projet",
+      "description": "Décrivez votre activité et ce que vous attendez de votre site : je vous réponds avec une proposition claire.",
+      "form": "Demander un devis",
+      "whatsapp": "Écrire sur WhatsApp"
+    }
+  },
   "projects": {
     "title": "Projets phares",
     "subtitle": "Une sélection de réalisations qui illustrent mon approche technique et créative",
@@ -183,7 +250,7 @@
       },
       {
         "question": "Comment se déroule un projet ?",
-        "answer": "Quatre étapes : échange et cadrage du besoin, conception (maquettes et architecture), développement avec des points réguliers, puis mise en ligne. Vous validez chaque étape avant de passer à la suivante."
+        "answer": "Cinq étapes : échange et cadrage du besoin, devis détaillé, conception (maquettes et architecture), développement avec des points réguliers, puis mise en ligne. Vous validez chaque étape avant de passer à la suivante."
       },
       {
         "question": "Comment obtenir un devis ?",
@@ -271,6 +338,7 @@
   "footer": {
     "tagline": "Développeur web & mobile full-stack : création de sites web pour petites entreprises et applications sur-mesure.",
     "quickLinks": "Liens rapides",
+    "websiteOffer": "Création de site web",
     "services": "Services",
     "projects": "Projets sélectionnés",
     "contactTitle": "Contact",

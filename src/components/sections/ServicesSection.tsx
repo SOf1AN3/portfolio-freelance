@@ -10,6 +10,8 @@ import {
   ArrowRight,
 } from "lucide-react";
 
+import { Link } from "@/i18n/navigation";
+import { sectionHref } from "@/lib/anchors";
 import { Container } from "@/components/ui/container";
 import { Badge } from "@/components/ui/badge";
 
@@ -21,6 +23,7 @@ export function ServicesSection() {
     title: string;
     description: string;
     features: string[];
+    link?: string;
   }[];
 
   return (
@@ -73,13 +76,13 @@ export function ServicesSection() {
                       </li>
                     ))}
                   </ul>
-                  <a
-                    href="#contact"
-                    className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-primary transition-colors hover:text-primary/80"
+                  <Link
+                    href={service.link ?? sectionHref("contact")}
+                    className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-primary transition-colors hover:text-foreground"
                   >
-                    {t("cta")}
+                    {service.link ? t("discover") : t("cta")}
                     <ArrowRight className="size-4 rtl:rotate-180" />
-                  </a>
+                  </Link>
                 </div>
               </motion.article>
             );

@@ -5,13 +5,13 @@ import { projects } from "@/content/projectsData";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = getBaseUrl();
-  const lastModified = new Date();
 
   const locales = routing.locales;
 
+  // No `lastModified`: content has no modification dates, and a build-time
+  // `new Date()` would mark every URL as changed on every deploy.
   const homeEntries = locales.map((locale) => ({
     url: `${base}/${locale}`,
-    lastModified,
     changeFrequency: "weekly" as const,
     priority: 1,
     alternates: {
@@ -22,10 +22,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   }));
 
+  const offerPath = "/creation-site-web";
+  const offerEntries = locales.map((locale) => ({
+    url: `${base}/${locale}${offerPath}`,
+    changeFrequency: "monthly" as const,
+    priority: 0.9,
+    alternates: {
+      languages: {
+        ...Object.fromEntries(
+          locales.map((l) => [l, `${base}/${l}${offerPath}`]),
+        ),
+        "x-default": `${base}/${routing.defaultLocale}${offerPath}`,
+      },
+    },
+  }));
+
   const projectEntries = projects.flatMap((project) =>
     locales.map((locale) => ({
       url: `${base}/${locale}/projects/${project.slug}`,
-      lastModified,
       changeFrequency: "monthly" as const,
       priority: 0.8,
       alternates: {
@@ -39,5 +53,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })),
   );
 
-  return [...homeEntries, ...projectEntries];
+  return [...homeEntries, ...offerEntries, ...projectEntries];
 }
