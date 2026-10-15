@@ -64,6 +64,8 @@ export async function generateMetadata({ params }: Props) {
     locale,
     title: t("title"),
     description: t("subtitle"),
+    ogTitle: t("ogTitle"),
+    ogDescription: t("ogDescription"),
     path: OFFER_PATH,
   });
 }
