@@ -6,44 +6,164 @@ export const runtime = "nodejs";
 const CACHE_CONTROL =
   "public, max-age=604800, s-maxage=604800, stale-while-revalidate=2592000";
 
-/** Trusted static base used to resolve the avatar asset path — never derived
- * from the incoming request URL, which may be relative or header-controlled. */
-const SITE_BASE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL ||
-  (process.env.NODE_ENV === "development"
-    ? "http://localhost:3000"
-    : "https://sofianeasma.me");
+/** Production origins allowed to serve the hashed avatar asset. */
+const TRUSTED_ORIGINS = new Set([
+  "https://sofianeasma.me",
+  "https://www.sofianeasma.me",
+]);
 
-const PNG_SIGNATURE = [0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a];
+/** Hostnames accepted for local development origins. */
+const LOCAL_HOSTNAMES = new Set([
+  "localhost",
+  "127.0.0.1",
+  "[::1]",
+  "0.0.0.0",
+]);
+
+/**
+ * Validates a raw URL against a strict allow-list: a known production origin,
+ * or a local `http` origin. Returns the normalised origin when accepted and
+ * `null` otherwise, so no outgoing fetch is ever issued toward an origin that
+ * is not explicitly trusted.
+ */
+function trustedOrigin(raw: string): string | null {
+  let url: URL;
+  try {
+    url = new URL(raw);
+  } catch {
+    // Relative or malformed URL — not usable as an origin.
+    return null;
+  }
+
+  if (TRUSTED_ORIGINS.has(url.origin)) {
+    return url.origin;
+  }
+
+  if (url.protocol === "http:" && LOCAL_HOSTNAMES.has(url.hostname)) {
+    return url.origin;
+  }
+
+  return null;
+}
+
+/**
+ * Origins to try for the hashed avatar asset, most specific first: the origin
+ * that served the request (its deployment emitted the current asset hash),
+ * then the configured site origin. Entries failing the allow-list are dropped.
+ */
+function candidateOrigins(request: Request): string[] {
+  const origins: string[] = [];
+
+  for (const raw of [request.url, process.env.NEXT_PUBLIC_SITE_URL ?? ""]) {
+    if (!raw) continue;
+
+    const origin = trustedOrigin(raw);
+    if (origin && !origins.includes(origin)) {
+      origins.push(origin);
+    }
+  }
+
+  return origins;
+}
+
+/**
+ * Magic-number signatures accepted for the avatar asset. Note that
+ * `src/assets/sofiane.png` is in fact JPEG-encoded despite its extension, so
+ * both formats are detected from the header rather than trusted from the name.
+ */
+const IMAGE_SIGNATURES: ReadonlyArray<{
+  mimeType: string;
+  bytes: readonly number[];
+}> = [
+  {
+    mimeType: "image/png",
+    bytes: [0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a],
+  },
+  { mimeType: "image/jpeg", bytes: [0xff, 0xd8, 0xff] },
+];
+
+/** Detects the real image format from its header, or `null` when unrecognised. */
+function detectImageMimeType(bytes: Buffer): string | null {
+  for (const { mimeType, bytes: signature } of IMAGE_SIGNATURES) {
+    if (
+      bytes.length >= signature.length &&
+      signature.every((byte, index) => bytes[index] === byte)
+    ) {
+      return mimeType;
+    }
+  }
+
+  return null;
+}
 
 let avatarDataUriPromise: Promise<string> | undefined;
 
 /**
+ * Fetches the hashed avatar asset from a single origin and validates it
+ * (HTTP status, `image/*` content-type, real image signature) before returning
+ * it as a base64 data URI.
+ */
+async function fetchAvatarDataUri(origin: string): Promise<string> {
+  // Defence in depth: re-validate here so no future caller can bypass the
+  // allow-list, even though every current caller already filters the origin.
+  const trusted = trustedOrigin(origin);
+  if (!trusted) {
+    throw new Error(`Untrusted avatar origin: ${origin}`);
+  }
+
+  // The static import must stay a root-relative path; an absolute URL (CDN or
+  // assetPrefix) would silently override the trusted origin.
+  if (!sofianePhoto.src.startsWith("/")) {
+    throw new Error(`Unexpected avatar asset path: ${sofianePhoto.src}`);
+  }
+
+  const response = await fetch(new URL(sofianePhoto.src, trusted), {
+    signal: AbortSignal.timeout(5000),
+  });
+
+  if (!response.ok) {
+    throw new Error(`Avatar fetch failed with status ${response.status}`);
+  }
+
+  const contentType = response.headers.get("content-type") ?? "";
+  if (!contentType.startsWith("image/")) {
+    throw new Error(`Unexpected avatar content-type: ${contentType}`);
+  }
+
+  const bytes = Buffer.from(await response.arrayBuffer());
+  const mimeType = detectImageMimeType(bytes);
+  if (!mimeType) {
+    throw new Error("Avatar is not a valid PNG or JPEG");
+  }
+
+  return `data:${mimeType};base64,${bytes.toString("base64")}`;
+}
+
+/**
  * Resolves the statically imported photo into a base64 data URI so Satori can
- * render it. The promise is cached for the lifetime of the server instance and
+ * render it. Candidate origins are tried in order until one yields a valid
+ * image. The promise is cached for the lifetime of the server instance and
  * reset on failure so a transient error can be retried on the next request.
  */
-function loadAvatarDataUri(): Promise<string> {
+function loadAvatarDataUri(request: Request): Promise<string> {
   avatarDataUriPromise ??= (async () => {
-    const response = await fetch(new URL(sofianePhoto.src, SITE_BASE_URL), {
-      signal: AbortSignal.timeout(5000),
-    });
-
-    if (!response.ok) {
-      throw new Error(`Avatar fetch failed with status ${response.status}`);
+    const origins = candidateOrigins(request);
+    if (origins.length === 0) {
+      throw new Error("No trusted origin available for the avatar fetch");
     }
 
-    const contentType = response.headers.get("content-type") ?? "";
-    if (!contentType.startsWith("image/")) {
-      throw new Error(`Unexpected avatar content-type: ${contentType}`);
+    const failures: string[] = [];
+    for (const origin of origins) {
+      try {
+        return await fetchAvatarDataUri(origin);
+      } catch (error) {
+        failures.push(
+          `${origin}: ${error instanceof Error ? error.message : String(error)}`,
+        );
+      }
     }
 
-    const bytes = Buffer.from(await response.arrayBuffer());
-    if (bytes.length < 8 || PNG_SIGNATURE.some((b, i) => bytes[i] !== b)) {
-      throw new Error("Avatar is not a valid PNG");
-    }
-
-    return `data:image/png;base64,${bytes.toString("base64")}`;
+    throw new Error(`Avatar fetch failed (${failures.join("; ")})`);
   })().catch((error: unknown) => {
     avatarDataUriPromise = undefined;
     throw error;
@@ -252,12 +372,12 @@ function IdentityCard({ avatarDataUri }: { avatarDataUri: string | null }) {
   );
 }
 
-export async function GET(): Promise<Response> {
+export async function GET(request: Request): Promise<Response> {
   try {
     let avatarDataUri: string | null = null;
 
     try {
-      avatarDataUri = await loadAvatarDataUri();
+      avatarDataUri = await loadAvatarDataUri(request);
     } catch (error) {
       console.error(
         "OG avatar unavailable, falling back to monogram:",
