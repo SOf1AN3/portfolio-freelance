@@ -3,6 +3,17 @@ import sofianePhoto from "@/assets/sofiane.png";
 
 export const runtime = "nodejs";
 
+/**
+ * Square window used to crop the avatar. The photo is a portrait asset, so the
+ * crop geometry is derived from its intrinsic dimensions: the image is scaled
+ * to cover the square horizontally, then vertically centred. This replaces
+ * `objectFit`/`objectPosition`, which Satori does not honour reliably.
+ */
+const AVATAR_BOX = 268;
+const avatarScale = AVATAR_BOX / sofianePhoto.width;
+const avatarScaledHeight = sofianePhoto.height * avatarScale;
+const avatarOffsetY = (avatarScaledHeight - AVATAR_BOX) / 2;
+
 const CACHE_CONTROL =
   "public, max-age=604800, s-maxage=604800, stale-while-revalidate=2592000";
 
@@ -328,9 +339,10 @@ function IdentityCard({ avatarDataUri }: { avatarDataUri: string | null }) {
         {avatarDataUri ? (
           <div
             style={{
+              position: "relative",
               display: "flex",
-              width: 280,
-              height: 280,
+              width: AVATAR_BOX,
+              height: AVATAR_BOX,
               borderRadius: 9999,
               overflow: "hidden",
               border: "6px solid rgba(59,130,246,0.45)",
@@ -342,13 +354,15 @@ function IdentityCard({ avatarDataUri }: { avatarDataUri: string | null }) {
             <img
               src={avatarDataUri}
               alt="Sofiane ASMA"
-              width={268}
-              height={268}
+              width={AVATAR_BOX}
+              height={Math.round(avatarScaledHeight)}
               style={{
-                width: "100%",
-                height: "100%",
-                objectFit: "cover",
-                objectPosition: "top",
+                position: "absolute",
+                top: -Math.round(avatarOffsetY),
+                left: 0,
+                width: AVATAR_BOX,
+                height: Math.round(avatarScaledHeight),
+                maxWidth: "none",
               }}
             />
           </div>
