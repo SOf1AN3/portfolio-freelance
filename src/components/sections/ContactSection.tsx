@@ -188,7 +188,7 @@ export function ContactSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.5 }}
-            className="lg:col-span-3"
+            className="min-w-0 lg:col-span-3"
           >
             <Card className="h-full border-border/60 bg-card/80 backdrop-blur">
               <CardContent className="p-6 sm:p-8">
@@ -426,7 +426,7 @@ onValueChange={field.onChange}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.5, delay: 0.12 }}
-            className="flex flex-col gap-6 lg:col-span-2"
+            className="flex min-w-0 flex-col gap-6 lg:col-span-2"
           >
             <Card className="relative overflow-hidden border-[#22c55e]/30 bg-gradient-to-br from-[#22c55e]/10 via-card to-card">
               <CardContent className="p-6">

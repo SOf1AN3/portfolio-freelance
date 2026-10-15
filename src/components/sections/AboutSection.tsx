@@ -67,13 +67,13 @@ export function AboutSection() {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, x: 24 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.6, delay: 0.15 }}
             className="relative mx-auto w-full max-w-md"
           >
-            <div className="absolute -inset-6 rounded-[2.5rem] bg-gradient-to-br from-blue-500/25 via-indigo-500/10 to-violet-500/25 blur-2xl" />
+            <div className="absolute -inset-2 rounded-[1.5rem] bg-gradient-to-br from-blue-500/25 via-indigo-500/10 to-violet-500/25 blur-2xl sm:-inset-6 sm:rounded-[2.5rem]" />
 
             <div className="relative overflow-hidden rounded-3xl border border-border bg-card/80 p-8 backdrop-blur-sm">
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-primary/15 via-transparent to-transparent" />
