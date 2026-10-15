@@ -88,7 +88,7 @@ export function AboutSection() {
                       alt="Sofiane ASMA"
                       width={128}
                       height={128}
-                      className="h-full w-full object-cover"
+                      className="h-full w-full origin-top scale-[1.2] object-cover object-top"
                     />
                   </div>
                   <span className="absolute bottom-1 end-1 size-5 rounded-full border-[3px] border-card bg-emerald-500" />
