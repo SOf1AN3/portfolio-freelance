@@ -3,7 +3,7 @@ import { routing, type Locale } from "@/i18n/routing";
 import { SOCIAL_LINKS } from "@/lib/socials";
 
 const BASE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL || "https://sofianeasma.me";
+  process.env.NEXT_PUBLIC_SITE_URL || "https://www.sofianeasma.me";
 
 /** Open Graph requires a `language_TERRITORY` locale, not a bare language code. */
 const OG_LOCALES: Record<Locale, string> = {
@@ -16,8 +16,8 @@ export function getBaseUrl() {
   return BASE_URL.replace(/\/$/, "");
 }
 
-export function buildOgImageUrl() {
-  return `${getBaseUrl()}/api/og?v=2`;
+export function buildOgImageUrl(locale: Locale = routing.defaultLocale) {
+  return `${getBaseUrl()}/api/og?locale=${locale}&v=3`;
 }
 
 export function generateLocaleMetadata({
@@ -47,7 +47,7 @@ export function generateLocaleMetadata({
   }
   languages["x-default"] = `${getBaseUrl()}/${routing.defaultLocale}${path}`;
 
-  const ogImage = buildOgImageUrl();
+  const ogImage = buildOgImageUrl(locale);
 
   return {
     metadataBase: new URL(getBaseUrl()),
@@ -71,6 +71,8 @@ export function generateLocaleMetadata({
       images: [
         {
           url: ogImage,
+          secureUrl: ogImage,
+          type: "image/png",
           width: 1200,
           height: 630,
           alt: ogTitle ?? title,
