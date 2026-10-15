@@ -54,6 +54,8 @@ export async function generateMetadata({
     locale: locale as Locale,
     title: t("title"),
     description: t("description"),
+    ogTitle: t("ogTitle"),
+    ogDescription: t("ogDescription"),
     keywords: t.raw("keywords") as string[],
   });
 }
