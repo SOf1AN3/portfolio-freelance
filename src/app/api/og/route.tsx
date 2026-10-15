@@ -1,4 +1,7 @@
 import { ImageResponse } from "next/og";
+import { isLocale, routing, type Locale } from "@/i18n/routing";
+import { readFile } from "node:fs/promises";
+import { join } from "node:path";
 import sofianePhoto from "@/assets/sofiane.png";
 
 export const runtime = "nodejs";
@@ -30,6 +33,71 @@ const LOCAL_HOSTNAMES = new Set([
   "[::1]",
   "0.0.0.0",
 ]);
+
+/**
+ * Card copy per locale. Plain TypeScript strings (not JSX text), so `&` stays
+ * a single ampersand — escaping it would render `&amp;` literally.
+ */
+type Copy = {
+  badge: string;
+  title1: string;
+  title2: string;
+  title3: string;
+  subtitle: string;
+  role: string;
+};
+
+const COPY: Record<Locale, Copy> = {
+  fr: {
+    badge: "DISPONIBLE POUR DE NOUVEAUX PROJETS",
+    title1: "Des sites web",
+    title2: "qui transforment",
+    title3: "vos visiteurs",
+    subtitle:
+      "Sites rapides et professionnels pour PME, applications web et SaaS sur-mesure.",
+    role: "DÉVELOPPEUR WEB & MOBILE",
+  },
+  en: {
+    badge: "AVAILABLE FOR NEW PROJECTS",
+    title1: "Websites that",
+    title2: "turn visitors",
+    title3: "into clients",
+    subtitle:
+      "Fast, modern sites for small businesses — plus custom web apps & SaaS on demand.",
+    role: "FULL-STACK WEB & MOBILE",
+  },
+  ar: {
+    badge: "متاح لمشاريع جديدة",
+    title1: "مواقع ويب",
+    title2: "تجلب لك",
+    title3: "عملاء جدد",
+    subtitle:
+      "مواقع ويب احترافية وسريعة للشركات الصغيرة، وتطبيقات وSaaS حسب الطلب.",
+    role: "مطوّر ويب وتطبيقات جوال",
+  },
+};
+
+/** Options accepted by `ImageResponse`, derived from its constructor. */
+type OgOptions = NonNullable<ConstructorParameters<typeof ImageResponse>[1]>;
+
+let cairoFontsPromise: Promise<Buffer[]> | undefined;
+
+/**
+ * Reads the two Cairo weights used by the Arabic card. The promise is cached
+ * for the lifetime of the server instance and reset on failure so a transient
+ * error can be retried on the next request.
+ */
+function loadCairoFonts(): Promise<Buffer[]> {
+  cairoFontsPromise ??= Promise.all([
+    readFile(join(process.cwd(), "src/app/api/og/fonts", "Cairo-Regular.ttf")),
+    readFile(join(process.cwd(), "src/app/api/og/fonts", "Cairo-Bold.ttf")),
+  ]).catch((error: unknown) => {
+    cairoFontsPromise = undefined;
+    throw error;
+  });
+
+  return cairoFontsPromise;
+}
 
 /**
  * Validates a raw URL against a strict allow-list: a known production origin,
@@ -204,12 +272,23 @@ function Monogram() {
   );
 }
 
-function IdentityCard({ avatarDataUri }: { avatarDataUri: string | null }) {
+function IdentityCard({
+  avatarDataUri,
+  locale,
+}: {
+  avatarDataUri: string | null;
+  locale: Locale;
+}) {
+  const c = COPY[locale];
+  const rtl = locale === "ar";
+  const textAlign = rtl ? "right" : "left";
+  const rowDirection = rtl ? "row-reverse" : "row";
+
   return (
     <div
       style={{
         display: "flex",
-        flexDirection: "row",
+        flexDirection: rtl ? "row-reverse" : "row",
         width: "100%",
         height: "100%",
         padding: 56,
@@ -226,12 +305,14 @@ function IdentityCard({ avatarDataUri }: { avatarDataUri: string | null }) {
           flexDirection: "column",
           flex: 1,
           gap: 26,
-          alignItems: "flex-start",
+          alignItems: rtl ? "flex-end" : "flex-start",
         }}
       >
         <div
           style={{
             display: "flex",
+            flexDirection: rowDirection,
+            textAlign,
             alignItems: "center",
             gap: 12,
             borderRadius: 9999,
@@ -253,13 +334,14 @@ function IdentityCard({ avatarDataUri }: { avatarDataUri: string | null }) {
               backgroundColor: "#22c55e",
             }}
           />
-          <div style={{ display: "flex" }}>AVAILABLE FOR NEW PROJECTS</div>
+          <div style={{ display: "flex", textAlign }}>{c.badge}</div>
         </div>
 
         <div
           style={{
             display: "flex",
             flexDirection: "column",
+            textAlign,
             fontSize: 64,
             fontWeight: 700,
             lineHeight: 1.05,
@@ -267,14 +349,15 @@ function IdentityCard({ avatarDataUri }: { avatarDataUri: string | null }) {
             color: "#f8fafc",
           }}
         >
-          <div style={{ display: "flex" }}>Websites that</div>
-          <div style={{ display: "flex" }}>turn visitors</div>
-          <div style={{ display: "flex" }}>into clients</div>
+          <div style={{ display: "flex", textAlign }}>{c.title1}</div>
+          <div style={{ display: "flex", textAlign }}>{c.title2}</div>
+          <div style={{ display: "flex", textAlign }}>{c.title3}</div>
         </div>
 
         <div
           style={{
             display: "flex",
+            textAlign,
             fontSize: 29,
             fontWeight: 400,
             lineHeight: 1.35,
@@ -282,13 +365,14 @@ function IdentityCard({ avatarDataUri }: { avatarDataUri: string | null }) {
             maxWidth: 600,
           }}
         >
-          Fast, modern sites for small businesses — plus custom web apps &amp;
-          SaaS on demand.
+          {c.subtitle}
         </div>
 
         <div
           style={{
             display: "flex",
+            flexDirection: rowDirection,
+            textAlign,
             alignItems: "center",
             gap: 16,
             marginTop: 10,
@@ -297,6 +381,7 @@ function IdentityCard({ avatarDataUri }: { avatarDataUri: string | null }) {
           <div
             style={{
               display: "flex",
+              textAlign,
               fontSize: 30,
               fontWeight: 700,
               color: "#e2e8f0",
@@ -316,6 +401,7 @@ function IdentityCard({ avatarDataUri }: { avatarDataUri: string | null }) {
           <div
             style={{
               display: "flex",
+              textAlign,
               fontSize: 26,
               fontWeight: 400,
               color: "#60a5fa",
@@ -373,13 +459,14 @@ function IdentityCard({ avatarDataUri }: { avatarDataUri: string | null }) {
         <div
           style={{
             display: "flex",
+            textAlign,
             fontSize: 21,
             fontWeight: 700,
             letterSpacing: 3,
             color: "#64748b",
           }}
         >
-          FULL-STACK WEB &amp; MOBILE
+          {c.role}
         </div>
       </div>
     </div>
@@ -387,6 +474,28 @@ function IdentityCard({ avatarDataUri }: { avatarDataUri: string | null }) {
 }
 
 export async function GET(request: Request): Promise<Response> {
+  const raw = new URL(request.url).searchParams.get("locale");
+  let locale: Locale = raw && isLocale(raw) ? raw : routing.defaultLocale;
+
+  // Arabic needs Cairo; other locales keep Satori's default fonts untouched.
+  let fonts: OgOptions["fonts"];
+  if (locale === "ar") {
+    try {
+      const [regular, bold] = await loadCairoFonts();
+      fonts = [
+        { name: "Cairo", data: regular, weight: 400, style: "normal" },
+        { name: "Cairo", data: bold, weight: 700, style: "normal" },
+      ];
+    } catch (error) {
+      console.error(
+        "OG Cairo fonts unavailable, falling back to English:",
+        error instanceof Error ? error.message : error,
+      );
+      locale = "en";
+      fonts = undefined;
+    }
+  }
+
   try {
     let avatarDataUri: string | null = null;
 
@@ -399,11 +508,15 @@ export async function GET(request: Request): Promise<Response> {
       );
     }
 
-    return new ImageResponse(<IdentityCard avatarDataUri={avatarDataUri} />, {
-      width: 1200,
-      height: 630,
-      headers: { "Cache-Control": CACHE_CONTROL },
-    });
+    return new ImageResponse(
+      <IdentityCard avatarDataUri={avatarDataUri} locale={locale} />,
+      {
+        width: 1200,
+        height: 630,
+        headers: { "Cache-Control": CACHE_CONTROL },
+        ...(fonts ? { fonts } : {}),
+      },
+    );
   } catch (error) {
     console.error(
       "OG generation failed:",
