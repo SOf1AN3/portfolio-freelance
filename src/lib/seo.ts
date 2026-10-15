@@ -16,9 +16,8 @@ export function getBaseUrl() {
   return BASE_URL.replace(/\/$/, "");
 }
 
-export function buildOgImageUrl(locale: string, title?: string) {
-  const base = `${getBaseUrl()}/api/og?locale=${encodeURIComponent(locale)}`;
-  return title ? `${base}&title=${encodeURIComponent(title)}` : base;
+export function buildOgImageUrl() {
+  return `${getBaseUrl()}/api/og?v=2`;
 }
 
 export function generateLocaleMetadata({
@@ -28,6 +27,8 @@ export function generateLocaleMetadata({
   keywords,
   path = "",
   type = "website",
+  ogTitle,
+  ogDescription,
 }: {
   locale: Locale;
   title: string;
@@ -35,6 +36,8 @@ export function generateLocaleMetadata({
   keywords?: string[];
   path?: string;
   type?: "website" | "article";
+  ogTitle?: string;
+  ogDescription?: string;
 }): Metadata {
   const url = `${getBaseUrl()}/${locale}${path}`;
   const languages: Record<string, string> = {};
@@ -44,7 +47,7 @@ export function generateLocaleMetadata({
   }
   languages["x-default"] = `${getBaseUrl()}/${routing.defaultLocale}${path}`;
 
-  const ogImage = buildOgImageUrl(locale, title);
+  const ogImage = buildOgImageUrl();
 
   return {
     metadataBase: new URL(getBaseUrl()),
@@ -63,21 +66,21 @@ export function generateLocaleMetadata({
         .map((l) => OG_LOCALES[l]),
       url,
       siteName: "Sofiane ASMA",
-      title,
-      description,
+      title: ogTitle ?? title,
+      description: ogDescription ?? description,
       images: [
         {
           url: ogImage,
           width: 1200,
           height: 630,
-          alt: title,
+          alt: ogTitle ?? title,
         },
       ],
     },
     twitter: {
       card: "summary_large_image",
-      title,
-      description,
+      title: ogTitle ?? title,
+      description: ogDescription ?? description,
       images: [ogImage],
     },
   };
