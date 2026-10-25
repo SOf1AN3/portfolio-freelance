@@ -95,6 +95,17 @@ export default async function LocaleLayout({
       className={`${syne.variable} ${jakarta.variable} ${cairo.variable} ${jetbrains.variable} h-full antialiased`}
     >
       <body className="relative flex min-h-full flex-col">
+        {/* Lien d'évitement (WCAG 2.4.1) : premier élément focusable au clavier. */}
+        <a
+          href="#contenu"
+          className="sr-only focus:not-sr-only focus:fixed focus:start-3 focus:top-3 focus:z-[70] focus:rounded-md focus:border focus:border-emerald/50 focus:bg-elevated focus:px-4 focus:py-2 focus:font-mono focus:text-xs focus:uppercase focus:text-platinum"
+        >
+          {locale === "ar"
+            ? "تخطَّ إلى المحتوى"
+            : locale === "en"
+              ? "Skip to content"
+              : "Aller au contenu"}
+        </a>
         <SmoothScrollProvider>
           <JsonLd data={structuredData} />
           <NextIntlClientProvider locale={locale} messages={messages}>

@@ -90,7 +90,7 @@ export function Navbar({ locale }: NavbarProps) {
             </span>
           </Link>
 
-          <nav className="hidden items-center xl:flex" aria-label={t("mainNav")}>
+          <nav className="hidden items-center lg:flex" aria-label={t("mainNav")}>
             {navItems.map((item) => (
               <Link
                 key={item.key}
@@ -125,7 +125,7 @@ export function Navbar({ locale }: NavbarProps) {
                 <Button
                   variant="ghost"
                   size="icon"
-                  className="xl:hidden"
+                  className="lg:hidden"
                   aria-label={t("menu")}
                   aria-expanded={open}
                   aria-controls={open ? MOBILE_MENU_ID : undefined}
