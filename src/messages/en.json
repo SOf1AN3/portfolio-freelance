@@ -188,6 +188,7 @@
   },
   "projects": {
     "index": "02 / SELECTED WORK",
+    "challengeLabel": "Engineering challenge",
     "title": "Featured projects",
     "subtitle": "Systems shipped to production, combining strict software structure with an uncompromised user experience.",
     "viewProject": "View project",
@@ -249,6 +250,7 @@
   },
   "tech": {
     "index": "03 / TECHNICAL ARSENAL",
+    "pillarCount": "{count} technologies",
     "title": "Proven technologies to build robust, scalable products.",
     "subtitle": "No reckless experiment on your critical projects. Every brick is chosen for its maintenance reliability and its proven industry performance.",
     "categories": {
@@ -380,6 +382,7 @@
       "submitting": "Sending...",
       "success": "Thank you! Your request has been sent. I'll get back to you shortly.",
       "error": "Your request could not be sent. Please try again in a moment, or contact me directly on WhatsApp.",
+      "privacyNote": "* STRICTLY CONFIDENTIAL INFORMATION",
       "projectTypes": {
         "web": "Website / Web app",
         "mobile": "Mobile app",

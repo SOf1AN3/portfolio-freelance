@@ -189,6 +189,7 @@
   },
   "projects": {
     "index": "02 / SÉLECTION DE RÉALISATIONS",
+    "challengeLabel": "Défi d'ingénierie",
     "title": "Projets phares",
     "subtitle": "Des systèmes déployés en production, combinant une grande rigueur de structure logicielle et une expérience utilisateur sans compromis.",
     "viewProject": "Voir le projet",
@@ -250,6 +251,7 @@
   },
   "tech": {
     "index": "03 / ARSENAL TECHNIQUE",
+    "pillarCount": "{count} briques",
     "title": "Des technologies éprouvées pour construire des produits robustes et évolutifs.",
     "subtitle": "Pas d'expérimentation hasardeuse sur vos projets critiques : chaque brique est sélectionnée pour sa fiabilité de maintenance et sa performance prouvée dans l'industrie.",
     "categories": {
@@ -381,6 +383,7 @@
       "submitting": "Envoi en cours...",
       "success": "Merci ! Votre demande a bien été envoyée. Je vous réponds très vite.",
       "error": "Votre demande n'a pas pu être envoyée. Réessayez dans quelques instants, ou contactez-moi directement par WhatsApp.",
+      "privacyNote": "* INFORMATIONS CONFIDENTIELLES",
       "projectTypes": {
         "web": "Site web / Application web",
         "mobile": "Application mobile",
