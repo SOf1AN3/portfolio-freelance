@@ -122,7 +122,7 @@ export function getStructuredData(locale: Locale) {
         "@type": "Person",
         "@id": `${getBaseUrl()}/#person`,
         name: "Sofiane ASMA",
-        jobTitle: "Full-Stack Web & Mobile Developer",
+        jobTitle: "Full-Stack Software Engineer",
         url: `${getBaseUrl()}/${locale}`,
         telephone: "+213551797313",
         address: {

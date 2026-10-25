@@ -3,10 +3,10 @@ import { getBaseUrl } from "@/lib/seo";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Sofiane ASMA — Développeur Web & Mobile Full-Stack",
+    name: "Sofiane ASMA — Ingénieur Full-Stack",
     short_name: "Sofiane ASMA",
     description:
-      "Développeur Full-Stack expert Next.js, React, Node.js. Applications web, SaaS et mobiles sur-mesure.",
+      "Ingénieur Full-Stack expert Next.js, React, Node.js. Applications web, SaaS et mobiles sur-mesure.",
     start_url: "/",
     display: "standalone",
     background_color: "#070a12",
