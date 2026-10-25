@@ -17,7 +17,7 @@ export function getBaseUrl() {
 }
 
 export function buildOgImageUrl(locale: Locale = routing.defaultLocale) {
-  return `${getBaseUrl()}/api/og?locale=${locale}&v=3`;
+  return `${getBaseUrl()}/api/og?locale=${locale}&v=4`;
 }
 
 export function generateLocaleMetadata({
