@@ -8,9 +8,9 @@ const HEADER_OFFSET = -96;
 
 /**
  * Courbe de défilement : départ réactif → accélération → freinage doux.
- * Variante resserrée (plus de répondant que la courbe lente de landonorris.com)
- * qui garde le profil « ça accélère puis ça ralentit » sans phases molles.
  * Résolution par Newton-Raphson sur la composante x, puis évaluation en y.
+ * (À durée réduite, la forme de la courbe se ressent à peine : c'est voulu,
+ * l'effet doit rester subtil.)
  */
 function cubicBezier(x1: number, y1: number, x2: number, y2: number): (t: number) => number {
   const a = (a1: number, b1: number) => 1 - 3 * b1 + 3 * a1;
@@ -84,7 +84,10 @@ export function SmoothScrollProvider({ children }: { children: ReactNode }): JSX
     if (prefersReducedMotion()) return;
 
     const instance = new Lenis({
-      duration: 1,
+      // Très court : le lissage devient un simple coussin (effet quasi
+      // imperceptible) plutôt qu'un glissement visible. Montter la valeur
+      // (0.4, 0.8, 1.2…) pour un effet plus appuyé.
+      duration: 0.22,
       easing: easeGliding,
       smoothWheel: true,
       touchMultiplier: 1.5,
