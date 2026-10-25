@@ -29,12 +29,17 @@ export function LanguageSwitcher({ locale, className }: LanguageSwitcherProps) {
         <Button
           variant="ghost"
           size="sm"
-          className={cn("gap-2", className)}
+          className={cn(
+            "gap-2 rounded-md border border-hairline bg-card px-3 py-1.5 font-mono text-xs uppercase text-mist hover:border-white/20 hover:bg-card hover:text-platinum",
+            className,
+          )}
           aria-label={t("language")}
         >
-          <Languages className="size-4" />
+          <Languages className="size-4" aria-hidden="true" />
           <span className="hidden sm:inline">{localeNames[locale]}</span>
-          <span className="sm:hidden">{localeFlags[locale]}</span>
+          <span className="sm:hidden" aria-hidden="true">
+            {localeFlags[locale]}
+          </span>
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="min-w-[160px]">
@@ -50,7 +55,7 @@ export function LanguageSwitcher({ locale, className }: LanguageSwitcherProps) {
                 aria-current={isActive ? "true" : undefined}
                 className={cn(
                   "flex items-center justify-between gap-2",
-                  isActive && "font-semibold text-primary",
+                  isActive && "font-semibold text-emerald",
                 )}
               >
                 <span className="flex items-center gap-2">
@@ -58,7 +63,7 @@ export function LanguageSwitcher({ locale, className }: LanguageSwitcherProps) {
                   <span>{localeNames[l]}</span>
                 </span>
                 {isActive ? (
-                  <Check className="size-4" aria-hidden />
+                  <Check className="size-4 text-emerald!" aria-hidden />
                 ) : null}
               </Link>
             </DropdownMenuItem>
