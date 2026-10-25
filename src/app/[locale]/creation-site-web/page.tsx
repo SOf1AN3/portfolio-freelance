@@ -223,7 +223,7 @@ export default async function CreationSiteWebPage({ params }: Props) {
       {/* 01 — Audience */}
       <section
         aria-labelledby="audience"
-        className="border-y border-hairline bg-deep py-20 lg:py-28"
+        className="border-y border-hairline bg-deep py-24 lg:py-32"
       >
         <Container>
           <Reveal>
@@ -262,7 +262,7 @@ export default async function CreationSiteWebPage({ params }: Props) {
       {/* 02 — Problèmes */}
       <section
         aria-labelledby="problems"
-        className="bg-canvas py-20 lg:py-28"
+        className="bg-canvas py-24 lg:py-32"
       >
         <Container>
           <Reveal>
@@ -291,7 +291,7 @@ export default async function CreationSiteWebPage({ params }: Props) {
       {/* 03 — Délivrables */}
       <section
         aria-labelledby="deliverables"
-        className="border-y border-hairline bg-deep py-20 lg:py-28"
+        className="border-y border-hairline bg-deep py-24 lg:py-32"
       >
         <Container>
           <Reveal>
@@ -327,7 +327,7 @@ export default async function CreationSiteWebPage({ params }: Props) {
       </section>
 
       {/* 04 — Options */}
-      <section aria-labelledby="options" className="bg-canvas py-20 lg:py-28">
+      <section aria-labelledby="options" className="bg-canvas py-24 lg:py-32">
         <Container>
           <Reveal>
             <SectionHeading
@@ -375,7 +375,7 @@ export default async function CreationSiteWebPage({ params }: Props) {
       {/* 05 — Étapes */}
       <section
         aria-labelledby="steps"
-        className="border-y border-hairline bg-deep py-20 lg:py-28"
+        className="border-y border-hairline bg-deep py-24 lg:py-32"
       >
         <Container>
           <Reveal>
@@ -406,12 +406,12 @@ export default async function CreationSiteWebPage({ params }: Props) {
         </Container>
       </section>
 
-      <FaqSection />
+      <FaqSection bordered={false} />
 
       {/* Bandeau CTA final */}
       <section
         aria-labelledby="final-cta"
-        className="border-t border-hairline bg-deep py-20 lg:py-28"
+        className="border-t border-hairline bg-deep py-24 lg:py-32"
       >
         <Container>
           <Reveal className="mx-auto max-w-3xl">

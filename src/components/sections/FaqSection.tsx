@@ -15,11 +15,22 @@ import { cn } from "@/lib/utils";
 
 type FaqItem = { question: string; answer: string };
 
+type FaqSectionProps = {
+  /**
+   * Filets `border-y` de la section (défaut : `true`).
+   *
+   * Passé à `false` quand la section est encadrée par deux sections qui portent
+   * déjà leur propre `border` : sans cela, deux filets de 1px voisins s'empilent
+   * et donnent un trait de 2px.
+   */
+  bordered?: boolean;
+};
+
 /** Micro-index ledger : « 01 », « 02 », … */
 const ledgerIndex = (position: number): string =>
   String(position).padStart(2, "0");
 
-export function FaqSection() {
+export function FaqSection({ bordered = true }: FaqSectionProps) {
   const t = useTranslations("faq");
   const items = t.raw("items") as FaqItem[];
   /** Une seule question ouverte à la fois (`null` = tout replié). */
@@ -38,7 +49,11 @@ export function FaqSection() {
   return (
     <section
       id="faq"
-      className="scroll-mt-16 border-y border-hairline bg-canvas py-24 lg:py-32"
+      className={cn(
+        "scroll-mt-24 bg-canvas py-24 lg:py-32",
+        // `bordered={false}` : la section voisine porte déjà son propre filet.
+        bordered && "border-y border-hairline",
+      )}
     >
       <JsonLd data={structuredData} />
 
@@ -73,7 +88,7 @@ export function FaqSection() {
                         aria-expanded={isOpen}
                         aria-controls={panelId}
                         onClick={() => setOpenIndex(isOpen ? null : i)}
-                        className="flex w-full items-start gap-3 px-5 py-5 text-start transition-colors duration-200 hover:bg-elevated/60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald sm:px-6"
+                        className="flex w-full cursor-pointer items-start gap-3 px-5 py-5 text-start transition-colors duration-200 hover:bg-elevated/60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald sm:px-6"
                       >
                         <span
                           aria-hidden="true"
