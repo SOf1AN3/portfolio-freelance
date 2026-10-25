@@ -1,0 +1,757 @@
+<!DOCTYPE html><html class="dark" lang="fr" style=""><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="web_standard" name="shell-type"><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Syne:wght@600;700;800&amp;display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={"darkMode":"class","theme":{"extend":{"colors":{"text-secondary":"#94A3B8","tertiary-fixed":"#d3e4fe","primary-fixed-dim":"#4edea3","surface-container-high":"#292a2f","on-primary":"#003824","background":"#121318","hairline-glass":"rgba(255, 255, 255, 0.07)","surface-dim":"#121318","inverse-on-surface":"#2f3036","surface-deep":"#0E1017","tertiary-container":"#94a4bd","on-primary-fixed":"#002113","surface-elevated":"#1C202E","on-tertiary":"#213145","secondary-fixed-dim":"#45dfa4","secondary-container":"#00bd85","on-secondary-container":"#00452e","primary":"#4edea3","inverse-surface":"#e3e1e9","text-muted":"#64748B","outline-variant":"#3c4a42","on-primary-fixed-variant":"#005236","secondary":"#45dfa4","on-error-container":"#ffdad6","on-primary-container":"#00422b","error-container":"#93000a","on-secondary-fixed":"#002114","on-secondary":"#003825","surface":"#121318","surface-container":"#1e1f25","text-platinum":"#F1F5F9","on-tertiary-container":"#2a3a4f","inverse-primary":"#006c49","on-secondary-fixed-variant":"#005137","surface-container-lowest":"#0d0e13","primary-container":"#10b981","on-surface":"#e3e1e9","surface-bright":"#38393f","surface-variant":"#34343a","surface-container-highest":"#34343a","surface-card":"#151822","on-background":"#e3e1e9","on-tertiary-fixed-variant":"#38485d","hairline-border":"#272C3D","tertiary":"#b7c8e1","on-error":"#690005","surface-tint":"#4edea3","surface-container-low":"#1a1b21","canvas-base":"#090A0F","tertiary-fixed-dim":"#b7c8e1","on-tertiary-fixed":"#0b1c30","outline":"#86948a","error":"#ffb4ab","secondary-fixed":"#68fcbf","primary-fixed":"#6ffbbe","on-surface-variant":"#bbcabf"},"borderRadius":{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},"spacing":{"space-xl":"3rem","margin":"1.5rem","space-sm":"0.5rem","space-lg":"1.75rem","gutter":"1.5rem","space-xs":"0.25rem","margin-desktop":"5rem","space-2xl":"5rem","margin-tablet":"3rem","space-md":"1rem","gutter-desktop":"2.5rem"},"fontFamily":{"headline-md":["Syne"],"headline-lg-mobile":["Syne"],"label-code":["JetBrains Mono"],"body-sm":["Plus Jakarta Sans"],"headline-sm":["Plus Jakarta Sans"],"display-hero":["Syne"],"micro-index":["JetBrains Mono"],"display-hero-mobile":["Syne"],"body-md":["Plus Jakarta Sans"],"headline-lg":["Syne"],"body-lg":["Plus Jakarta Sans"]},"fontSize":{"headline-md":["1.75rem",{"lineHeight":"1.25","letterSpacing":"-0.02em","fontWeight":"600"}],"headline-lg-mobile":["2rem",{"lineHeight":"1.2","letterSpacing":"-0.02em","fontWeight":"600"}],"label-code":["0.8125rem",{"lineHeight":"1.4","letterSpacing":"0.02em","fontWeight":"500"}],"body-sm":["0.8125rem",{"lineHeight":"1.55","letterSpacing":"0.01em","fontWeight":"400"}],"headline-sm":["1.25rem",{"lineHeight":"1.35","letterSpacing":"-0.01em","fontWeight":"600"}],"display-hero":["4.5rem",{"lineHeight":"1.05","letterSpacing":"-0.04em","fontWeight":"700"}],"micro-index":["0.6875rem",{"lineHeight":"1.2","letterSpacing":"0.15em","fontWeight":"600"}],"display-hero-mobile":["2.75rem",{"lineHeight":"1.1","letterSpacing":"-0.03em","fontWeight":"700"}],"body-md":["0.9375rem",{"lineHeight":"1.6","letterSpacing":"0em","fontWeight":"400"}],"headline-lg":["2.75rem",{"lineHeight":"1.15","letterSpacing":"-0.03em","fontWeight":"600"}],"body-lg":["1.125rem",{"lineHeight":"1.65","letterSpacing":"-0.005em","fontWeight":"400"}]}}}}</script></head><body class="bg-canvas-base text-on-surface font-body-md text-body-md selection:bg-primary-container selection:text-on-primary-container min-h-screen antialiased"><header class="fixed top-0 left-0 right-0 z-50 bg-canvas-base/85 backdrop-blur-xl border-b border-surface-elevated/80 shadow-[0_1px_12px_rgba(0,0,0,0.25)]"><div class="h-20 max-w-7xl mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop flex items-center justify-between gap-6"><div class="flex items-center gap-3"><a class="flex flex-col group" data-path="accueil" href="#"><div class="flex items-center gap-2"><span class="font-headline-sm text-headline-sm tracking-tight text-text-platinum uppercase font-bold transition-opacity group-hover:opacity-80">SOFIANE ASMA</span></div><span class="font-micro-index text-micro-index text-text-muted tracking-[0.2em] uppercase">ARTISAN DU WEB &amp; ARCHITECTE FULL-STACK</span></a></div><nav class="hidden lg:flex items-center gap-7 font-label-code text-label-code" data-active-classes="text-text-platinum font-bold"><a class="text-text-secondary hover:text-text-platinum transition-colors relative py-1 flex items-center gap-1.5" data-path="services" href="#services"><span class="text-primary text-[10px]">/</span><span class="">Services</span></a><a class="text-text-secondary hover:text-text-platinum transition-colors relative py-1 flex items-center gap-1.5" data-path="realisations" href="#projets"><span class="text-primary text-[10px]">/</span><span class="">Réalisations</span></a><a class="text-text-secondary hover:text-text-platinum transition-colors relative py-1 flex items-center gap-1.5" data-path="expertise" href="#expertise"><span class="text-primary text-[10px]">/</span><span class="">Stack &amp; Méthode</span></a><a class="text-text-secondary hover:text-text-platinum transition-colors relative py-1 flex items-center gap-1.5" data-path="processus" href="#processus"><span class="text-primary text-[10px]">/</span><span class="">Processus</span></a><a class="text-text-secondary hover:text-text-platinum transition-colors relative py-1 flex items-center gap-1.5" data-path="contact" href="#contact"><span class="text-primary text-[10px]">/</span><span class="">Contact</span></a></nav><div class="flex items-center gap-4"><a class="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded bg-text-platinum text-canvas-base font-body-sm text-body-sm font-semibold hover:bg-white hover:text-canvas-base transition-all shadow-[0_1px_8px_rgba(255,255,255,0.08)] group" data-path="contact" href="#contact"><span class="">Initier un projet</span><span class="material-symbols-outlined text-[16px] group-hover:translate-x-0.5 transition-transform">arrow_forward</span></a></div></div></header><main class="w-full pt-20 bg-canvas-base"><div class="flex flex-col w-full text-on-surface">
+<!-- =========================================================================
+       HERO ARCHITECTURAL SUITE
+       ========================================================================= -->
+<section class="relative w-full pt-10 pb-space-2xl px-margin md:px-margin-tablet lg:px-margin-desktop overflow-hidden">
+<!-- Subtle architectural matrix grid backdrop -->
+<div class="absolute inset-0 pointer-events-none opacity-20">
+<div class="w-full h-full" style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.12) 1px, transparent 0); background-size: 40px 40px;"></div>
+</div>
+<!-- Large ambient emerald luminescence glow -->
+<div class="absolute -top-40 right-10 w-[550px] h-[550px] bg-primary/5 rounded-full blur-[140px] pointer-events-none"></div>
+<div class="relative z-10 max-w-7xl mx-auto flex flex-col gap-12">
+<!-- Top Ledger Meta Row -->
+
+<!-- Hero Grid: Typography + Discreet Portrait Card -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+<!-- Left Column: Master Headline & Direct Call-to-actions (7 Cols) -->
+<div class="lg:col-span-7 flex flex-col gap-8">
+<div class="flex flex-col gap-4">
+<span class="font-micro-index text-micro-index text-text-muted tracking-[0.25em] uppercase">
+              ARTISANAT DU CODE &amp; ARCHITECTURES NUMÉRIQUES
+            </span>
+<h1 class="font-display-hero text-headline-lg-mobile md:text-headline-lg lg:text-[3.75rem] font-bold text-text-platinum leading-[1.08] tracking-tight">
+              Sites web d'exception <span class="text-text-secondary font-normal">&amp;</span> ingénierie logicielle pour entreprises exigeantes.
+            </h1>
+</div>
+<p class="font-body-lg text-body-lg text-text-secondary leading-relaxed max-w-2xl">
+            Développeur web &amp; mobile full-stack dédié aux cabinets médicaux, structures de conseil, commerces et artisans d'envergure. Je bâtis des plateformes ultra-rapides, simples à piloter et façonnées pour transformer durablement vos visiteurs en prescripteurs ou clients actifs.
+          </p>
+<!-- Action Buttons -->
+<div class="flex flex-wrap items-center gap-4 pt-2">
+<a class="inline-flex items-center gap-3 px-7 py-3.5 rounded bg-text-platinum text-canvas-base font-body-sm text-body-sm font-semibold hover:bg-white transition-all shadow-[0_1px_12px_rgba(255,255,255,0.08)] group" href="https://wa.me/213551797313?text=Bonjour%20Sofiane%2C%20j'ai%20un%20projet%20web%2Fmobile" rel="noopener noreferrer" target="_blank">
+<span class="material-symbols-outlined text-[19px] text-canvas-base">chat</span>
+<span class="">Discuter de mon projet</span>
+<span class="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+<a class="inline-flex items-center gap-2.5 px-6 py-3.5 rounded bg-surface-card border border-surface-elevated text-text-platinum font-body-sm text-body-sm hover:border-primary/40 hover:bg-surface-elevated transition-all" href="#projets">
+<span class="">Explorer les réalisations</span>
+<span class="font-micro-index text-micro-index text-primary tracking-widest">[ 05 ]</span>
+</a>
+</div>
+<!-- Micro Spec Matrix Tags -->
+
+</div>
+<!-- Right Column: Tasteful, Discreet Portrait Showcase (5 Cols) -->
+<!-- Respects the shy persona: refined, subtle framing, artistic lighting, no egotistical center-stage -->
+<div class="lg:col-span-5 flex justify-center lg:justify-end">
+<div class="w-full max-w-md bg-surface-card rounded-xl p-6 border border-surface-elevated shadow-2xl relative overflow-hidden group">
+<!-- Top Subtle Technical Status -->
+<div class="flex items-center justify-between pb-4 border-b border-surface-elevated mb-6">
+<div class="flex items-center gap-2">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+<span class="font-micro-index text-micro-index text-text-platinum tracking-widest uppercase">PROFIL INGÉNIEUR</span>
+</div>
+
+</div>
+<div class="flex flex-col sm:flex-row items-center gap-6">
+<!-- Portrait Image Container: desaturated, discreet, fine luminous rim -->
+<div class="relative w-28 h-28 sm:w-32 sm:h-32 rounded-lg overflow-hidden flex-shrink-0 border border-primary/25 shadow-lg bg-surface-deep">
+<img class="w-full h-full object-cover grayscale contrast-125 opacity-90 group-hover:scale-105 transition-transform duration-700" data-alt="A dignified, quiet black and white artistic portrait of a thoughtful 27-year-old North African male software engineer in a minimal dark studio setting with gentle emerald rim lighting, wearing a simple matte black crewneck, discreetly looking slightly away from the camera, conveying deep humility, focus, intelligence and quiet artisanal competence, shot on 35mm monochrome film." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAibXAaaIZCFeDI6gAb9n9ZWfwj07pRhZ5p82pnulHzBaX3XPCL_0DSd4qhPsBdDSukINo6E3TeJN3ClxbZenuUFZzbWr1xHkIEWYGhVivTuUQjW2KDdmo38ZcF5NT_ZH84oyDPQeX_xp7EIHDJ9VV038BsrBjWYZIksAo2CLWmJc2yZJcmLLxOHGtuH4GdvfGB4VwMba8HFs2KJ1vioYhk7xfzU0m_cJhpvnSHuU_NBz4p5EBeWic">
+<div class="absolute inset-0 bg-gradient-to-t from-surface-card/90 via-transparent to-transparent"></div>
+</div>
+<!-- Engineer credentials -->
+<div class="flex flex-col gap-1.5 text-center sm:text-left">
+<span class="font-headline-sm text-headline-sm font-bold text-text-platinum tracking-tight">Sofiane Asma</span>
+<span class="font-label-code text-label-code text-primary">Artisan Full-Stack &amp; Web</span>
+<span class="font-body-sm text-body-sm text-text-secondary mt-1">Conception architecturale et réalisation intégrale sans sous-traitance.</span>
+</div>
+</div>
+<!-- Precision Badging Spec inside card -->
+<div class="mt-6 pt-5 border-t border-surface-elevated grid grid-cols-3 gap-2 text-center">
+<div class="p-2 rounded bg-surface-deep border border-hairline-glass flex flex-col">
+<span class="font-micro-index text-micro-index text-text-muted uppercase">Périmètre</span>
+<span class="font-label-code text-label-code text-text-platinum font-semibold">Web/Desk</span>
+</div>
+<div class="p-2 rounded bg-surface-deep border border-hairline-glass flex flex-col">
+<span class="font-micro-index text-micro-index text-text-muted uppercase">Mobile</span>
+<span class="font-label-code text-label-code text-text-platinum font-semibold">iOS &amp; And.</span>
+</div>
+<div class="p-2 rounded bg-surface-deep border border-hairline-glass flex flex-col">
+<span class="font-micro-index text-micro-index text-text-muted uppercase">Base</span>
+<span class="font-label-code text-label-code text-primary font-semibold">Remote</span>
+</div>
+</div>
+<!-- Subtext -->
+
+</div>
+</div>
+</div>
+<!-- Quantitative Rigor Metrics Ledger -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-8">
+<div class="p-6 rounded-lg bg-surface-card border border-surface-elevated flex flex-col justify-between hover:border-primary/30 transition-all">
+<div class="flex items-center justify-between">
+<span class="font-micro-index text-micro-index text-text-muted tracking-widest uppercase">ÉCOSYSTÈME ACTIF</span>
+<span class="font-label-code text-label-code text-primary">01 / AUDITÉ</span>
+</div>
+<div class="mt-4 flex items-baseline gap-3">
+<span class="font-headline-lg text-headline-lg font-bold text-text-platinum">05</span>
+<span class="font-label-code text-label-code text-text-secondary">PROJETS PHARES EN LIGNE</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-muted mt-2">Architectures déployées en production haute disponibilité, monétisées ou en usage quotidien.</p>
+</div>
+<div class="p-6 rounded-lg bg-surface-card border border-surface-elevated flex flex-col justify-between hover:border-primary/30 transition-all">
+<div class="flex items-center justify-between">
+<span class="font-micro-index text-micro-index text-text-muted tracking-widest uppercase">EXPÉRIENCE INGÉNIERIE</span>
+<span class="font-label-code text-label-code text-primary">02 / ÉPROUVÉ</span>
+</div>
+<div class="mt-4 flex items-baseline gap-3">
+<span class="font-headline-lg text-headline-lg font-bold text-text-platinum">+3</span>
+<span class="font-label-code text-label-code text-text-secondary">ANNÉES D'EXPERTISE APPLIQUÉE</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-muted mt-2">Pratique intensive des technologies modernes : Next.js, Node.js, PostgreSQL et design systems sur-mesure.</p>
+</div>
+<div class="p-6 rounded-lg bg-surface-card border border-surface-elevated flex flex-col justify-between hover:border-primary/30 transition-all">
+<div class="flex items-center justify-between">
+<span class="font-micro-index text-micro-index text-text-muted tracking-widest uppercase">RÉACTIVITÉ DIRECTE</span>
+<span class="font-label-code text-label-code text-primary">03 / GARANTI</span>
+</div>
+<div class="mt-4 flex items-baseline gap-3">
+<span class="font-headline-lg text-headline-lg font-bold text-text-platinum">&lt;24h</span>
+<span class="font-label-code text-label-code text-text-secondary">RÉPONSE OUVRÉE</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-muted mt-2">Échange direct avec l'ingénieur en charge de votre code, sans intermédiaire ni commercial.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- =========================================================================
+       SECTION: ARCHITECTURAL SERVICES CATALOGUE (MAGNIFIED & BESPOKE)
+       ========================================================================= -->
+<section class="w-full py-space-2xl px-margin md:px-margin-tablet lg:px-margin-desktop bg-surface-deep border-t border-b border-surface-elevated relative" id="services"><div class="max-w-7xl mx-auto flex flex-col gap-10"><div class="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-6 border-b border-surface-elevated"><div class="flex flex-col gap-3 max-w-2xl"><div class="flex items-center gap-3"><span class="font-micro-index text-micro-index text-primary tracking-[0.2em] uppercase">01 / ARCHITECTURE &amp; OFFRE DE SERVICES</span><div class="h-px w-12 bg-surface-elevated"></div></div><h2 class="font-headline-lg text-headline-lg text-text-platinum font-bold tracking-tight">Une ingénierie sur-mesure au service de votre impact.</h2><p class="font-body-md text-body-md text-text-secondary leading-relaxed">Chaque intervention est traitée avec la rigueur d'un atelier d'artisan : code source pur, zéro dépendance superflue, et conformité absolue avec vos impératifs d'affaires.</p></div></div><div class="grid grid-cols-1 md:grid-cols-2 gap-6"><div class="p-6 sm:p-7 rounded-xl bg-surface-card border border-surface-elevated hover:border-primary/40 transition-all flex flex-col justify-between gap-6 group" id="service-01"><div class="flex flex-col gap-4"><div class="flex items-center justify-between pb-3 border-b border-surface-elevated"><div class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-primary"></span><span class="font-micro-index text-micro-index text-primary uppercase tracking-widest">01 // VITRINES CRITIQUES</span></div><span class="font-label-code text-label-code text-text-muted">2 À 4 SEMAINES</span></div><h3 class="font-headline-md text-headline-md font-bold text-text-platinum group-hover:text-primary transition-colors">Sites Web Professionnels &amp; Vitrines d'Autorité</h3><p class="font-body-sm text-body-sm text-text-secondary leading-relaxed">Conçu pour cabinets médicaux, praticiens, avocats et bureaux de conseil. Architecture rapide, typographie soignée et conversion fluide des consultations en rendez-vous.</p><div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1"><div class="p-2.5 rounded bg-surface-deep border border-hairline-glass flex flex-col gap-0.5"><span class="font-label-code text-label-code text-primary font-semibold">/ CONCEPTION SUR-MESURE</span><span class="font-body-sm text-body-sm text-text-muted">Design system propre, zéro template</span></div><div class="p-2.5 rounded bg-surface-deep border border-hairline-glass flex flex-col gap-0.5"><span class="font-label-code text-label-code text-primary font-semibold">/ CONVERSION &amp; RDV</span><span class="font-body-sm text-body-sm text-text-muted">Agendas intégrés, flux instantanés</span></div><div class="p-2.5 rounded bg-surface-deep border border-hairline-glass flex flex-col gap-0.5"><span class="font-label-code text-label-code text-primary font-semibold">/ FONDATIONS SEO</span><span class="font-body-sm text-body-sm text-text-muted">Temps &lt; 1s, métadonnées OpenGraph</span></div><div class="p-2.5 rounded bg-surface-deep border border-hairline-glass flex flex-col gap-0.5"><span class="font-label-code text-label-code text-primary font-semibold">/ AUTONOMIE TOTALE</span><span class="font-body-sm text-body-sm text-text-muted">Gestion intuitive sans risque de casse</span></div></div></div><div class="pt-4 border-t border-surface-elevated flex items-center justify-between"><span class="font-micro-index text-micro-index text-text-muted">NEXT.JS · REACT · TAILWIND</span><a class="inline-flex items-center gap-1.5 font-label-code text-label-code text-text-platinum hover:text-primary transition-colors" href="#contact"><span class="">Découvrir l'offre</span><span class="material-symbols-outlined text-[16px]">arrow_forward</span></a></div></div><div class="p-6 sm:p-7 rounded-xl bg-surface-card border border-surface-elevated hover:border-primary/40 transition-all flex flex-col justify-between gap-6 group" id="service-02"><div class="flex flex-col gap-4"><div class="flex items-center justify-between pb-3 border-b border-surface-elevated"><div class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-primary"></span><span class="font-micro-index text-micro-index text-primary uppercase tracking-widest">02 // SAAS &amp; SYSTÈMES</span></div><span class="font-label-code text-label-code text-text-muted">SPRINTS AGILES</span></div><h3 class="font-headline-md text-headline-md font-bold text-text-platinum group-hover:text-primary transition-colors">Applications Web &amp; SaaS Complexes</h3><p class="font-body-sm text-body-sm text-text-secondary leading-relaxed">Tableaux de bord d'exploitation, espaces clients sécurisés et logiciels métiers. Développés avec Next.js, Node.js et PostgreSQL, avec extensions mobiles réactives.</p><div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1"><div class="p-2.5 rounded bg-surface-deep border border-hairline-glass flex flex-col gap-0.5"><span class="font-label-code text-label-code text-primary font-semibold">/ BACKEND &amp; SCHÉMAS SQL</span><span class="font-body-sm text-body-sm text-text-muted">PostgreSQL, auth chiffrée &amp; APIs</span></div><div class="p-2.5 rounded bg-surface-deep border border-hairline-glass flex flex-col gap-0.5"><span class="font-label-code text-label-code text-primary font-semibold">/ TEMPS RÉEL &amp; FLUX IA</span><span class="font-body-sm text-body-sm text-text-muted">WebSockets, synchronisation continue</span></div><div class="p-2.5 rounded bg-surface-deep border border-hairline-glass flex flex-col gap-0.5"><span class="font-label-code text-label-code text-primary font-semibold">/ ESPACES DASHBOARD</span><span class="font-body-sm text-body-sm text-text-muted">Métriques, rôles RBAC &amp; facturation</span></div><div class="p-2.5 rounded bg-surface-deep border border-hairline-glass flex flex-col gap-0.5"><span class="font-label-code text-label-code text-primary font-semibold">/ APPS MOBILES</span><span class="font-body-sm text-body-sm text-text-muted">React Native / Expo iOS &amp; Android</span></div></div></div><div class="pt-4 border-t border-surface-elevated flex items-center justify-between"><span class="font-micro-index text-micro-index text-text-muted">POSTGRESQL · NEXT · NODE · WS</span><a class="inline-flex items-center gap-1.5 font-label-code text-label-code text-text-platinum hover:text-primary transition-colors" href="#contact"><span class="">Cadrer mon SaaS</span><span class="material-symbols-outlined text-[16px]">arrow_forward</span></a></div></div><div class="p-6 sm:p-7 rounded-xl bg-surface-card border border-surface-elevated hover:border-primary/40 transition-all flex flex-col justify-between gap-6 group" id="service-03"><div class="flex flex-col gap-4"><div class="flex items-center justify-between pb-3 border-b border-surface-elevated"><div class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-primary"></span><span class="font-micro-index text-micro-index text-primary uppercase tracking-widest">03 // RESTRUCTURATION</span></div><span class="font-label-code text-label-code text-text-muted">AUDIT COMPLET</span></div><h3 class="font-headline-md text-headline-md font-bold text-text-platinum group-hover:text-primary transition-colors">Refonte, Performance &amp; SEO Technique</h3><p class="font-body-sm text-body-sm text-text-secondary leading-relaxed">Votre plateforme est ralentie ou peu visible ? Réingénierie ciblée des points critiques : Core Web Vitals, réduction du temps d'interactivité et optimisation du référencement naturel.</p><div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1"><div class="p-2.5 rounded bg-surface-deep border border-hairline-glass flex flex-col gap-0.5"><span class="font-label-code text-label-code text-primary font-semibold">/ CORE WEB VITALS 95+</span><span class="font-body-sm text-body-sm text-text-muted">Optimisation LCP, CLS &amp; score vert</span></div><div class="p-2.5 rounded bg-surface-deep border border-hairline-glass flex flex-col gap-0.5"><span class="font-label-code text-label-code text-primary font-semibold">/ MIGRATION FLUIDE</span><span class="font-body-sm text-body-sm text-text-muted">Continuité totale, zéro rupture de trafic</span></div></div></div><div class="pt-4 border-t border-surface-elevated flex items-center justify-between"><span class="font-micro-index text-micro-index text-text-muted">AUDIT LIGHTHOUSE · SEO ON-PAGE</span><a class="inline-flex items-center gap-1.5 font-label-code text-label-code text-text-platinum hover:text-primary transition-colors" href="#contact"><span class="">Demander un audit</span><span class="material-symbols-outlined text-[16px]">arrow_forward</span></a></div></div><div class="p-6 sm:p-7 rounded-xl bg-surface-card border border-surface-elevated hover:border-primary/40 transition-all flex flex-col justify-between gap-6 group" id="service-04"><div class="flex flex-col gap-4"><div class="flex items-center justify-between pb-3 border-b border-surface-elevated"><div class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-primary"></span><span class="font-micro-index text-micro-index text-primary uppercase tracking-widest">04 // PÉRENNITÉ</span></div><span class="font-label-code text-label-code text-text-muted">SUIVI CONTINU</span></div><h3 class="font-headline-md text-headline-md font-bold text-text-platinum group-hover:text-primary transition-colors">Maintenance Proactive &amp; Architecture Long-terme</h3><p class="font-body-sm text-body-sm text-text-secondary leading-relaxed">Accompagnement post-déploiement pour prémunir votre entreprise contre l'obsolescence technique, les failles et les pannes : veille active, sauvegardes déportées et évolutions continues.</p><div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1"><div class="p-2.5 rounded bg-surface-deep border border-hairline-glass flex flex-col gap-0.5"><span class="font-label-code text-label-code text-primary font-semibold">/ MONITORING 24/7</span><span class="font-body-sm text-body-sm text-text-muted">Disponibilité 99.9% et alertes immédiates</span></div><div class="p-2.5 rounded bg-surface-deep border border-hairline-glass flex flex-col gap-0.5"><span class="font-label-code text-label-code text-primary font-semibold">/ SAUVEGARDES REDONDANTES</span><span class="font-body-sm text-body-sm text-text-muted">Copies chiffrées &amp; restauration instantanée</span></div></div></div><div class="pt-4 border-t border-surface-elevated flex items-center justify-between"><span class="font-micro-index text-micro-index text-text-muted">LIAISON DIRECTE INGÉNIEUR</span><a class="inline-flex items-center gap-1.5 font-label-code text-label-code text-text-platinum hover:text-primary transition-colors" href="#contact"><span class="">Contrat de suivi</span><span class="material-symbols-outlined text-[16px]">arrow_forward</span></a></div></div></div></div></section>
+<!-- =========================================================================
+       SECTION: PROJETS PHARES (EDITORIAL SHOWCASE)
+       ========================================================================= -->
+<section class="w-full py-space-2xl px-margin md:px-margin-tablet lg:px-margin-desktop" id="projets">
+<div class="max-w-7xl mx-auto flex flex-col gap-14">
+<!-- Section Title: Left-Aligned, Strictly No Pills -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-6 border-b border-surface-elevated">
+<div class="flex flex-col gap-3 max-w-2xl">
+<div class="flex items-center gap-3">
+<span class="font-micro-index text-micro-index text-primary tracking-[0.2em] uppercase">02 / SÉLECTION DE RÉALISATIONS</span>
+<div class="h-px w-12 bg-surface-elevated"></div>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-text-platinum font-bold tracking-tight">
+            Une sélection de réalisations techniques &amp; créatives.
+          </h2>
+<p class="font-body-md text-body-md text-text-secondary">
+            Des systèmes déployés en production, combinant une grande rigueur de structure logicielle et une expérience utilisateur sans compromis.
+          </p>
+</div>
+
+</div>
+<!-- Projects Grid / Mosaic -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+<!-- Project 01: Delyx Delivery -->
+<div class="p-8 rounded-xl bg-surface-card border border-surface-elevated hover:border-primary/40 transition-all flex flex-col justify-between gap-8 group">
+<div class="flex flex-col gap-6">
+<div class="flex items-center justify-between pb-3 border-b border-surface-elevated">
+<span class="font-micro-index text-micro-index text-text-muted uppercase">2026 // LOGISTIQUE &amp; TEMPS RÉEL</span>
+<span class="inline-flex items-center gap-1.5 font-label-code text-label-code text-primary">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-ping"></span>
+                EN LIGNE
+              </span>
+</div>
+<!-- Visual Preview Graphic Placeholder -->
+<div class="relative w-full h-56 rounded-lg overflow-hidden bg-surface-deep border border-hairline-glass">
+<img class="w-full h-full object-cover group-hover:scale-102 transition-transform duration-500" data-alt="High-contrast dark-mode interface mockup of Delyx Delivery logistics platform, displaying real-time motorcycle courier tracking across urban map contours, delivery status timeline, and driver dispatch metrics in sleek emerald and obsidian slate palette, modern typography, ultra crisp UI." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDEJ8s4izmaxXM_HrnWQh_xKa73pBujkcJgkzErfMwiJyV0MUC2dD6JGD_1PH9lMoCiJKU3aArz4plDFU1ywyOvXN4jt5M5rJ50uNcscDc5Aelz2Gbn6GWWbnPmZ9H-x0ZowVEDp9r6xuFq6gvFUYkSbW4z6TQLu9C31K61qzRm2YHqo1tL22PTyYqKDCWcFcFo00EZd3ajQU2DI3CESqD5gxcy4CJlOzp8-LPCGCZ3M2C_BHc0ZOc">
+<div class="absolute inset-0 bg-gradient-to-t from-surface-card via-transparent to-transparent"></div>
+
+</div>
+<div class="flex flex-col gap-2">
+<h3 class="font-headline-md text-headline-md font-bold text-text-platinum group-hover:text-primary transition-colors">
+                Delyx Delivery
+              </h3>
+<p class="font-body-md text-body-md text-text-secondary leading-relaxed">
+                Plateforme de livraison à moto partout en Algérie. Les clients décrivent leur course, sélectionnent leur livreur attitré, suivent le trajet en direct par géolocalisation et règlent en espèces à l'arrivée.
+              </p>
+</div>
+<!-- Problem / Solution Callout -->
+<div class="p-4 rounded bg-surface-deep border border-hairline-glass flex flex-col gap-2">
+<span class="font-micro-index text-micro-index text-text-muted uppercase">DÉFI INGÉNIERIE :</span>
+<p class="font-body-sm text-body-sm text-text-secondary">
+                Coordination de bout en bout de flottes urbaines avec géolocalisation continue, calcul instantané des tarifs et validation d'identités sécurisées.
+              </p>
+</div>
+</div>
+<div class="flex flex-col gap-4 pt-4 border-t border-surface-elevated">
+<div class="flex flex-wrap items-center gap-2">
+<span class="font-label-code text-label-code text-text-muted px-2 py-0.5 rounded bg-surface-deep border border-hairline-glass">/ NEXT.JS</span>
+<span class="font-label-code text-label-code text-text-muted px-2 py-0.5 rounded bg-surface-deep border border-hairline-glass">/ POSTGRESQL</span>
+<span class="font-label-code text-label-code text-text-muted px-2 py-0.5 rounded bg-surface-deep border border-hairline-glass">/ TYPESCRIPT</span>
+<span class="font-label-code text-label-code text-text-muted px-2 py-0.5 rounded bg-surface-deep border border-hairline-glass">/ TAILWIND CSS</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="font-label-code text-label-code text-text-muted">Statut : En exploitation</span>
+<a class="inline-flex items-center gap-1.5 font-label-code text-label-code text-text-platinum hover:text-primary transition-colors" href="https://wa.me/213551797313?text=Bonjour%20Sofiane%2C%20je%20souhaite%20en%20savoir%20plus%20sur%20Delyx%20Delivery" rel="noopener noreferrer" target="_blank">
+<span class="">Détails &amp; Démo</span>
+<span class="material-symbols-outlined text-[16px]">arrow_outward</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Project 02: Clinique Dentaire SaaS -->
+<div class="p-8 rounded-xl bg-surface-card border border-surface-elevated hover:border-primary/40 transition-all flex flex-col justify-between gap-8 group">
+<div class="flex flex-col gap-6">
+<div class="flex items-center justify-between pb-3 border-b border-surface-elevated">
+<span class="font-micro-index text-micro-index text-text-muted uppercase">2025 // SANTÉ &amp; MÉDICAL</span>
+<span class="inline-flex items-center gap-1.5 font-label-code text-label-code text-primary">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-ping"></span>
+                EN LIGNE
+              </span>
+</div>
+<!-- Visual Preview Graphic Placeholder -->
+<div class="relative w-full h-56 rounded-lg overflow-hidden bg-surface-deep border border-hairline-glass">
+<img class="w-full h-full object-cover group-hover:scale-102 transition-transform duration-500" data-alt="Sophisticated dental practice management software interface dashboard, showcasing patient medical records, treatment timeline schedule, appointment booking calendar, and secure billing modules with soft emerald status markers, extremely neat layout, high-end medical software design." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJtvg3N_9MEXCE6XYjv_fRw_lw95_DBD28vIBLltD32CSBmtXkGArF3raKDLvMfE-yFZirjhD65oojPA0tQRRCt8Dn0quhwx9qgw72AKzLGRrYkWjstTU8fLjC-ZBANi16allZqOGmSkQO_5TOlcna2vk0QpK4MD47pNTBWIpLpDuWLL_63AfJV-o_W5RAs4jB2jCXLC6QHocHTMeEceFTWX1yGCeBX1fG0GM_XYmaHKJSEUux4UU">
+<div class="absolute inset-0 bg-gradient-to-t from-surface-card via-transparent to-transparent"></div>
+
+</div>
+<div class="flex flex-col gap-2">
+<h3 class="font-headline-md text-headline-md font-bold text-text-platinum group-hover:text-primary transition-colors">
+                SaaS de Gestion de Clinique Dentaire
+              </h3>
+<p class="font-body-md text-body-md text-text-secondary leading-relaxed">
+                Plateforme SaaS complète de gestion de cabinet médical : prise de rendez-vous en ligne, tenue des dossiers patients numériques et facturation automatisée. Conçue pour simplifier le travail des chirurgiens-dentistes.
+              </p>
+</div>
+<div class="p-4 rounded bg-surface-deep border border-hairline-glass flex flex-col gap-2">
+<span class="font-micro-index text-micro-index text-text-muted uppercase">ATOUTS MAJEURS :</span>
+<p class="font-body-sm text-body-sm text-text-secondary">
+                Ergonomie ultra-rapide adaptée aux cabinets, zéro friction de saisie, isolation stricte des données de santé et intégrité comptable.
+              </p>
+</div>
+</div>
+<div class="flex flex-col gap-4 pt-4 border-t border-surface-elevated">
+<div class="flex flex-wrap items-center gap-2">
+<span class="font-label-code text-label-code text-text-muted px-2 py-0.5 rounded bg-surface-deep border border-hairline-glass">/ NEXT.JS</span>
+<span class="font-label-code text-label-code text-text-muted px-2 py-0.5 rounded bg-surface-deep border border-hairline-glass">/ POSTGRESQL</span>
+<span class="font-label-code text-label-code text-text-muted px-2 py-0.5 rounded bg-surface-deep border border-hairline-glass">/ TAILWIND CSS</span>
+<span class="font-label-code text-label-code text-text-muted px-2 py-0.5 rounded bg-surface-deep border border-hairline-glass">/ TYPESCRIPT</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="font-label-code text-label-code text-text-muted">Statut : Beta Live active</span>
+<a class="inline-flex items-center gap-1.5 font-label-code text-label-code text-text-platinum hover:text-primary transition-colors" href="https://dental-app-beta1.vercel.app/" rel="noopener noreferrer" target="_blank">
+<span class="">Voir en ligne</span>
+<span class="material-symbols-outlined text-[16px]">arrow_outward</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Project 03: Papernote -->
+<div class="p-8 rounded-xl bg-surface-card border border-surface-elevated hover:border-primary/40 transition-all flex flex-col justify-between gap-8 group">
+<div class="flex flex-col gap-6">
+<div class="flex items-center justify-between pb-3 border-b border-surface-elevated">
+<span class="font-micro-index text-micro-index text-text-muted uppercase">2025 // IA &amp; RECHERCHE SCIENTIFIQUE</span>
+<span class="inline-flex items-center gap-1.5 font-label-code text-label-code text-primary">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-ping"></span>
+                EN LIGNE
+              </span>
+</div>
+<div class="relative w-full h-56 rounded-lg overflow-hidden bg-surface-deep border border-hairline-glass">
+<img class="w-full h-full object-cover group-hover:scale-102 transition-transform duration-500" data-alt="Clean minimalist interface for Papernote academic research AI tool, highlighting document PDF analysis view with extracted citations, semantic synthesis cards, and neural processing graphs in a refined dark obsidian aesthetic with subtle green accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD0dDHpnT6yGGMHHvnhQBY6qw7klwVup8bwb0UH_NkZX8JTC7UpVxCF6wytRjfYwFdcw0EkQifw7GP60gapD-LsuVh8_TXd7cuNhqpYbKTjKCgSNVqFZwHkEjoJ6LpYdrOhQhkMqLZF_p57KyjP6HJzockkhZ52cDj0YwCML9IWHCRdQ4Nh0hilSjcEm-Bp6voVA1OoA3FlEb2l91CwFSqE5QND_x85FvRNJeoBsLpiDHYT28fhGys">
+<div class="absolute inset-0 bg-gradient-to-t from-surface-card via-transparent to-transparent"></div>
+
+</div>
+<div class="flex flex-col gap-2">
+<h3 class="font-headline-md text-headline-md font-bold text-text-platinum group-hover:text-primary transition-colors">
+                Papernote
+              </h3>
+<p class="font-body-md text-body-md text-text-secondary leading-relaxed">
+                Outil SaaS propulsé par l'intelligence artificielle pour la révision accélérée, l'analyse comparative et la synthèse contextuelle de publications et mémoires académiques complexes.
+              </p>
+</div>
+<div class="p-4 rounded bg-surface-deep border border-hairline-glass flex flex-col gap-2">
+<span class="font-micro-index text-micro-index text-text-muted uppercase">ATOUTS MAJEURS :</span>
+<p class="font-body-sm text-body-sm text-text-secondary">
+                Parsing rapide de documents denses de plusieurs centaines de pages, requêtage sémantique précis et interface d'annotation sans distraction.
+              </p>
+</div>
+</div>
+<div class="flex flex-col gap-4 pt-4 border-t border-surface-elevated">
+<div class="flex flex-wrap items-center gap-2">
+<span class="font-label-code text-label-code text-text-muted px-2 py-0.5 rounded bg-surface-deep border border-hairline-glass">/ NEXT.JS</span>
+<span class="font-label-code text-label-code text-text-muted px-2 py-0.5 rounded bg-surface-deep border border-hairline-glass">/ AI MODELS API</span>
+<span class="font-label-code text-label-code text-text-muted px-2 py-0.5 rounded bg-surface-deep border border-hairline-glass">/ TYPESCRIPT</span>
+<span class="font-label-code text-label-code text-text-muted px-2 py-0.5 rounded bg-surface-deep border border-hairline-glass">/ TAILWIND CSS</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="font-label-code text-label-code text-text-muted">Statut : En exploitation</span>
+<a class="inline-flex items-center gap-1.5 font-label-code text-label-code text-text-platinum hover:text-primary transition-colors" href="https://reviewer-ai-delta.vercel.app/fr" rel="noopener noreferrer" target="_blank">
+<span class="">Tester la plateforme</span>
+<span class="material-symbols-outlined text-[16px]">arrow_outward</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Project 04: Tiberium Consulting -->
+<div class="p-8 rounded-xl bg-surface-card border border-surface-elevated hover:border-primary/40 transition-all flex flex-col justify-between gap-8 group">
+<div class="flex flex-col gap-6">
+<div class="flex items-center justify-between pb-3 border-b border-surface-elevated">
+<span class="font-micro-index text-micro-index text-text-muted uppercase">2024 // CONSEIL &amp; COLLABORATION</span>
+<span class="inline-flex items-center gap-1.5 font-label-code text-label-code text-primary">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-ping"></span>
+                EN LIGNE
+              </span>
+</div>
+<div class="relative w-full h-56 rounded-lg overflow-hidden bg-surface-deep border border-hairline-glass">
+<img class="w-full h-full object-cover group-hover:scale-102 transition-transform duration-500" data-alt="High quality dark themed user interface for Tiberium Consulting web platform, showing real-time chat interface between strategic advisors and client executives, with encrypted message badges, consultation dossier tabs, and clean monochromatic typography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJ8vs964O53Eg9-4pBidb0NqSPWMwRSzuEAMOgV_SfaEYWyx9C5hI6-gp1p9y-iLVHyNx-YMdz1OPG_L_kqZVfDgAc2Sgy0s4GZtP6P3pqDw_LWt_EJJTuuQTSJnURpN-H8eFZTFGBUe3SoX37FRWQDRaTejVEyL59b6Ai63KNqZ8Pq2c442kv-TQC8ZxJZUWMSnTs9m8_PFpC7eLrUJyZsJdjHQXZiGLmjDbfvASHSRAv-Cq86vI">
+<div class="absolute inset-0 bg-gradient-to-t from-surface-card via-transparent to-transparent"></div>
+
+</div>
+<div class="flex flex-col gap-2">
+<h3 class="font-headline-md text-headline-md font-bold text-text-platinum group-hover:text-primary transition-colors">
+                Tiberium Consulting
+              </h3>
+<p class="font-body-md text-body-md text-text-secondary leading-relaxed">
+                Application web de consulting avec messagerie en temps réel et interface d'échange haut de gamme entre cabinets d'experts et leurs clients institutionnels.
+              </p>
+</div>
+<div class="p-4 rounded bg-surface-deep border border-hairline-glass flex flex-col gap-2">
+<span class="font-micro-index text-micro-index text-text-muted uppercase">ATOUTS MAJEURS :</span>
+<p class="font-body-sm text-body-sm text-text-secondary">
+                Architecture MERN découplée, persistance des messages sous Socket.io sans latence, et transmission sécurisée de livrables confidentiels.
+              </p>
+</div>
+</div>
+<div class="flex flex-col gap-4 pt-4 border-t border-surface-elevated">
+<div class="flex flex-wrap items-center gap-2">
+<span class="font-label-code text-label-code text-text-muted px-2 py-0.5 rounded bg-surface-deep border border-hairline-glass">/ MONGODB</span>
+<span class="font-label-code text-label-code text-text-muted px-2 py-0.5 rounded bg-surface-deep border border-hairline-glass">/ EXPRESS</span>
+<span class="font-label-code text-label-code text-text-muted px-2 py-0.5 rounded bg-surface-deep border border-hairline-glass">/ REACT</span>
+<span class="font-label-code text-label-code text-text-muted px-2 py-0.5 rounded bg-surface-deep border border-hairline-glass">/ NODE.JS</span>
+<span class="font-label-code text-label-code text-text-muted px-2 py-0.5 rounded bg-surface-deep border border-hairline-glass">/ SOCKET.IO</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="font-label-code text-label-code text-text-muted">Statut : Déployé</span>
+<a class="inline-flex items-center gap-1.5 font-label-code text-label-code text-text-platinum hover:text-primary transition-colors" href="https://tiberium-next.vercel.app/" rel="noopener noreferrer" target="_blank">
+<span class="">Consulter le projet</span>
+<span class="material-symbols-outlined text-[16px]">arrow_outward</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- =========================================================================
+       SECTION: STACK TECHNIQUE & MAÎTRISE D'INGÉNIERIE
+       ========================================================================= -->
+<section class="w-full py-space-2xl px-margin md:px-margin-tablet lg:px-margin-desktop bg-surface-deep border-t border-b border-surface-elevated" id="expertise">
+<div class="max-w-7xl mx-auto flex flex-col gap-14">
+<!-- Section Title: Left-Aligned, Strictly No Pills -->
+<div class="flex flex-col gap-3 max-w-2xl">
+<div class="flex items-center gap-3">
+<span class="font-micro-index text-micro-index text-primary tracking-[0.2em] uppercase">03 / ARSENAL TECHNIQUE</span>
+<div class="h-px w-12 bg-surface-elevated"></div>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-text-platinum font-bold tracking-tight">
+          Des technologies éprouvées pour construire des produits robustes et évolutifs.
+        </h2>
+<p class="font-body-md text-body-md text-text-secondary">
+          Pas d'expérimentations hasardeuses sur vos projets critiques. Chaque brique est sélectionnée pour sa fiabilité de maintenance et sa performance prouvée dans l'industrie.
+        </p>
+</div>
+<!-- Precision 6-Pillar Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Pillar 1: Frontend -->
+<div class="p-6 rounded-lg bg-surface-card border border-surface-elevated flex flex-col gap-4">
+<div class="flex items-center justify-between pb-3 border-b border-surface-elevated">
+<span class="font-label-code text-label-code text-primary font-bold">FRONTEND</span>
+<span class="font-micro-index text-micro-index text-text-muted">05 BRIQUES</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-secondary">
+            Frameworks modernes et design systems sur-mesure, pensés pour la performance pure, le confort mobile et l'accessibilité.
+          </p>
+<div class="flex flex-wrap gap-2 pt-2">
+<span class="px-2.5 py-1 rounded bg-surface-deep border border-hairline-glass font-label-code text-label-code text-text-platinum">Next.js</span>
+<span class="px-2.5 py-1 rounded bg-surface-deep border border-hairline-glass font-label-code text-label-code text-text-platinum">React</span>
+<span class="px-2.5 py-1 rounded bg-surface-deep border border-hairline-glass font-label-code text-label-code text-text-platinum">TypeScript</span>
+<span class="px-2.5 py-1 rounded bg-surface-deep border border-hairline-glass font-label-code text-label-code text-text-platinum">Tailwind CSS</span>
+<span class="px-2.5 py-1 rounded bg-surface-deep border border-hairline-glass font-label-code text-label-code text-text-platinum">Framer Motion</span>
+</div>
+</div>
+<!-- Pillar 2: Backend -->
+<div class="p-6 rounded-lg bg-surface-card border border-surface-elevated flex flex-col gap-4">
+<div class="flex items-center justify-between pb-3 border-b border-surface-elevated">
+<span class="font-label-code text-label-code text-primary font-bold">BACKEND</span>
+<span class="font-micro-index text-micro-index text-text-muted">07 BRIQUES</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-secondary">
+            APIs RESTful, GraphQL et couches temps réel développées en Node.js, Python ou Java selon les impératifs de calcul.
+          </p>
+<div class="flex flex-wrap gap-2 pt-2">
+<span class="px-2.5 py-1 rounded bg-surface-deep border border-hairline-glass font-label-code text-label-code text-text-platinum">Node.js</span>
+<span class="px-2.5 py-1 rounded bg-surface-deep border border-hairline-glass font-label-code text-label-code text-text-platinum">Express</span>
+<span class="px-2.5 py-1 rounded bg-surface-deep border border-hairline-glass font-label-code text-label-code text-text-platinum">Python</span>
+<span class="px-2.5 py-1 rounded bg-surface-deep border border-hairline-glass font-label-code text-label-code text-text-platinum">Java</span>
+<span class="px-2.5 py-1 rounded bg-surface-deep border border-hairline-glass font-label-code text-label-code text-text-platinum">Socket.io</span>
+<span class="px-2.5 py-1 rounded bg-surface-deep border border-hairline-glass font-label-code text-label-code text-text-platinum">REST</span>
+<span class="px-2.5 py-1 rounded bg-surface-deep border border-hairline-glass font-label-code text-label-code text-text-platinum">GraphQL</span>
+</div>
+</div>
+<!-- Pillar 3: Mobile -->
+<div class="p-6 rounded-lg bg-surface-card border border-surface-elevated flex flex-col gap-4">
+<div class="flex items-center justify-between pb-3 border-b border-surface-elevated">
+<span class="font-label-code text-label-code text-primary font-bold">MOBILE</span>
+<span class="font-micro-index text-micro-index text-text-muted">07 BRIQUES</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-secondary">
+            Applications mobiles iOS et Android natives ou hybrides avec une fluidité tactile et une ergonomie irréprochable.
+          </p>
+<div class="flex flex-wrap gap-2 pt-2">
+<span class="px-2.5 py-1 rounded bg-surface-deep border border-hairline-glass font-label-code text-label-code text-text-platinum">React Native</span>
+<span class="px-2.5 py-1 rounded bg-surface-deep border border-hairline-glass font-label-code text-label-code text-text-platinum">Expo</span>
+<span class="px-2.5 py-1 rounded bg-surface-deep border border-hairline-glass font-label-code text-label-code text-text-platinum">PWA</span>
+<span class="px-2.5 py-1 rounded bg-surface-deep border border-hairline-glass font-label-code text-label-code text-text-platinum">Flutter</span>
+<span class="px-2.5 py-1 rounded bg-surface-deep border border-hairline-glass font-label-code text-label-code text-text-platinum">Dart</span>
+<span class="px-2.5 py-1 rounded bg-surface-deep border border-hairline-glass font-label-code text-label-code text-text-platinum">iOS</span>
+<span class="px-2.5 py-1 rounded bg-surface-deep border border-hairline-glass font-label-code text-label-code text-text-platinum">Android</span>
+</div>
+</div>
+<!-- Pillar 4: Données -->
+<div class="p-6 rounded-lg bg-surface-card border border-surface-elevated flex flex-col gap-4">
+<div class="flex items-center justify-between pb-3 border-b border-surface-elevated">
+<span class="font-label-code text-label-code text-primary font-bold">DONNÉES &amp; PERSISTANCE</span>
+<span class="font-micro-index text-micro-index text-text-muted">06 BRIQUES</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-secondary">
+            Bases relationnelles ou documents managées, avec des schémas indexés pour supporter la montée en charge.
+          </p>
+<div class="flex flex-wrap gap-2 pt-2">
+<span class="px-2.5 py-1 rounded bg-surface-deep border border-hairline-glass font-label-code text-label-code text-text-platinum">PostgreSQL</span>
+<span class="px-2.5 py-1 rounded bg-surface-deep border border-hairline-glass font-label-code text-label-code text-text-platinum">Neon Serverless</span>
+<span class="px-2.5 py-1 rounded bg-surface-deep border border-hairline-glass font-label-code text-label-code text-text-platinum">Prisma ORM</span>
+<span class="px-2.5 py-1 rounded bg-surface-deep border border-hairline-glass font-label-code text-label-code text-text-platinum">MongoDB</span>
+<span class="px-2.5 py-1 rounded bg-surface-deep border border-hairline-glass font-label-code text-label-code text-text-platinum">Supabase</span>
+<span class="px-2.5 py-1 rounded bg-surface-deep border border-hairline-glass font-label-code text-label-code text-text-platinum">Firebase</span>
+</div>
+</div>
+<!-- Pillar 5: Desktop -->
+<div class="p-6 rounded-lg bg-surface-card border border-surface-elevated flex flex-col gap-4">
+<div class="flex items-center justify-between pb-3 border-b border-surface-elevated">
+<span class="font-label-code text-label-code text-primary font-bold">DESKTOP</span>
+<span class="font-micro-index text-micro-index text-text-muted">05 ENVIRONNEMENTS</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-secondary">
+            Logiciels multiplateformes (macOS, Windows, Linux) de l'interface jusqu'au paquetage d'installation sécurisé.
+          </p>
+<div class="flex flex-wrap gap-2 pt-2">
+<span class="px-2.5 py-1 rounded bg-surface-deep border border-hairline-glass font-label-code text-label-code text-text-platinum">Electron</span>
+<span class="px-2.5 py-1 rounded bg-surface-deep border border-hairline-glass font-label-code text-label-code text-text-platinum">Flutter Desktop</span>
+<span class="px-2.5 py-1 rounded bg-surface-deep border border-hairline-glass font-label-code text-label-code text-text-platinum">.NET</span>
+<span class="px-2.5 py-1 rounded bg-surface-deep border border-hairline-glass font-label-code text-label-code text-text-platinum">Java</span>
+<span class="px-2.5 py-1 rounded bg-surface-deep border border-hairline-glass font-label-code text-label-code text-text-platinum">Python GUI</span>
+</div>
+</div>
+<!-- Pillar 6: DevOps & CI/CD -->
+<div class="p-6 rounded-lg bg-surface-card border border-surface-elevated flex flex-col gap-4">
+<div class="flex items-center justify-between pb-3 border-b border-surface-elevated">
+<span class="font-label-code text-label-code text-primary font-bold">OUTILS &amp; DEVOPS</span>
+<span class="font-micro-index text-micro-index text-text-muted">07 PROTOCOLES</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-secondary">
+            Conteneurisation, gestion fine de versions et déploiements continus zéro-coupure avec surveillance active.
+          </p>
+<div class="flex flex-wrap gap-2 pt-2">
+<span class="px-2.5 py-1 rounded bg-surface-deep border border-hairline-glass font-label-code text-label-code text-text-platinum">Docker</span>
+<span class="px-2.5 py-1 rounded bg-surface-deep border border-hairline-glass font-label-code text-label-code text-text-platinum">Vercel Edge</span>
+<span class="px-2.5 py-1 rounded bg-surface-deep border border-hairline-glass font-label-code text-label-code text-text-platinum">GitHub Actions</span>
+<span class="px-2.5 py-1 rounded bg-surface-deep border border-hairline-glass font-label-code text-label-code text-text-platinum">Git</span>
+<span class="px-2.5 py-1 rounded bg-surface-deep border border-hairline-glass font-label-code text-label-code text-text-platinum">GitLab CI</span>
+<span class="px-2.5 py-1 rounded bg-surface-deep border border-hairline-glass font-label-code text-label-code text-text-platinum">Jenkins</span>
+</div>
+</div>
+</div>
+<!-- Advisory Footer Strip -->
+<div class="p-6 rounded-lg bg-surface-card border border-surface-elevated flex flex-col md:flex-row items-center justify-between gap-4">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-[24px]">tune</span>
+<span class="font-body-md text-body-md text-text-secondary">
+            Une incertitude sur le choix de votre stack ? Je vous présente les compromis, les coûts réels d'infrastructure et la maintenabilité à 3 ans.
+          </span>
+</div>
+<a class="font-label-code text-label-code text-primary hover:text-white transition-colors flex items-center gap-1.5 flex-shrink-0" href="#contact">
+<span class="">Consulter l'ingénieur</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</div>
+</section>
+<!-- =========================================================================
+       SECTION: PROCESSUS DE TRAVAIL (MÉTHODOLOGIE HORLOGÈRE)
+       ========================================================================= -->
+<section class="w-full py-space-2xl px-margin md:px-margin-tablet lg:px-margin-desktop" id="processus">
+<div class="max-w-7xl mx-auto flex flex-col gap-14">
+<!-- Section Title: Left-Aligned, Strictly No Pills -->
+<div class="flex flex-col gap-3 max-w-2xl">
+<div class="flex items-center gap-3">
+<span class="font-micro-index text-micro-index text-primary tracking-[0.2em] uppercase">04 / PROTOCOLE D'EXÉCUTION</span>
+<div class="h-px w-12 bg-surface-elevated"></div>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-text-platinum font-bold tracking-tight">
+          Une méthode claire et transparente, de l'idée à la production.
+        </h2>
+<p class="font-body-md text-body-md text-text-secondary">
+          Aucun jargon obscur. Vous suivez chaque phase avec des validations formelles à chaque étape clé.
+        </p>
+</div>
+<!-- 4-Step Linear Architectural Sequence -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Step 01 -->
+<div class="p-6 rounded-lg bg-surface-card border border-surface-elevated flex flex-col justify-between h-full group hover:border-primary/40 transition-all">
+<div class="flex flex-col gap-4">
+<div class="flex items-center justify-between pb-3 border-b border-surface-elevated">
+<span class="font-headline-md text-headline-md font-bold text-text-platinum">01</span>
+<span class="font-micro-index text-micro-index text-primary uppercase">PHASE CADRAGE</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm font-semibold text-text-platinum">Échange &amp; Cadrage</h3>
+<p class="font-body-sm text-body-sm text-text-secondary leading-relaxed">
+              Analyse minutieuse de vos impératifs métiers et de vos cibles. Nous alignons la structure technique sur vos objectifs de chiffre d'affaires et formalisons un cahier des charges limpide.
+            </p>
+</div>
+<div class="pt-4 border-t border-surface-elevated font-micro-index text-micro-index text-text-muted mt-4">
+            LIVRABLE : DEVIS &amp; PÉRIMÈTRE DÉTAILLÉ
+          </div>
+</div>
+<!-- Step 02 -->
+<div class="p-6 rounded-lg bg-surface-card border border-surface-elevated flex flex-col justify-between h-full group hover:border-primary/40 transition-all">
+<div class="flex flex-col gap-4">
+<div class="flex items-center justify-between pb-3 border-b border-surface-elevated">
+<span class="font-headline-md text-headline-md font-bold text-text-platinum">02</span>
+<span class="font-micro-index text-micro-index text-primary uppercase">PHASE DESIGN</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm font-semibold text-text-platinum">Conception &amp; Architecture</h3>
+<p class="font-body-sm text-body-sm text-text-secondary leading-relaxed">
+              Prototypage UX/UI raffiné et modélisation de la base de données. Chaque vue et parcours utilisateur est validé avant d'écrire la moindre ligne de code applicatif.
+            </p>
+</div>
+<div class="pt-4 border-t border-surface-elevated font-micro-index text-micro-index text-text-muted mt-4">
+            LIVRABLE : MAQUETTES &amp; SPÉCIFICATIONS
+          </div>
+</div>
+<!-- Step 03 -->
+<div class="p-6 rounded-lg bg-surface-card border border-surface-elevated flex flex-col justify-between h-full group hover:border-primary/40 transition-all">
+<div class="flex flex-col gap-4">
+<div class="flex items-center justify-between pb-3 border-b border-surface-elevated">
+<span class="font-headline-md text-headline-md font-bold text-text-platinum">03</span>
+<span class="font-micro-index text-micro-index text-primary uppercase">PHASE CODE</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm font-semibold text-text-platinum">Développement Agile</h3>
+<p class="font-body-sm text-body-sm text-text-secondary leading-relaxed">
+              Développement par sprints courts avec accès direct à un environnement de pré-production (staging). Vous constatez les avancées en conditions réelles, sans mauvaise surprise.
+            </p>
+</div>
+<div class="pt-4 border-t border-surface-elevated font-micro-index text-micro-index text-text-muted mt-4">
+            LIVRABLE : DÉMOS &amp; CODE TESTÉ
+          </div>
+</div>
+<!-- Step 04 -->
+<div class="p-6 rounded-lg bg-surface-card border border-surface-elevated flex flex-col justify-between h-full group hover:border-primary/40 transition-all">
+<div class="flex flex-col gap-4">
+<div class="flex items-center justify-between pb-3 border-b border-surface-elevated">
+<span class="font-headline-md text-headline-md font-bold text-text-platinum">04</span>
+<span class="font-micro-index text-micro-index text-primary uppercase">PHASE DÉPLOIEMENT</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm font-semibold text-text-platinum">Livraison &amp; Maintenance</h3>
+<p class="font-body-sm text-body-sm text-text-secondary leading-relaxed">
+              Mise en production sécurisée sur votre domaine, vérification finale du SEO et monitoring continu. Vous disposez d'un produit opérationnel et garanti.
+            </p>
+</div>
+<div class="pt-4 border-t border-surface-elevated font-micro-index text-micro-index text-text-muted mt-4">
+            LIVRABLE : CODE SOURCE &amp; FORMATION
+          </div>
+</div>
+</div>
+</div>
+</section>
+<!-- =========================================================================
+       SECTION: FAQ (ACCORDÉON RAFFINÉ SANS JARGON)
+       ========================================================================= -->
+<section class="w-full py-space-2xl px-margin md:px-margin-tablet lg:px-margin-desktop bg-surface-deep border-t border-b border-surface-elevated">
+<div class="max-w-5xl mx-auto flex flex-col gap-12">
+<!-- Section Title: Left-Aligned, Strictly No Pills -->
+<div class="flex flex-col gap-3">
+<div class="flex items-center gap-3">
+<span class="font-micro-index text-micro-index text-primary tracking-[0.2em] uppercase">05 / ÉLÉMENTS DE CLARIFICATION</span>
+<div class="h-px w-12 bg-surface-elevated"></div>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-text-platinum font-bold tracking-tight">
+          Les réponses aux questions les plus fréquentes.
+        </h2>
+<p class="font-body-md text-body-md text-text-secondary">
+          Tout ce qu'il faut savoir avant d'engager la conception de votre site ou application.
+        </p>
+</div>
+<!-- Precision Accordion Stack -->
+<div class="flex flex-col gap-4" id="faq-container">
+<details class="group p-6 rounded-lg bg-surface-card border border-surface-elevated [&amp;_summary::-webkit-details-marker]:hidden open:border-primary/40 transition-all cursor-pointer">
+<summary class="flex items-center justify-between font-headline-sm text-headline-sm font-medium text-text-platinum select-none">
+<span class="">Combien de temps faut-il pour créer un site professionnel ?</span>
+<span class="material-symbols-outlined text-primary group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="pt-4 mt-4 border-t border-surface-elevated font-body-md text-body-md text-text-secondary leading-relaxed">
+            Cela dépend directement du périmètre fonctionnel : un site vitrine d'autorité se conçoit et se déploie en général en 2 à 4 semaines. Une application web ou un SaaS sur-mesure demande davantage de cycles d'itération (souvent 6 à 10 semaines). Le calendrier exact et contraignant est fixé avec vous au démarrage, avant la première ligne de code.
+          </div>
+</details>
+<details class="group p-6 rounded-lg bg-surface-card border border-surface-elevated [&amp;_summary::-webkit-details-marker]:hidden open:border-primary/40 transition-all cursor-pointer">
+<summary class="flex items-center justify-between font-headline-sm text-headline-sm font-medium text-text-platinum select-none">
+<span class="">Comment obtenir un devis et quel est le coût d'entrée ?</span>
+<span class="material-symbols-outlined text-primary group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="pt-4 mt-4 border-t border-surface-elevated font-body-md text-body-md text-text-secondary leading-relaxed">
+            Le devis est totalement gratuit et sans engagement. Décrivez votre projet via le formulaire ci-dessous ou directement par WhatsApp : je vous recontacte sous 24h ouvrées pour cadrer le besoin, puis je vous remets une proposition chiffrée transparente (périmètre, délais, étapes de validation). Aucun paiement n'est exigé avant votre accord formel.
+          </div>
+</details>
+<details class="group p-6 rounded-lg bg-surface-card border border-surface-elevated [&amp;_summary::-webkit-details-marker]:hidden open:border-primary/40 transition-all cursor-pointer">
+<summary class="flex items-center justify-between font-headline-sm text-headline-sm font-medium text-text-platinum select-none">
+<span class="">Qui est propriétaire du nom de domaine, de l'hébergement et du code source ?</span>
+<span class="material-symbols-outlined text-primary group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="pt-4 mt-4 border-t border-surface-elevated font-body-md text-body-md text-text-secondary leading-relaxed">
+            Vous restez propriétaire exclusif à 100%. Le nom de domaine et l'infrastructure d'hébergement sont enregistrés à votre nom. À la livraison finale, l'intégralité du code source propre vous est transmise sans clause restrictive. Vous n'êtes jamais captif.
+          </div>
+</details>
+<details class="group p-6 rounded-lg bg-surface-card border border-surface-elevated [&amp;_summary::-webkit-details-marker]:hidden open:border-primary/40 transition-all cursor-pointer">
+<summary class="flex items-center justify-between font-headline-sm text-headline-sm font-medium text-text-platinum select-none">
+<span class="">Je n'ai pas de textes ni de visuels finalisés, est-ce un obstacle ?</span>
+<span class="material-symbols-outlined text-primary group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="pt-4 mt-4 border-t border-surface-elevated font-body-md text-body-md text-text-secondary leading-relaxed">
+            Absolument pas. Je vous guide pour structurer vos argumentaires clés, définir l'ordre logique des pages et sélectionner des visuels professionnels harmonieux. Le contenu s'élabore de concert durant l'étape de maquettage initial.
+          </div>
+</details>
+<details class="group p-6 rounded-lg bg-surface-card border border-surface-elevated [&amp;_summary::-webkit-details-marker]:hidden open:border-primary/40 transition-all cursor-pointer">
+<summary class="flex items-center justify-between font-headline-sm text-headline-sm font-medium text-text-platinum select-none">
+<span class="">Assurez-vous le support et la maintenance après la livraison ?</span>
+<span class="material-symbols-outlined text-primary group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="pt-4 mt-4 border-t border-surface-elevated font-body-md text-body-md text-text-secondary leading-relaxed">
+            Oui, une assistance de garantie de 30 jours est incluse après toute livraison. Pour la suite, des formules de maintenance préventive (mises à jour de sécurité, sauvegardes déportées, ajustements mineurs réguliers) sont disponibles pour assurer la longévité de votre outil.
+          </div>
+</details>
+</div>
+</div>
+</section>
+<!-- =========================================================================
+       SECTION: CONTACT & DEVIS HAUTE PRÉCISION
+       ========================================================================= -->
+<section class="w-full py-space-2xl px-margin md:px-margin-tablet lg:px-margin-desktop relative" id="contact">
+<div class="max-w-7xl mx-auto flex flex-col gap-14">
+<!-- Section Title: Left-Aligned, Strictly No Pills -->
+<div class="flex flex-col gap-3 max-w-2xl">
+<div class="flex items-center gap-3">
+<span class="font-micro-index text-micro-index text-primary tracking-[0.2em] uppercase">06 / ENTRER EN LIAISON</span>
+<div class="h-px w-12 bg-surface-elevated"></div>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-text-platinum font-bold tracking-tight">
+          Parlons de votre projet. Réponse sous 24h ouvrées.
+        </h2>
+<p class="font-body-md text-body-md text-text-secondary">
+          Partagez les grandes lignes de votre ambition. Je vous réponds personnellement avec une première estimation de faisabilité.
+        </p>
+</div>
+<!-- Split Layout: Form + Direct High-Touch Channels -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+<!-- Form Container (7 Cols) -->
+<div class="lg:col-span-7 p-8 sm:p-10 rounded-xl bg-surface-card border border-surface-elevated">
+<form class="flex flex-col gap-6" id="project-form" onsubmit="event.preventDefault(); alert('Votre message a été transmis avec succès à Sofiane Asma. Réponse sous 24h ouvrées.'); this.reset();">
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+<!-- Name -->
+<div class="flex flex-col gap-2">
+<label class="font-label-code text-label-code text-text-secondary uppercase" for="form-name">Nom complet *</label>
+<input class="px-4 py-3 rounded bg-surface-deep border border-surface-elevated text-text-platinum font-label-code text-label-code focus:outline-none focus:border-primary transition-colors" id="form-name" placeholder="Dr. Sarah Mansouri" required="" type="text">
+</div>
+<!-- Email -->
+<div class="flex flex-col gap-2">
+<label class="font-label-code text-label-code text-text-secondary uppercase" for="form-email">Adresse email *</label>
+<input class="px-4 py-3 rounded bg-surface-deep border border-surface-elevated text-text-platinum font-label-code text-label-code focus:outline-none focus:border-primary transition-colors" id="form-email" placeholder="sarah@cabinet-conseil.com" required="" type="email">
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+<!-- Phone -->
+<div class="flex flex-col gap-2">
+<label class="font-label-code text-label-code text-text-secondary uppercase" for="form-phone">Téléphone / WhatsApp</label>
+<input class="px-4 py-3 rounded bg-surface-deep border border-surface-elevated text-text-platinum font-label-code text-label-code focus:outline-none focus:border-primary transition-colors" id="form-phone" placeholder="+213 550 00 00 00" type="tel">
+</div>
+<!-- Project Type -->
+<div class="flex flex-col gap-2">
+<label class="font-label-code text-label-code text-text-secondary uppercase" for="form-type">Type de projet *</label>
+<select class="px-4 py-3 rounded bg-surface-deep border border-surface-elevated text-text-platinum font-label-code text-label-code focus:outline-none focus:border-primary transition-colors" id="form-type" required="">
+<option disabled="" selected="" value="">Sélectionnez votre besoin</option>
+<option value="vitrine">Site web vitrine d'autorité (Cabinet / Commerce)</option>
+<option value="saas">Application web &amp; SaaS sur-mesure</option>
+<option value="refonte">Refonte, SEO &amp; Performance Core Web Vitals</option>
+<option value="mobile">Application mobile (iOS / Android)</option>
+<option value="autre">Autre mission d'ingénierie</option>
+</select>
+</div>
+</div>
+<!-- Description -->
+<div class="flex flex-col gap-2">
+<label class="font-label-code text-label-code text-text-secondary uppercase" for="form-message">Description de votre projet &amp; objectifs</label>
+<textarea class="px-4 py-3 rounded bg-surface-deep border border-surface-elevated text-text-platinum font-label-code text-label-code focus:outline-none focus:border-primary transition-colors resize-none" id="form-message" placeholder="Expliquez brièvement votre activité, vos objectifs et vos échéances souhaitées..." rows="4"></textarea>
+</div>
+<!-- Submit Button -->
+<div class="flex items-center justify-between pt-2">
+<span class="font-micro-index text-micro-index text-text-muted">* INFORMATIONS CHICHRÉES STRICTEMENT CONFIDENTIELLES</span>
+<button class="inline-flex items-center gap-2.5 px-8 py-3.5 rounded bg-text-platinum text-canvas-base font-body-sm text-body-sm font-semibold hover:bg-white transition-all shadow-[0_1px_12px_rgba(255,255,255,0.08)]" type="submit">
+<span class="">Envoyer ma demande</span>
+<span class="material-symbols-outlined text-[18px]">send</span>
+</button>
+</div>
+</form>
+</div>
+<!-- Direct Channels & WhatsApp Priority Gateway (5 Cols) -->
+<div class="lg:col-span-5 flex flex-col gap-6">
+<!-- WhatsApp Highlight Card -->
+<div class="p-8 rounded-xl bg-surface-card border border-primary/30 flex flex-col gap-6 relative overflow-hidden group">
+
+<div class="flex flex-col gap-2">
+<h3 class="font-headline-sm text-headline-sm font-bold text-text-platinum">
+                Besoin d'un retour immédiat ?
+              </h3>
+<p class="font-body-md text-body-md text-text-secondary leading-relaxed">
+                Pour discuter de vive voix, poser une question technique rapide ou envoyer vos documents de cadrage sans formulaire.
+              </p>
+</div>
+<a class="inline-flex items-center justify-center gap-3 w-full py-4 rounded bg-surface-elevated border border-primary/40 text-text-platinum font-body-sm text-body-sm font-semibold hover:bg-primary hover:text-on-primary transition-all" href="https://wa.me/213551797313?text=Bonjour%20Sofiane%2C%20j'ai%20un%20projet%20web%2Fmobile" rel="noopener noreferrer" target="_blank">
+<span class="material-symbols-outlined text-[20px]">chat</span>
+<span class="">Ouvrir WhatsApp direct (+213 551 79 73 13)</span>
+</a>
+</div>
+<!-- Direct Ledger Metadata Block -->
+<div class="p-8 rounded-xl bg-surface-card border border-surface-elevated flex flex-col gap-5">
+<span class="font-micro-index text-micro-index text-text-muted uppercase tracking-widest">COORDONNÉES DIRECTES</span>
+<div class="flex flex-col gap-4 font-label-code text-label-code">
+<div class="flex items-center justify-between pb-3 border-b border-surface-elevated">
+<span class="text-text-muted">Courriel officiel :</span>
+<a class="text-text-platinum hover:text-primary transition-colors" href="mailto:contact@sofianeasma.me">contact@sofianeasma.me</a>
+</div>
+<div class="flex items-center justify-between pb-3 border-b border-surface-elevated">
+<span class="text-text-muted">Téléphone :</span>
+<a class="text-text-platinum hover:text-primary transition-colors" href="tel:+213551797313">+213 551 79 73 13</a>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-text-muted">Rayonnement :</span>
+<span class="text-text-platinum">Algérie &amp; Remote Worldwide</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div></main><footer class="w-full bg-surface-deep mt-space-2xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="w-full px-margin md:px-margin-tablet lg:px-margin-desktop py-space-xl flex flex-col gap-space-xl"><div class="grid grid-cols-1 md:grid-cols-12 gap-space-lg items-start"><div class="md:col-span-6 flex flex-col gap-3"><div class="flex items-center gap-2"><span class="font-headline-md text-headline-md font-bold text-text-platinum tracking-tight">SOFIANE ASMA</span></div><p class="font-body-sm text-body-sm text-text-secondary max-w-md">Conception et ingénierie d'architectures numériques ultra-haute performance, plateformes web critiques et expériences interactives haut de gamme.</p><div class="flex items-center gap-2 pt-2"><span class="font-label-code text-label-code text-text-muted">Localisation :</span><span class="font-label-code text-label-code text-text-platinum">Algeria · Remote Worldwide</span></div></div><div class="md:col-span-3 flex flex-col gap-3"><span class="font-micro-index text-micro-index uppercase tracking-widest text-text-muted">Navigation</span><nav class="flex flex-col gap-2"><a class="font-body-sm text-body-sm text-text-secondary hover:text-text-platinum transition-colors" data-path="services" href="#">Services d'Ingénierie</a><a class="font-body-sm text-body-sm text-text-secondary hover:text-text-platinum transition-colors" data-path="realisations" href="#">Index des Projets</a><a class="font-body-sm text-body-sm text-text-secondary hover:text-text-platinum transition-colors" data-path="expertise" href="#">Stack &amp; Architecture</a><a class="font-body-sm text-body-sm text-text-secondary hover:text-text-platinum transition-colors" data-path="processus" href="#">Méthodologie Horlogère</a></nav></div><div class="md:col-span-3 flex flex-col gap-3"><span class="font-micro-index text-micro-index uppercase tracking-widest text-text-muted">Réseaux &amp; Liaisons</span><div class="flex flex-col gap-2"><a class="font-label-code text-label-code text-text-secondary hover:text-primary transition-colors flex items-center justify-between group" href="#"><span class="">GitHub</span><span class="material-symbols-outlined text-sm opacity-60 group-hover:opacity-100 transition-opacity">arrow_outward</span></a><a class="font-label-code text-label-code text-text-secondary hover:text-primary transition-colors flex items-center justify-between group" href="#"><span class="">LinkedIn</span><span class="material-symbols-outlined text-sm opacity-60 group-hover:opacity-100 transition-opacity">arrow_outward</span></a><a class="font-label-code text-label-code text-text-secondary hover:text-primary transition-colors flex items-center justify-between group" href="#"><span class="">WhatsApp Direct</span><span class="material-symbols-outlined text-sm opacity-60 group-hover:opacity-100 transition-opacity">arrow_outward</span></a></div></div></div><div class="pt-space-md flex flex-col sm:flex-row items-center justify-between gap-4"><div class="font-micro-index text-micro-index text-text-muted">© 2026 SOFIANE ASMA. TOUS DROITS RÉSERVÉS. ATELIER D'ARCHITECTURE NUMÉRIQUE.</div></div></div></footer>
+
+</body></html>
