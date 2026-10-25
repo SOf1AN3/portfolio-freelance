@@ -263,7 +263,7 @@ export function HeroSection() {
                   </span>
                 </div>
 
-                <p className="text-sm leading-relaxed text-fog">{metric.description}</p>
+                <p className="text-sm leading-relaxed text-mist">{metric.description}</p>
               </StaggerItem>
             );
           })}

@@ -26,7 +26,7 @@ export function AboutSection() {
   const highlights = t.raw("highlights") as string[];
 
   return (
-    <section id="about" className="scroll-mt-16 py-24 lg:py-32">
+    <section id="about" className="scroll-mt-24 py-24 lg:py-32">
       <Container>
         <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
           {/* Colonne gauche — portrait encadré + bloc identitaire mono */}

@@ -14,7 +14,8 @@
   --hairline-glass: rgba(255, 255, 255, 0.07);
   --platinum: #F1F5F9;
   --mist: #94A3B8;
-  --fog: #64748B;
+  /* #8392A8 : ratio 5,60:1 sur --card (AA 4,5:1) ; l'ancien #64748B ne donnait que 3,71:1. */
+  --fog: #8392A8;
   --emerald: #10B981;
   --emerald-bright: #34D399;
   --on-emerald: #003824;

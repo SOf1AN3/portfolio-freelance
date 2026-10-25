@@ -165,7 +165,7 @@ export function ContactSection() {
   }
 
   return (
-    <section id="contact" className="scroll-mt-16 bg-canvas py-24 lg:py-32">
+    <section id="contact" className="scroll-mt-24 bg-canvas py-24 lg:py-32">
       <Container>
         <SectionHeader
           index={t("index")}
