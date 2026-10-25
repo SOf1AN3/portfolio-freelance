@@ -408,8 +408,7 @@
     "quickLinks": "Quick links",
     "websiteOffer": "Website development",
     "contactTitle": "Contact",
-    "rights": "All rights reserved.",
-    "builtWith": "Built with Next.js & Tailwind CSS"
+    "rights": "All rights reserved."
   },
   "notFound": {
     "title": "Page not found",

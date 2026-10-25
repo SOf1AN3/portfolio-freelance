@@ -118,12 +118,6 @@ export function Footer({ locale }: FooterProps) {
           </Stagger>
         </Reveal>
 
-        <div className="mt-12 flex flex-col gap-2 border-t border-hairline pt-6 sm:flex-row sm:items-center sm:justify-between">
-          <p className="font-mono text-xs text-mist">{t("builtWith")}</p>
-          <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-fog">
-            EOF
-          </span>
-        </div>
       </Container>
     </footer>
   );

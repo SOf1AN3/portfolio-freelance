@@ -409,8 +409,7 @@
     "quickLinks": "Liens rapides",
     "websiteOffer": "Création de site web",
     "contactTitle": "Contact",
-    "rights": "Tous droits réservés.",
-    "builtWith": "Conçu avec Next.js & Tailwind CSS"
+    "rights": "Tous droits réservés."
   },
   "notFound": {
     "title": "Page introuvable",

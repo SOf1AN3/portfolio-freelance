@@ -408,8 +408,7 @@
     "quickLinks": "روابط سريعة",
     "websiteOffer": "إنشاء موقع ويب",
     "contactTitle": "اتصل بي",
-    "rights": "جميع الحقوق محفوظة.",
-    "builtWith": "صُنع باستخدام Next.js و Tailwind CSS"
+    "rights": "جميع الحقوق محفوظة."
   },
   "notFound": {
     "title": "الصفحة غير موجودة",
