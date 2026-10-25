@@ -169,9 +169,9 @@ export function ContactSection() {
     <section id="contact" className="scroll-mt-16 bg-canvas py-24 lg:py-32">
       <Container>
         <SectionHeader
-          index={t("contact.index")}
-          title={t("contact.title")}
-          lead={t("contact.subtitle")}
+          index={t("index")}
+          title={t("title")}
+          lead={t("subtitle")}
         />
 
         <div className="mt-14 grid items-start gap-10 lg:grid-cols-12">
