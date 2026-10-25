@@ -7,15 +7,21 @@ import sofianePhoto from "@/assets/sofiane.png";
 export const runtime = "nodejs";
 
 /**
- * Square window used to crop the avatar. The photo is a portrait asset, so the
- * crop geometry is derived from its intrinsic dimensions: the image is scaled
- * to cover the square horizontally, then vertically centred. This replaces
- * `objectFit`/`objectPosition`, which Satori does not honour reliably.
+ * Portrait frame, mirroring the "engineer profile" card of the home hero:
+ * a rectangular panel with a hairline emerald rim instead of the old circle.
+ * The photo is scaled to *cover* the box (both axes), then centred — Satori
+ * does not honour `objectFit`/`objectPosition` reliably.
  */
-const AVATAR_BOX = 268;
-const avatarScale = AVATAR_BOX / sofianePhoto.width;
+const AVATAR_W = 300;
+const AVATAR_H = 380;
+const avatarScale = Math.max(
+  AVATAR_W / sofianePhoto.width,
+  AVATAR_H / sofianePhoto.height,
+);
+const avatarScaledWidth = sofianePhoto.width * avatarScale;
 const avatarScaledHeight = sofianePhoto.height * avatarScale;
-const avatarOffsetY = (avatarScaledHeight - AVATAR_BOX) / 2;
+const avatarOffsetX = (avatarScaledWidth - AVATAR_W) / 2;
+const avatarOffsetY = (avatarScaledHeight - AVATAR_H) / 2;
 
 const CACHE_CONTROL =
   "public, max-age=604800, s-maxage=604800, stale-while-revalidate=2592000";
@@ -35,68 +41,125 @@ const LOCAL_HOSTNAMES = new Set([
 ]);
 
 /**
+ * Obsidian Atelier palette — kept in sync with `src/app/globals.css`.
+ * Every hex here is deliberate: deep obsidian canvas, graded slates, warm
+ * platinum text and a single, restrained emerald accent.
+ */
+const C = {
+  canvas: "#090A0F",
+  card: "#151822",
+  hairline: "rgba(255,255,255,0.08)",
+  hairlineStrong: "rgba(255,255,255,0.16)",
+  platinum: "#F1F5F9",
+  mist: "#94A3B8",
+  fog: "#64748B",
+  emerald: "#10B981",
+  emeraldBright: "#34D399",
+  emeraldRim: "rgba(16,185,129,0.35)",
+  emeraldWash: "rgba(16,185,129,0.10)",
+  ink: "#003824",
+};
+
+/**
  * Card copy per locale. Plain TypeScript strings (not JSX text), so `&` stays
  * a single ampersand — escaping it would render `&amp;` literally.
+ *
+ * Constraint: <= ~22 characters per title line (the text column is ~740 px
+ * wide at 54 px of Syne), otherwise the line wraps and the card looks broken.
  */
 type Copy = {
-  badge: string;
+  eyebrow: string;
   title1: string;
   title2: string;
-  title3: string;
   subtitle: string;
+  badge: string;
   role: string;
 };
 
 const COPY: Record<Locale, Copy> = {
   fr: {
-    badge: "DISPONIBLE POUR DE NOUVEAUX PROJETS",
-    title1: "Des sites web",
-    title2: "qui transforment",
-    title3: "vos visiteurs",
+    eyebrow: "INGÉNIERIE & ARCHITECTURES NUMÉRIQUES",
+    title1: "Sites web d'exception",
+    title2: "& ingénierie logicielle",
     subtitle:
-      "Sites rapides et professionnels pour PME, applications web et SaaS sur-mesure.",
-    role: "DÉVELOPPEUR WEB & MOBILE",
+      "Pour entreprises exigeantes : applications web, SaaS et plateformes sur-mesure, ultra-rapides et simples à piloter.",
+    badge: "DISPONIBLE POUR DE NOUVEAUX PROJETS",
+    role: "INGÉNIEUR FULL-STACK",
   },
   en: {
-    badge: "AVAILABLE FOR NEW PROJECTS",
-    title1: "Websites that",
-    title2: "turn visitors",
-    title3: "into clients",
+    eyebrow: "SOFTWARE ENGINEERING & DIGITAL ARCHITECTURE",
+    title1: "Exceptional websites",
+    title2: "& software engineering",
     subtitle:
-      "Fast, modern sites for small businesses — plus custom web apps & SaaS on demand.",
-    role: "FULL-STACK WEB & MOBILE",
+      "For demanding businesses: web apps, SaaS and custom platforms — fast and effortless to run.",
+    badge: "AVAILABLE FOR NEW PROJECTS",
+    role: "FULL-STACK SOFTWARE ENGINEER",
   },
   ar: {
-    badge: "متاح لمشاريع جديدة",
-    title1: "مواقع ويب",
-    title2: "تجلب لك",
-    title3: "عملاء جدد",
+    eyebrow: "هندسة البرمجيات والعمارة الرقمية",
+    title1: "مواقع استثنائية",
+    title2: "وهندسة برمجيات",
     subtitle:
-      "مواقع ويب احترافية وسريعة للشركات الصغيرة، وتطبيقات وSaaS حسب الطلب.",
-    role: "مطوّر ويب وتطبيقات جوال",
+      "للشركات المطالبة: تطبيقات ويب وأنظمة SaaS ومنصات حسب الطلب، سريعة وسهلة التسيير.",
+    badge: "متاح لمشاريع جديدة",
+    role: "مهندس Full-Stack",
   },
 };
 
+/** Identity shown on every card, whatever the locale. */
+const NAME = "Sofiane ASMA";
+const DOMAIN = "sofianeasma.me";
+
 /** Options accepted by `ImageResponse`, derived from its constructor. */
 type OgOptions = NonNullable<ConstructorParameters<typeof ImageResponse>[1]>;
+type OgFont = NonNullable<OgOptions["fonts"]>[number];
 
-let cairoFontsPromise: Promise<Buffer[]> | undefined;
+const FONTS_DIR = join(process.cwd(), "src/app/api/og/fonts");
 
 /**
- * Reads the two Cairo weights used by the Arabic card. The promise is cached
- * for the lifetime of the server instance and reset on failure so a transient
- * error can be retried on the next request.
+ * Fonts used by the card. Stacks fall back per glyph: Syne/Jakarta/JetBrains
+ * carry the Latin text, Cairo covers Arabic (and the Latin fragments such as
+ * "Full-Stack" or the domain inside Arabic cards).
+ *
+ * A missing file degrades to Satori's default face instead of failing the
+ * whole card: the route must never return 500 for a font problem.
  */
-function loadCairoFonts(): Promise<Buffer[]> {
-  cairoFontsPromise ??= Promise.all([
-    readFile(join(process.cwd(), "src/app/api/og/fonts", "Cairo-Regular.ttf")),
-    readFile(join(process.cwd(), "src/app/api/og/fonts", "Cairo-Bold.ttf")),
-  ]).catch((error: unknown) => {
-    cairoFontsPromise = undefined;
-    throw error;
+const FONT_FILES: ReadonlyArray<Omit<OgFont, "data"> & { file: string }> = [
+  { file: "Syne-Bold.ttf", name: "Syne", weight: 700, style: "normal" },
+  { file: "PlusJakartaSans-Regular.ttf", name: "Plus Jakarta Sans", weight: 400, style: "normal" },
+  { file: "PlusJakartaSans-SemiBold.ttf", name: "Plus Jakarta Sans", weight: 600, style: "normal" },
+  { file: "JetBrainsMono-Medium.ttf", name: "JetBrains Mono", weight: 500, style: "normal" },
+  { file: "Cairo-Regular.ttf", name: "Cairo", weight: 400, style: "normal" },
+  { file: "Cairo-Bold.ttf", name: "Cairo", weight: 700, style: "normal" },
+];
+
+let fontsPromise: Promise<OgFont[] | undefined> | undefined;
+
+/**
+ * Reads every TTF once per server instance. Failures are swallowed per file
+ * (a deleted face only degrades the card) and an empty result is cached too,
+ * so a broken directory never triggers a request storm.
+ */
+function loadFonts(): Promise<OgFont[] | undefined> {
+  fontsPromise ??= Promise.all(
+    FONT_FILES.map(async ({ file, ...meta }): Promise<OgFont | null> => {
+      try {
+        const data = await readFile(join(FONTS_DIR, file));
+        return { ...meta, data };
+      } catch (error) {
+        console.error(
+          `OG font unavailable: ${file}`,
+          error instanceof Error ? error.message : error,
+        );
+        return null;
+      }
+    }),
+  ).then((fonts) => {
+    const loaded = fonts.filter((font): font is OgFont => font !== null);
+    return loaded.length > 0 ? loaded : undefined;
   });
 
-  return cairoFontsPromise;
+  return fontsPromise;
 }
 
 /**
@@ -251,20 +314,24 @@ function loadAvatarDataUri(request: Request): Promise<string> {
   return avatarDataUriPromise;
 }
 
+/** Obsidian monogram shown when the photo cannot be resolved. */
 function Monogram() {
   return (
     <div
       style={{
         display: "flex",
-        width: 280,
-        height: 280,
-        borderRadius: 9999,
+        width: AVATAR_W,
+        height: AVATAR_H,
+        borderRadius: 6,
         alignItems: "center",
         justifyContent: "center",
-        background: "linear-gradient(135deg, #1d4ed8, #0ea5e9)",
-        fontSize: 100,
+        border: `1px solid ${C.hairline}`,
+        background: `linear-gradient(160deg, ${C.card} 0%, #0E1017 100%)`,
+        fontSize: 120,
         fontWeight: 700,
-        color: "#f8fafc",
+        fontFamily: "Syne, Cairo, sans-serif",
+        letterSpacing: -4,
+        color: C.emeraldBright,
       }}
     >
       <div style={{ display: "flex" }}>SA</div>
@@ -284,30 +351,146 @@ function IdentityCard({
   const textAlign = rtl ? "right" : "left";
   const rowDirection = rtl ? "row-reverse" : "row";
 
+  const display = "Syne, Cairo, sans-serif";
+  const body = "Plus Jakarta Sans, Cairo, sans-serif";
+  const mono = "JetBrains Mono, Cairo, monospace";
+
   return (
     <div
       style={{
         display: "flex",
         flexDirection: rtl ? "row-reverse" : "row",
+        position: "relative",
         width: "100%",
         height: "100%",
         padding: 56,
-        gap: 40,
+        gap: 44,
         alignItems: "center",
-        background:
-          "linear-gradient(135deg, #020617 0%, #0b1226 55%, #101c3d 100%)",
-        color: "#f8fafc",
+        backgroundColor: C.canvas,
+        color: C.platinum,
       }}
     >
+      {/* Architectural dot matrix, same 40 px grid as the site hero. */}
+      <div
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+          display: "flex",
+          backgroundImage:
+            "radial-gradient(circle at 1px 1px, rgba(255,255,255,0.11) 1px, transparent 0)",
+          backgroundSize: "40px 40px",
+          opacity: 0.55,
+        }}
+      />
+      {/* Restrained emerald luminescence, top-right (mirrored in RTL). */}
+      <div
+        style={{
+          position: "absolute",
+          top: -180,
+          [rtl ? "left" : "right"]: -60,
+          width: 520,
+          height: 520,
+          display: "flex",
+          backgroundImage:
+            "radial-gradient(circle, rgba(16,185,129,0.22) 0%, rgba(16,185,129,0) 68%)",
+        }}
+      />
+      {/* Inner hairline frame — the card's "bevel". */}
+      <div
+        style={{
+          position: "absolute",
+          top: 24,
+          left: 24,
+          right: 24,
+          bottom: 24,
+          display: "flex",
+          border: `1px solid ${C.hairline}`,
+          borderRadius: 6,
+        }}
+      />
+
       <div
         style={{
           display: "flex",
           flexDirection: "column",
           flex: 1,
-          gap: 26,
+          minWidth: 0,
+          gap: 22,
+          position: "relative",
           alignItems: rtl ? "flex-end" : "flex-start",
+          textAlign,
         }}
       >
+        {/* Micro-index: mono, emerald, tracked out — with its rule. */}
+        <div
+          style={{
+            display: "flex",
+            flexDirection: rowDirection,
+            alignItems: "center",
+            gap: 14,
+            textAlign,
+          }}
+        >
+          <div
+            style={{
+              display: "flex",
+              fontFamily: mono,
+              fontSize: 20,
+              fontWeight: 500,
+              letterSpacing: 3,
+              color: C.emeraldBright,
+            }}
+          >
+            {c.eyebrow}
+          </div>
+          <div
+            style={{
+              display: "flex",
+              width: 96,
+              height: 1,
+              backgroundColor: C.hairlineStrong,
+            }}
+          />
+        </div>
+
+        {/* Display title — Syne, tight tracking, platinum. */}
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            gap: 4,
+            fontFamily: display,
+            fontSize: 54,
+            fontWeight: 700,
+            lineHeight: 1.06,
+            letterSpacing: -1.5,
+            color: C.platinum,
+            textAlign,
+          }}
+        >
+          <div style={{ display: "flex", textAlign }}>{c.title1}</div>
+          <div style={{ display: "flex", textAlign }}>{c.title2}</div>
+        </div>
+
+        <div
+          style={{
+            display: "flex",
+            textAlign,
+            fontFamily: body,
+            fontSize: 25,
+            fontWeight: 400,
+            lineHeight: 1.4,
+            color: C.mist,
+            maxWidth: 680,
+          }}
+        >
+          {c.subtitle}
+        </div>
+
+        {/* Status token: rectilinear, never a pill. */}
         <div
           style={{
             display: "flex",
@@ -315,59 +498,37 @@ function IdentityCard({
             textAlign,
             alignItems: "center",
             gap: 12,
-            borderRadius: 9999,
-            border: "2px solid rgba(34,197,94,0.45)",
-            backgroundColor: "rgba(34,197,94,0.12)",
-            padding: "10px 22px",
-            fontSize: 23,
-            fontWeight: 700,
-            letterSpacing: 2,
-            color: "#4ade80",
+            borderRadius: 4,
+            border: "1px solid rgba(16,185,129,0.45)",
+            backgroundColor: C.emeraldWash,
+            padding: "11px 20px",
           }}
         >
           <div
             style={{
               display: "flex",
-              width: 14,
-              height: 14,
-              borderRadius: 9999,
-              backgroundColor: "#22c55e",
+              width: 10,
+              height: 10,
+              borderRadius: 2,
+              backgroundColor: C.emeraldBright,
             }}
           />
-          <div style={{ display: "flex", textAlign }}>{c.badge}</div>
+          <div
+            style={{
+              display: "flex",
+              fontFamily: mono,
+              fontSize: 19,
+              fontWeight: 500,
+              letterSpacing: 1.6,
+              color: C.emeraldBright,
+              textAlign,
+            }}
+          >
+            {c.badge}
+          </div>
         </div>
 
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            textAlign,
-            fontSize: 64,
-            fontWeight: 700,
-            lineHeight: 1.05,
-            letterSpacing: -1,
-            color: "#f8fafc",
-          }}
-        >
-          <div style={{ display: "flex", textAlign }}>{c.title1}</div>
-          <div style={{ display: "flex", textAlign }}>{c.title2}</div>
-          <div style={{ display: "flex", textAlign }}>{c.title3}</div>
-        </div>
-
-        <div
-          style={{
-            display: "flex",
-            textAlign,
-            fontSize: 29,
-            fontWeight: 400,
-            lineHeight: 1.35,
-            color: "#93c5fd",
-            maxWidth: 600,
-          }}
-        >
-          {c.subtitle}
-        </div>
-
+        {/* Identity ledger: hairline, name, rule, domain. */}
         <div
           style={{
             display: "flex",
@@ -375,51 +536,58 @@ function IdentityCard({
             textAlign,
             alignItems: "center",
             gap: 16,
-            marginTop: 10,
+            width: "100%",
+            marginTop: 6,
+            paddingTop: 18,
+            borderTop: `1px solid ${C.hairline}`,
           }}
         >
           <div
             style={{
               display: "flex",
+              fontFamily: body,
+              fontSize: 27,
+              fontWeight: 600,
+              letterSpacing: -0.3,
+              color: C.platinum,
               textAlign,
-              fontSize: 30,
-              fontWeight: 700,
-              color: "#e2e8f0",
             }}
           >
-            Sofiane ASMA
+            {NAME}
           </div>
           <div
             style={{
               display: "flex",
-              width: 8,
-              height: 8,
-              borderRadius: 9999,
-              backgroundColor: "#3b82f6",
+              width: 1,
+              height: 18,
+              backgroundColor: C.hairlineStrong,
             }}
           />
           <div
             style={{
               display: "flex",
+              fontFamily: mono,
+              fontSize: 23,
+              fontWeight: 500,
+              color: C.fog,
               textAlign,
-              fontSize: 26,
-              fontWeight: 400,
-              color: "#60a5fa",
             }}
           >
-            sofianeasma.me
+            {DOMAIN}
           </div>
         </div>
       </div>
 
+      {/* Right rail: framed portrait + role, as in the hero profile card. */}
       <div
         style={{
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
-          gap: 22,
-          width: 320,
+          gap: 18,
+          width: AVATAR_W,
           flexShrink: 0,
+          position: "relative",
         }}
       >
         {avatarDataUri ? (
@@ -427,12 +595,13 @@ function IdentityCard({
             style={{
               position: "relative",
               display: "flex",
-              width: AVATAR_BOX,
-              height: AVATAR_BOX,
-              borderRadius: 9999,
+              width: AVATAR_W,
+              height: AVATAR_H,
+              borderRadius: 6,
               overflow: "hidden",
-              border: "6px solid rgba(59,130,246,0.45)",
-              boxShadow: "0 0 70px rgba(59,130,246,0.30)",
+              border: `1px solid ${C.emeraldRim}`,
+              backgroundColor: C.card,
+              boxShadow: "0 0 60px rgba(16,185,129,0.14)",
             }}
           >
             {/* Satori only understands raw <img> tags fed with data URIs. */}
@@ -440,15 +609,26 @@ function IdentityCard({
             <img
               src={avatarDataUri}
               alt="Sofiane ASMA"
-              width={AVATAR_BOX}
+              width={Math.round(avatarScaledWidth)}
               height={Math.round(avatarScaledHeight)}
               style={{
                 position: "absolute",
                 top: -Math.round(avatarOffsetY),
-                left: 0,
-                width: AVATAR_BOX,
+                left: -Math.round(avatarOffsetX),
+                width: Math.round(avatarScaledWidth),
                 height: Math.round(avatarScaledHeight),
-                maxWidth: "none",
+              }}
+            />
+            <div
+              style={{
+                position: "absolute",
+                left: 0,
+                right: 0,
+                bottom: 0,
+                height: 150,
+                display: "flex",
+                backgroundImage:
+                  "linear-gradient(to top, rgba(9,10,15,0.88), rgba(9,10,15,0))",
               }}
             />
           </div>
@@ -459,11 +639,12 @@ function IdentityCard({
         <div
           style={{
             display: "flex",
-            textAlign,
-            fontSize: 21,
-            fontWeight: 700,
-            letterSpacing: 3,
-            color: "#64748b",
+            textAlign: "center",
+            fontFamily: mono,
+            fontSize: 19,
+            fontWeight: 500,
+            letterSpacing: 2.4,
+            color: C.emerald,
           }}
         >
           {c.role}
@@ -477,23 +658,16 @@ export async function GET(request: Request): Promise<Response> {
   const raw = new URL(request.url).searchParams.get("locale");
   let locale: Locale = raw && isLocale(raw) ? raw : routing.defaultLocale;
 
-  // Arabic needs Cairo; other locales keep Satori's default fonts untouched.
-  let fonts: OgOptions["fonts"];
-  if (locale === "ar") {
-    try {
-      const [regular, bold] = await loadCairoFonts();
-      fonts = [
-        { name: "Cairo", data: regular, weight: 400, style: "normal" },
-        { name: "Cairo", data: bold, weight: 700, style: "normal" },
-      ];
-    } catch (error) {
-      console.error(
-        "OG Cairo fonts unavailable, falling back to English:",
-        error instanceof Error ? error.message : error,
-      );
-      locale = "en";
-      fonts = undefined;
-    }
+  // Every face is loaded up-front; missing files degrade to Satori's default.
+  const fonts = await loadFonts();
+
+  // Arabic (and stray Latin fragments) resolve through the Cairo entry of the
+  // stacks. If Cairo itself is missing, the Arabic card would render tofu, so
+  // fall back to English copy rather than shipping a broken image.
+  const hasCairo = fonts?.some((font) => font.name === "Cairo");
+  if (locale === "ar" && !hasCairo) {
+    console.error("OG Cairo fonts unavailable, falling back to English");
+    locale = "en";
   }
 
   try {
