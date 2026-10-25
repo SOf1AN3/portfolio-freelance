@@ -5,6 +5,7 @@ import {
   Plus_Jakarta_Sans,
   Cairo,
   JetBrains_Mono,
+  Syne,
 } from "next/font/google";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 
@@ -14,7 +15,15 @@ import { JsonLd } from "@/components/SEO/JsonLd";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
+import { SmoothScrollProvider } from "@/components/providers/SmoothScrollProvider";
 import "../globals.css";
+
+const syne = Syne({
+  weight: ["600", "700", "800"],
+  subsets: ["latin"],
+  variable: "--font-syne",
+  display: "swap",
+});
 
 const jakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -83,21 +92,18 @@ export default async function LocaleLayout({
       lang={locale}
       dir={isRtl ? "rtl" : "ltr"}
       data-scroll-behavior="smooth"
-      className={`${jakarta.variable} ${cairo.variable} ${jetbrains.variable} h-full antialiased`}
+      className={`${syne.variable} ${jakarta.variable} ${cairo.variable} ${jetbrains.variable} h-full antialiased`}
     >
       <body className="relative flex min-h-full flex-col">
-        <JsonLd data={structuredData} />
-        {/* Fond unifié : halo bleu en haut de page, identique au hero. */}
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[90vh] bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(30,64,175,0.4),transparent_60%)]"
-        />
-        <NextIntlClientProvider locale={locale} messages={messages}>
-          <Navbar locale={locale as Locale} />
-          <main className="flex-1">{children}</main>
-          <Footer locale={locale as Locale} />
-          <WhatsAppButton />
-        </NextIntlClientProvider>
+        <SmoothScrollProvider>
+          <JsonLd data={structuredData} />
+          <NextIntlClientProvider locale={locale} messages={messages}>
+            <Navbar locale={locale as Locale} />
+            <main className="flex-1">{children}</main>
+            <Footer locale={locale as Locale} />
+            <WhatsAppButton />
+          </NextIntlClientProvider>
+        </SmoothScrollProvider>
       </body>
     </html>
   );
