@@ -2,14 +2,12 @@
 
 import * as React from "react";
 import { useTranslations } from "next-intl";
-import { motion } from "framer-motion";
 import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { Send, Mail, MapPin, Loader2 } from "lucide-react";
+import { Send, Loader2 } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -21,7 +19,10 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Card, CardContent } from "@/components/ui/card";
+import { SectionHeader } from "@/components/ui/section-header";
+import { Reveal } from "@/components/animations/Reveal";
+import { Stagger, StaggerItem } from "@/components/animations/Stagger";
+import { Magnetic } from "@/components/animations/Magnetic";
 import {
   whatsappLink,
   WHATSAPP_NUMBER,
@@ -165,243 +166,248 @@ export function ContactSection() {
   }
 
   return (
-    <section id="contact" className="scroll-mt-16 py-20 lg:py-28">
+    <section id="contact" className="scroll-mt-16 bg-canvas py-24 lg:py-32">
       <Container>
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.6 }}
-          className="mx-auto max-w-2xl text-center"
-        >
-          <Badge variant="outline" className="mb-4">
-            {t("title")}
-          </Badge>
-          <h2 className="text-balance text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
-            {t("subtitle")}
-          </h2>
-        </motion.div>
+        <SectionHeader
+          index={t("contact.index")}
+          title={t("contact.title")}
+          lead={t("contact.subtitle")}
+        />
 
-        <div className="mt-14 grid gap-8 lg:grid-cols-5">
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.5 }}
-            className="min-w-0 lg:col-span-3"
-          >
-            <Card className="h-full border-border/60 bg-card/80 backdrop-blur">
-              <CardContent className="p-6 sm:p-8">
-                <div aria-live="polite" aria-atomic="true">
-                  {submitted && (
-                    <div className="mb-6 rounded-lg border border-[#22c55e]/30 bg-[#22c55e]/10 px-4 py-3 text-sm text-[#22c55e]">
-                      {t("form.success")}
-                    </div>
-                  )}
-
-                  {submitError && (
-                    <div
-                      role="alert"
-                      className="mb-6 rounded-lg border border-destructive/40 bg-destructive/10 px-4 py-3 text-sm text-destructive"
-                    >
-                      {submitError}
-                    </div>
-                  )}
-                </div>
-
-                <form
-                  onSubmit={handleSubmit(onSubmit)}
-                  className="relative space-y-5"
-                  noValidate
-                >
-                  <div className="grid gap-5 sm:grid-cols-2">
-                    <div className="space-y-2">
-                      <Label htmlFor="name">{t("form.name")}</Label>
-                      <Input
-                        id="name"
-                        autoComplete="name"
-                        placeholder="John Doe"
-                        aria-invalid={Boolean(formErrors.name)}
-                        aria-describedby={
-                          formErrors.name ? "name-error" : undefined
-                        }
-                        {...register("name")}
-                      />
-                      {formErrors.name && (
-                        <p id="name-error" className="text-xs text-destructive">
-                          {formErrors.name.message}
-                        </p>
-                      )}
-                    </div>
-
-                    <div className="space-y-2">
-                      <Label htmlFor="email">{t("form.email")}</Label>
-                      <Input
-                        id="email"
-                        type="email"
-                        autoComplete="email"
-                        placeholder="you@example.com"
-                        aria-invalid={Boolean(formErrors.email)}
-                        aria-describedby={
-                          formErrors.email ? "email-error" : undefined
-                        }
-                        {...register("email")}
-                      />
-                      {formErrors.email && (
-                        <p id="email-error" className="text-xs text-destructive">
-                          {formErrors.email.message}
-                        </p>
-                      )}
-                    </div>
+        <div className="mt-14 grid items-start gap-10 lg:grid-cols-12">
+          {/* Formulaire — colonne large (7/12) */}
+          <Reveal className="min-w-0 lg:col-span-7">
+            <div className="rounded-md border border-hairline bg-card p-8 sm:p-10">
+              <div aria-live="polite" aria-atomic="true">
+                {submitted && (
+                  <div className="mb-6 rounded-md border border-emerald/30 bg-emerald/10 px-4 py-3 font-mono text-xs text-emerald">
+                    {t("form.success")}
                   </div>
+                )}
 
-                  <div className="grid gap-5 sm:grid-cols-2">
-                    <div className="space-y-2">
-                      <Label htmlFor="phone">{t("form.phone")}</Label>
-                      <Input
-                        id="phone"
-                        type="tel"
-                        autoComplete="tel"
-                        placeholder="+213 555 00 00 00"
-                        aria-invalid={Boolean(formErrors.phone)}
-                        aria-describedby={
-                          formErrors.phone ? "phone-error" : undefined
-                        }
-                        {...register("phone")}
-                      />
-                      {formErrors.phone && (
-                        <p id="phone-error" className="text-xs text-destructive">
-                          {formErrors.phone.message}
-                        </p>
-                      )}
-                    </div>
+                {submitError && (
+                  <div
+                    role="alert"
+                    className="mb-6 rounded-md border border-danger/40 bg-danger/10 px-4 py-3 font-mono text-xs text-danger"
+                  >
+                    {submitError}
+                  </div>
+                )}
+              </div>
 
-                    <div className="space-y-2">
-                      <Label htmlFor="projectType">{t("form.projectType")}</Label>
-                      <Controller
-                        control={control}
-                        name="projectType"
-                        render={({ field }) => (
-                          <Select
-                            value={field.value || ""}
-                            onValueChange={field.onChange}
-                          >
-                            <SelectTrigger
-                              id="projectType"
-                              aria-label={t("form.projectType")}
-                              aria-invalid={Boolean(formErrors.projectType)}
-                              aria-describedby={
-                                formErrors.projectType
-                                  ? "projectType-error"
-                                  : undefined
-                              }
-                              className="w-full"
-                            >
-                              <SelectValue placeholder={t("form.projectType")} />
-                            </SelectTrigger>
-                            <SelectContent>
-                              {(
-                                Object.entries(projectTypes) as [
-                                  ProjectType,
-                                  string,
-                                ][]
-                              ).map(([value, label]) => (
-                                <SelectItem key={value} value={value}>
-                                  {label}
-                                </SelectItem>
-                              ))}
-                            </SelectContent>
-                          </Select>
-                        )}
-                      />
-                      {formErrors.projectType && (
-                        <p
-                          id="projectType-error"
-                          className="text-xs text-destructive"
-                        >
-                          {formErrors.projectType.message}
-                        </p>
-                      )}
-                    </div>
+              <form
+                onSubmit={handleSubmit(onSubmit)}
+                className="relative space-y-6"
+                noValidate
+              >
+                <div className="grid gap-6 sm:grid-cols-2">
+                  <div className="space-y-2">
+                    <Label htmlFor="name">{t("form.name")}</Label>
+                    <Input
+                      id="name"
+                      autoComplete="name"
+                      placeholder="John Doe"
+                      aria-invalid={Boolean(formErrors.name)}
+                      aria-describedby={
+                        formErrors.name ? "name-error" : undefined
+                      }
+                      {...register("name")}
+                    />
+                    {formErrors.name && (
+                      <p
+                        id="name-error"
+                        className="font-mono text-xs text-danger"
+                      >
+                        {formErrors.name.message}
+                      </p>
+                    )}
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="budget">{t("form.budget")}</Label>
+                    <Label htmlFor="email">{t("form.email")}</Label>
+                    <Input
+                      id="email"
+                      type="email"
+                      autoComplete="email"
+                      placeholder="you@example.com"
+                      aria-invalid={Boolean(formErrors.email)}
+                      aria-describedby={
+                        formErrors.email ? "email-error" : undefined
+                      }
+                      {...register("email")}
+                    />
+                    {formErrors.email && (
+                      <p
+                        id="email-error"
+                        className="font-mono text-xs text-danger"
+                      >
+                        {formErrors.email.message}
+                      </p>
+                    )}
+                  </div>
+                </div>
+
+                <div className="grid gap-6 sm:grid-cols-2">
+                  <div className="space-y-2">
+                    <Label htmlFor="phone">{t("form.phone")}</Label>
+                    <Input
+                      id="phone"
+                      type="tel"
+                      autoComplete="tel"
+                      placeholder="+213 555 00 00 00"
+                      aria-invalid={Boolean(formErrors.phone)}
+                      aria-describedby={
+                        formErrors.phone ? "phone-error" : undefined
+                      }
+                      {...register("phone")}
+                    />
+                    {formErrors.phone && (
+                      <p
+                        id="phone-error"
+                        className="font-mono text-xs text-danger"
+                      >
+                        {formErrors.phone.message}
+                      </p>
+                    )}
+                  </div>
+
+                  <div className="space-y-2">
+                    <Label htmlFor="projectType">{t("form.projectType")}</Label>
                     <Controller
                       control={control}
-                      name="budget"
+                      name="projectType"
                       render={({ field }) => (
                         <Select
                           value={field.value || ""}
-onValueChange={field.onChange}
+                          onValueChange={field.onChange}
+                        >
+                          <SelectTrigger
+                            id="projectType"
+                            aria-label={t("form.projectType")}
+                            aria-invalid={Boolean(formErrors.projectType)}
+                            aria-describedby={
+                              formErrors.projectType
+                                ? "projectType-error"
+                                : undefined
+                            }
+                            className="w-full"
                           >
-                            <SelectTrigger
-                              id="budget"
-                              aria-label={t("form.budget")}
-                              aria-invalid={Boolean(formErrors.budget)}
-                              aria-describedby={
-                                formErrors.budget ? "budget-error" : undefined
-                              }
-                              className="w-full"
-                            >
-                              <SelectValue placeholder={t("form.budget")} />
-                            </SelectTrigger>
+                            <SelectValue placeholder={t("form.projectType")} />
+                          </SelectTrigger>
                           <SelectContent>
-                            {(Object.entries(budgets) as [Budget, string][]).map(
-                              ([value, label]) => (
-                                <SelectItem key={value} value={value}>
-                                  {label}
-                                </SelectItem>
-                              ),
-                            )}
+                            {(
+                              Object.entries(projectTypes) as [
+                                ProjectType,
+                                string,
+                              ][]
+                            ).map(([value, label]) => (
+                              <SelectItem key={value} value={value}>
+                                {label}
+                              </SelectItem>
+                            ))}
                           </SelectContent>
                         </Select>
                       )}
                     />
-{formErrors.budget && (
-                      <p id="budget-error" className="text-xs text-destructive">
-                        {formErrors.budget.message}
+                    {formErrors.projectType && (
+                      <p
+                        id="projectType-error"
+                        className="font-mono text-xs text-danger"
+                      >
+                        {formErrors.projectType.message}
                       </p>
                     )}
                   </div>
+                </div>
 
-                  <div className="space-y-2">
-                    <Label htmlFor="description">{t("form.description")}</Label>
-                    <Textarea
-                      id="description"
-                      rows={5}
-                      placeholder="..."
-                      aria-invalid={Boolean(formErrors.description)}
-                      aria-describedby={
-                        formErrors.description ? "description-error" : undefined
-                      }
-                      {...register("description")}
-                    />
-                    {formErrors.description && (
-                      <p id="description-error" className="text-xs text-destructive">
-                        {formErrors.description.message}
-                      </p>
+                <div className="space-y-2">
+                  <Label htmlFor="budget">{t("form.budget")}</Label>
+                  <Controller
+                    control={control}
+                    name="budget"
+                    render={({ field }) => (
+                      <Select
+                        value={field.value || ""}
+                        onValueChange={field.onChange}
+                      >
+                        <SelectTrigger
+                          id="budget"
+                          aria-label={t("form.budget")}
+                          aria-invalid={Boolean(formErrors.budget)}
+                          aria-describedby={
+                            formErrors.budget ? "budget-error" : undefined
+                          }
+                          className="w-full"
+                        >
+                          <SelectValue placeholder={t("form.budget")} />
+                        </SelectTrigger>
+                        <SelectContent>
+                          {(Object.entries(budgets) as [Budget, string][]).map(
+                            ([value, label]) => (
+                              <SelectItem key={value} value={value}>
+                                {label}
+                              </SelectItem>
+                            ),
+                          )}
+                        </SelectContent>
+                      </Select>
                     )}
-                  </div>
+                  />
+                  {formErrors.budget && (
+                    <p
+                      id="budget-error"
+                      className="font-mono text-xs text-danger"
+                    >
+                      {formErrors.budget.message}
+                    </p>
+                  )}
+                </div>
 
-                  <div
-                    aria-hidden="true"
-                    className="absolute top-auto h-px w-px overflow-hidden [inset-inline-start:-9999px]"
-                  >
-                    <label htmlFor="company">Company</label>
-                    <input
-                      id="company"
-                      type="text"
-                      tabIndex={-1}
-                      autoComplete="off"
-                      {...register("company")}
-                    />
-                  </div>
+                <div className="space-y-2">
+                  <Label htmlFor="description">{t("form.description")}</Label>
+                  <Textarea
+                    id="description"
+                    rows={5}
+                    placeholder="..."
+                    className="resize-none"
+                    aria-invalid={Boolean(formErrors.description)}
+                    aria-describedby={
+                      formErrors.description ? "description-error" : undefined
+                    }
+                    {...register("description")}
+                  />
+                  {formErrors.description && (
+                    <p
+                      id="description-error"
+                      className="font-mono text-xs text-danger"
+                    >
+                      {formErrors.description.message}
+                    </p>
+                  )}
+                </div>
 
+                <div
+                  aria-hidden="true"
+                  className="absolute top-auto h-px w-px overflow-hidden [inset-inline-start:-9999px]"
+                >
+                  <label htmlFor="company">Company</label>
+                  <input
+                    id="company"
+                    type="text"
+                    tabIndex={-1}
+                    autoComplete="off"
+                    {...register("company")}
+                  />
+                </div>
+
+                <div className="flex flex-col gap-4 border-t border-hairline pt-6 sm:flex-row sm:items-center sm:justify-between">
+                  <p className="font-mono text-[11px] uppercase leading-relaxed tracking-[0.18em] text-fog">
+                    {t("form.privacyNote")}
+                  </p>
                   <Button
                     type="submit"
                     size="lg"
-                    className="w-full"
+                    className="group gap-2.5"
                     disabled={isSubmitting}
                   >
                     {isSubmitting ? (
@@ -411,93 +417,104 @@ onValueChange={field.onChange}
                       </>
                     ) : (
                       <>
-                        <Send className="size-4 rtl:rotate-180" />
+                        <Send className="size-4 rtl:rotate-180 transition-transform duration-200 group-hover:translate-x-1 rtl:group-hover:-translate-x-1" />
                         {t("form.submit")}
                       </>
                     )}
                   </Button>
-                </form>
-              </CardContent>
-            </Card>
-          </motion.div>
+                </div>
+              </form>
+            </div>
+          </Reveal>
 
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.5, delay: 0.12 }}
-            className="flex min-w-0 flex-col gap-6 lg:col-span-2"
+          {/* Canaux directs — colonne étroite (5/12) */}
+          <Reveal
+            delay={0.12}
+            className="flex min-w-0 flex-col gap-6 lg:col-span-5"
           >
-            <Card className="relative overflow-hidden border-[#22c55e]/30 bg-gradient-to-br from-[#22c55e]/10 via-card to-card">
-              <CardContent className="p-6">
-                <div className="flex size-12 items-center justify-center rounded-xl bg-[#22c55e]/15 text-[#22c55e]">
-                  <WhatsappIcon className="size-6" />
+            <div className="relative overflow-hidden rounded-md border border-emerald/30 bg-card p-8">
+              <span
+                aria-hidden="true"
+                className="pointer-events-none absolute -top-20 -end-20 size-56 rounded-full bg-emerald/10 blur-3xl"
+              />
+
+              <div className="relative flex flex-col gap-6">
+                <div className="flex flex-col gap-3">
+                  <div className="flex items-center gap-3">
+                    <span className="flex size-10 shrink-0 items-center justify-center rounded-md bg-emerald/15 text-emerald">
+                      <WhatsappIcon className="size-5" />
+                    </span>
+                    <h3 className="font-display text-xl font-semibold leading-snug text-platinum">
+                      {t("whatsappCard.title")}
+                    </h3>
+                  </div>
+                  <p className="text-sm leading-relaxed text-mist">
+                    {t("whatsappCard.description")}
+                  </p>
                 </div>
-                <h3 className="mt-4 text-lg font-semibold">
-                  {t("whatsapp.title")}
-                </h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                  {t("whatsapp.description")}
-                </p>
-                <Button asChild variant="whatsapp" size="lg" className="mt-5 w-full">
-                  <a
-                    href={whatsappLink(DEFAULT_WHATSAPP_MESSAGE)}
-                    target="_blank"
-                    rel="noopener noreferrer"
+
+                <Magnetic>
+                  <Button
+                    asChild
+                    variant="whatsapp"
+                    size="lg"
+                    className="w-full gap-3"
                   >
-                    <WhatsappIcon className="size-4" />
-                    {t("whatsapp.cta")}
-                  </a>
-                </Button>
-              </CardContent>
-            </Card>
+                    <a
+                      href={whatsappLink(DEFAULT_WHATSAPP_MESSAGE)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <WhatsappIcon className="size-4" />
+                      {t("whatsappCard.cta")}
+                    </a>
+                  </Button>
+                </Magnetic>
+              </div>
+            </div>
 
-            <Card className="border-border/60">
-              <CardContent className="space-y-4 p-6">
-                <div className="flex items-center gap-3">
-                  <div className="flex size-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                    <Mail className="size-4" />
-                  </div>
-                  <div>
-                    <div className="text-xs uppercase tracking-wider text-muted-foreground">
-                      {t("info.email")}
-                    </div>
-                    <div className="text-sm font-medium">
-                      {CONTACT_EMAIL}
-                    </div>
-                  </div>
-                </div>
+            <div className="rounded-md border border-hairline bg-card p-8">
+              <span className="block font-mono text-[11px] uppercase tracking-[0.2em] text-fog">
+                {t("coordinates.label")}
+              </span>
 
-                <div className="flex items-center gap-3">
-                  <div className="flex size-10 items-center justify-center rounded-lg bg-[#22c55e]/10 text-[#22c55e]">
-                    <WhatsappIcon className="size-4" />
+              <Stagger className="mt-5 flex flex-col gap-4" stagger={0.08}>
+                <StaggerItem>
+                  <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 border-b border-hairline pb-3 font-mono text-sm">
+                    <span className="text-fog">{t("info.email")}</span>
+                    <a
+                      href={`mailto:${CONTACT_EMAIL}`}
+                      className="break-all text-platinum transition-colors hover:text-emerald"
+                    >
+                      {t("coordinates.email")}
+                    </a>
                   </div>
-                  <div>
-                    <div className="text-xs uppercase tracking-wider text-muted-foreground">
-                      {t("info.phone")}
-                    </div>
-                    <div className="text-sm font-medium" dir="ltr">
-                      +{WHATSAPP_NUMBER}
-                    </div>
-                  </div>
-                </div>
+                </StaggerItem>
 
-                <div className="flex items-center gap-3">
-                  <div className="flex size-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                    <MapPin className="size-4" />
+                <StaggerItem>
+                  <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 border-b border-hairline pb-3 font-mono text-sm">
+                    <span className="text-fog">{t("info.phone")}</span>
+                    <a
+                      href={`tel:+${WHATSAPP_NUMBER}`}
+                      dir="ltr"
+                      className="text-platinum transition-colors hover:text-emerald"
+                    >
+                      {t("coordinates.phone")}
+                    </a>
                   </div>
-                  <div>
-                    <div className="text-xs uppercase tracking-wider text-muted-foreground">
-                      {t("info.location")}
-                    </div>
-                    <div className="text-sm font-medium">
-                      Algeria · Remote worldwide
-                    </div>
+                </StaggerItem>
+
+                <StaggerItem>
+                  <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 font-mono text-sm">
+                    <span className="text-fog">{t("info.location")}</span>
+                    <span className="text-platinum">
+                      {t("coordinates.reach")}
+                    </span>
                   </div>
-                </div>
-              </CardContent>
-            </Card>
-          </motion.div>
+                </StaggerItem>
+              </Stagger>
+            </div>
+          </Reveal>
         </div>
       </Container>
     </section>
