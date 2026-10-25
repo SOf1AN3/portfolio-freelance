@@ -1,14 +1,17 @@
 {
   "metadata": {
-    "title": "Sofiane ASMA — Création de sites web pour PME & applications sur-mesure",
-    "description": "Développeur full-stack freelance : création de sites web professionnels pour petites entreprises, applications web, dashboards et plateformes SaaS sur-mesure.",
-    "ogTitle": "Sofiane ASMA — Des sites web qui convertissent",
-    "ogDescription": "Sites web rapides et professionnels pour PME, applications web et SaaS sur-mesure. Devis clair, mise en ligne rapide.",
+    "title": "Sofiane ASMA — Création de site web & ingénierie logicielle",
+    "description": "Développeur web freelance et ingénieur full-stack : création de site web professionnel, applications web, dashboards et plateformes SaaS sur-mesure pour PME et entreprises exigeantes.",
+    "ogTitle": "Sofiane ASMA — Sites web d'exception & ingénierie logicielle",
+    "ogDescription": "Sites web rapides et professionnels pour les entreprises, applications web et SaaS sur-mesure. Devis clair, mise en ligne rapide.",
     "keywords": [
       "création site web",
       "site web professionnel",
       "petite entreprise",
       "développeur web freelance",
+      "applications web",
+      "freelance",
+      "ingénieur full-stack",
       "Next.js",
       "React",
       "SaaS",
@@ -29,12 +32,46 @@
     "mainNav": "Navigation principale"
   },
   "hero": {
+    "eyebrow": "INGÉNIERIE & ARCHITECTURES NUMÉRIQUES",
     "badge": "Disponible pour de nouveaux projets",
-    "title": "Sites web professionnels pour petites entreprises",
-    "highlight": "Développeur web & mobile full-stack",
-    "subtitle": "Cabinet médical, commerce, artisanat, cabinet de conseil : je conçois un site rapide, simple à gérer et pensé pour transformer vos visiteurs en clients. Applications web sur mesure et plateformes SaaS en second.",
+    "title": "Sites web d'exception & ingénierie logicielle pour entreprises exigeantes",
+    "highlight": "Ingénieur Full-Stack & Web",
+    "subtitle": "Cabinets médicaux, structures de conseil, commerces et entreprises établies : je conçois et développe des plateformes rapides, simples à piloter et pensées pour transformer durablement vos visiteurs en clients. Applications web et plateformes SaaS sur-mesure.",
     "ctaPrimary": "Discuter de mon projet",
-    "ctaSecondary": "Voir mes réalisations",
+    "ctaSecondary": "Explorer les réalisations",
+    "profile": {
+      "label": "PROFIL INGÉNIEUR",
+      "role": "Ingénieur Full-Stack & Web",
+      "description": "Conception architecturale et réalisation intégrale, sans sous-traitance.",
+      "specs": [
+        { "label": "PÉRIMÈTRE", "value": "Web / Desktop" },
+        { "label": "MOBILE", "value": "iOS & Android" },
+        { "label": "BASE", "value": "Remote" }
+      ]
+    },
+    "metrics": [
+      {
+        "label": "ÉCOSYSTÈME ACTIF",
+        "tag": "01 / AUDITÉ",
+        "value": "05",
+        "unit": "PROJETS PHARES EN LIGNE",
+        "description": "Architectures déployées en production haute disponibilité, monétisées ou en usage quotidien."
+      },
+      {
+        "label": "EXPÉRIENCE INGÉNIERIE",
+        "tag": "02 / ÉPROUVÉ",
+        "value": "+3",
+        "unit": "ANNÉES D'EXPERTISE APPLIQUÉE",
+        "description": "Pratique intensive des technologies modernes : Next.js, Node.js, PostgreSQL et design systems sur-mesure."
+      },
+      {
+        "label": "RÉACTIVITÉ DIRECTE",
+        "tag": "03 / GARANTI",
+        "value": "<24h",
+        "unit": "RÉPONSE OUVRÉE",
+        "description": "Échange direct avec l'ingénieur en charge de votre code, sans intermédiaire ni commercial."
+      }
+    ],
     "stats": {
       "items": [
         { "value": "5", "label": "Projets publiés en ligne" },
@@ -44,30 +81,39 @@
     }
   },
   "services": {
-    "title": "Services",
-    "subtitle": "Une offre principale pour les petites entreprises, et du développement sur-mesure pour les produits ambitieux",
+    "index": "01 / ARCHITECTURE & OFFRE DE SERVICES",
+    "title": "Une ingénierie sur-mesure au service de votre impact.",
+    "subtitle": "Chaque intervention est conduite avec une rigueur d'ingénierie : code maîtrisé de bout en bout, zéro dépendance superflue et conformité stricte à vos impératifs métier.",
     "cta": "Parler de mon projet",
     "discover": "Découvrir l'offre",
     "items": [
       {
-        "title": "Création de sites web professionnels",
-        "description": "Site vitrine, page de présentation avec prise de rendez-vous ou catalogue : un site rapide, clair et adapté à votre activité, conçu pour générer des demandes de contact.",
+        "index": "01 // VITRINES CRITIQUES",
+        "duration": "2 À 4 SEMAINES",
+        "title": "Sites web professionnels & vitrines d'autorité",
+        "description": "Conçu pour cabinets médicaux, praticiens, avocats et bureaux de conseil : architecture rapide, typographie soignée et conversion fluide des consultations en rendez-vous.",
         "features": ["Site vitrine", "Responsive mobile", "SEO de base", "Mise en ligne"],
         "link": "/creation-site-web"
       },
       {
-        "title": "Applications web & SaaS sur-mesure",
-        "description": "Tableau de bord interne, espace client ou plateforme SaaS : une application adaptée à vos processus, développée avec des technologies web éprouvées. Applications mobiles (iOS/Android) sur demande.",
+        "index": "02 // SAAS & SYSTÈMES",
+        "duration": "SPRINTS AGILES",
+        "title": "Applications web & SaaS complexes",
+        "description": "Tableaux de bord d'exploitation, espaces clients sécurisés et logiciels métier. Développés avec Next.js, Node.js et PostgreSQL, avec extensions mobiles réactives.",
         "features": ["Next.js & React", "API Node.js", "PostgreSQL", "Tableaux de bord", "Mobile en option"]
       },
       {
-        "title": "Refonte, performance & SEO",
-        "description": "Votre site actuel est lent, difficile à lire sur mobile ou invisible sur Google : amélioration des performances, de la structure et du référencement naturel.",
+        "index": "03 // RESTRUCTURATION",
+        "duration": "AUDIT COMPLET",
+        "title": "Refonte, performance & SEO technique",
+        "description": "Votre plateforme est ralentie ou peu visible ? Réingénierie ciblée des points critiques : Core Web Vitals, temps d'interactivité réduit et référencement naturel optimisé.",
         "features": ["Core Web Vitals", "SEO technique", "Migrations", "Design system"]
       },
       {
-        "title": "Maintenance & accompagnement technique",
-        "description": "Mises à jour, corrections, sauvegardes et conseils techniques après la mise en ligne : votre site ou votre application reste fiable dans la durée.",
+        "index": "04 // PÉRENNITÉ",
+        "duration": "SUIVI CONTINU",
+        "title": "Maintenance proactive & architecture long-terme",
+        "description": "Accompagnement post-déploiement pour prémunir votre entreprise contre l'obsolescence technique, les failles et les pannes : veille active, sauvegardes déportées et évolutions continues.",
         "features": ["Corrections & évolutions", "Sauvegardes", "Monitoring", "Conseil technique"]
       }
     ]
@@ -142,8 +188,9 @@
     }
   },
   "projects": {
+    "index": "02 / SÉLECTION DE RÉALISATIONS",
     "title": "Projets phares",
-    "subtitle": "Une sélection de réalisations qui illustrent mon approche technique et créative",
+    "subtitle": "Des systèmes déployés en production, combinant une grande rigueur de structure logicielle et une expérience utilisateur sans compromis.",
     "viewProject": "Voir le projet",
     "live": "Voir en ligne",
     "stack": "Stack technique",
@@ -169,37 +216,42 @@
     "items": [
       {
         "title": "SaaS de Gestion de Clinique Dentaire",
-        "description": "Plateforme SaaS complète de gestion de cabinet dentaire : rendez-vous, dossiers patients et facturation.",
+        "description": "Plateforme SaaS complète de gestion de cabinet dentaire : prise de rendez-vous en ligne, dossiers patients numériques et facturation automatisée, conçue pour simplifier le travail des chirurgiens-dentistes.",
         "focus": "UX ergonomique pour praticiens, haute sécurité des données, performance élevée.",
         "context": "Centraliser les rendez-vous, les dossiers patients et la facturation d'un cabinet dentaire dans un seul outil, accessible depuis n'importe quel navigateur.",
-        "role": "Conception, développement et mise en ligne (full-stack)."
+        "role": "Conception, développement et mise en ligne (full-stack).",
+        "challenge": "Concilier une saisie ultra-rapide en cabinet, l'isolement strict des données de santé et l'intégrité de la facturation."
       },
       {
         "title": "Papernote",
-        "description": "Outil SaaS alimenté par l'IA dédié à la révision, l'analyse et la synthèse de papiers de recherche académique.",
+        "description": "Outil SaaS propulsé par l'intelligence artificielle pour la révision accélérée, l'analyse comparative et la synthèse de publications et mémoires académiques complexes.",
         "focus": "Intégration IA, traitement rapide de documents complexes, interface épurée.",
         "context": "Lire et synthétiser plus vite des articles scientifiques : résumé, analyse détaillée et notation en une seule passe.",
-        "role": "Conception, développement et mise en ligne (full-stack), intégration d'un modèle d'IA."
+        "role": "Conception, développement et mise en ligne (full-stack), intégration d'un modèle d'IA.",
+        "challenge": "Analyser et synthétiser des documents académiques de plusieurs centaines de pages avec pertinence et temps de réponse réduit."
       },
       {
         "title": "Delyx Delivery",
-        "description": "Plateforme de livraison à moto partout en Algérie : les clients décrivent leur course, choisissent leur livreur, suivent la course en direct et règlent en espèces.",
+        "description": "Plateforme de livraison à moto partout en Algérie : les clients décrivent leur course, sélectionnent leur livreur, suivent le trajet en direct par géolocalisation et règlent en espèces à l'arrivée.",
         "focus": "Choix et favorisation du livreur, suivi en temps réel, prix annoncé à l'avance, identités vérifiées.",
         "context": "Organiser une livraison à moto de bout en bout : mise en relation client/livreur, suivi de la course en direct et paiement en espèces, avec gestion des comptes et des favoris.",
-        "role": "Conception, développement et mise en ligne (full-stack)."
+        "role": "Conception, développement et mise en ligne (full-stack).",
+        "challenge": "Coordonner de bout en bout des flottes urbaines avec géolocalisation continue, calcul instantané des tarifs et validation d'identités sécurisées."
       },
       {
         "title": "Tiberium Consulting",
-        "description": "Application web de consulting avec messagerie en temps réel et interface moderne d'échange client-expert.",
+        "description": "Application web de consulting avec messagerie en temps réel et interface d'échange haut de gamme entre cabinets d'experts et leurs clients.",
         "focus": "Communication temps réel (WebSockets), architecture scalable MERN.",
         "context": "Mettre en relation consultants et clients autour d'un espace d'échange avec messagerie en temps réel, plutôt que par emails et téléphonie.",
-        "role": "Conception, développement et mise en ligne (full-stack), fonctionnalités temps réel."
+        "role": "Conception, développement et mise en ligne (full-stack), fonctionnalités temps réel.",
+        "challenge": "Assurer une messagerie temps réel sans latence au sein d'une architecture découplée, avec transmission sécurisée de livrables confidentiels."
       }
     ]
   },
   "tech": {
-    "title": "Stack technique",
-    "subtitle": "Des technologies éprouvées pour construire des produits robustes et évolutifs",
+    "index": "03 / ARSENAL TECHNIQUE",
+    "title": "Des technologies éprouvées pour construire des produits robustes et évolutifs.",
+    "subtitle": "Pas d'expérimentation hasardeuse sur vos projets critiques : chaque brique est sélectionnée pour sa fiabilité de maintenance et sa performance prouvée dans l'industrie.",
     "categories": {
       "frontend": "Frontend",
       "backend": "Backend",
@@ -209,82 +261,93 @@
       "tools": "Outils & DevOps"
     },
     "categoryDescriptions": {
-      "frontend": "Des frameworks front modernes et des design systems sur mesure, pensés pour la performance et l'accessibilité.",
-      "backend": "APIs REST, GraphQL et temps réel, en Node.js, Python ou Java selon les besoins du projet.",
-      "mobile": "Des applications iOS et Android publiées sur les deux stores, avec une UX soignée.",
-      "data": "Bases relationnelles, NoSQL et platforms managées, avec des schémas conçus pour accompagner la croissance.",
-      "desktop": "Des logiciels multi-plateformes en Electron, Flutter, .NET, Java ou Python, de l'interface jusqu'au paquetage natif.",
-      "tools": "Versionnement, conteneurisation et pipelines de livraison continue."
+      "frontend": "Frameworks front modernes et design systems sur-mesure, pensés pour la performance, le confort mobile et l'accessibilité.",
+      "backend": "APIs REST, GraphQL et temps réel, en Node.js, Python ou Java selon les impératifs de calcul du projet.",
+      "mobile": "Applications iOS et Android natives ou hybrides, publiées sur les deux stores, avec une fluidité tactile soignée.",
+      "data": "Bases relationnelles, NoSQL et plateformes managées, avec des schémas indexés conçus pour supporter la montée en charge.",
+      "desktop": "Logiciels multi-plateformes (macOS, Windows, Linux) en Electron, Flutter, .NET, Java ou Python, de l'interface jusqu'au paquetage natif.",
+      "tools": "Versionnement, conteneurisation et déploiements continus sans coupure, avec surveillance active."
     },
     "cta": {
-      "title": "Une question sur une technologie ?",
-      "description": "Je vous explique les avantages, les compromis et la courbe d'apprentissage de chaque option pour votre projet.",
-      "action": "Parlons-en"
+      "title": "Une incertitude sur le choix de votre stack ?",
+      "description": "Je vous présente les compromis, les coûts réels d'infrastructure et la maintenabilité à trois ans de chaque option pour votre projet.",
+      "action": "Consulter l'ingénieur"
     }
   },
   "process": {
-    "title": "Processus de travail",
-    "subtitle": "Une méthode claire et transparente pour mener votre projet de l'idée à la production",
+    "index": "04 / PROTOCOLE D'EXÉCUTION",
+    "title": "Une méthode claire et transparente, de l'idée à la production.",
+    "subtitle": "Aucun jargon obscur : vous suivez chaque phase avec des validations formelles à chaque étape clé.",
     "steps": [
       {
+        "phase": "PHASE CADRAGE",
+        "deliverable": "LIVRABLE : DEVIS & PÉRIMÈTRE DÉTAILLÉ",
         "title": "Échange & Cadrage",
-        "description": "Analyse du besoin et définition des objectifs. Nous alignons la vision technique avec vos enjeux business."
+        "description": "Analyse minutieuse de vos impératifs métier et de vos cibles. Nous alignons la structure technique sur vos objectifs et formalisons un cahier des charges limpide."
       },
       {
+        "phase": "PHASE DESIGN",
+        "deliverable": "LIVRABLE : MAQUETTES & SPÉCIFICATIONS",
         "title": "Conception & Architecture",
-        "description": "Maquettage UX/UI et choix de la stack technique. Un plan solide avant d'écrire la première ligne de code."
+        "description": "Prototypage UX/UI soigné et modélisation de la base de données. Chaque vue et chaque parcours validé avant d'écrire la moindre ligne de code applicatif."
       },
       {
+        "phase": "PHASE CODE",
+        "deliverable": "LIVRABLE : DÉMOS & CODE TESTÉ",
         "title": "Développement Agile",
-        "description": "Déploiement continu et démos régulières. Vous voyez l'avancement à chaque sprint, sans mauvaise surprise."
+        "description": "Développement par sprints courts avec accès direct à un environnement de pré-production. Vous constatez les avancées en conditions réelles, sans mauvaise surprise."
       },
       {
+        "phase": "PHASE DÉPLOIEMENT",
+        "deliverable": "LIVRABLE : CODE SOURCE & FORMATION",
         "title": "Livraison & Maintenance",
-        "description": "Mise en production, optimisation SEO et support. Un accompagnement pour garantir la pérennité de votre produit."
+        "description": "Mise en production sécurisée sur votre domaine, vérification finale du référencement et suivi continu. Vous disposez d'un produit opérationnel et garanti."
       }
     ]
   },
   "faq": {
-    "title": "Questions fréquentes",
-    "subtitle": "Les réponses aux questions les plus courantes avant de démarrer",
+    "index": "05 / ÉLÉMENTS DE CLARIFICATION",
+    "title": "Les réponses aux questions les plus fréquentes.",
+    "subtitle": "Tout ce qu'il faut savoir avant d'engager la conception de votre site ou application.",
     "items": [
       {
-        "question": "Combien de temps faut-il pour créer un site ?",
-        "answer": "Cela dépend du périmètre : un site vitrine se construit en général en quelques semaines, une application sur-mesure demande davantage de temps. Le calendrier exact est fixé avec vous au démarrage, avant la première ligne de code."
+        "question": "Combien de temps faut-il pour créer un site professionnel ?",
+        "answer": "Cela dépend du périmètre fonctionnel : un site vitrine se conçoit et se déploie en général en 2 à 4 semaines, une application web ou un SaaS sur-mesure demande davantage de cycles d'itération (souvent 6 à 10 semaines). Le calendrier exact est fixé avec vous au démarrage, avant la première ligne de code."
       },
       {
         "question": "Comment se déroule un projet ?",
-        "answer": "Cinq étapes : échange et cadrage du besoin, devis détaillé, conception (maquettes et architecture), développement avec des points réguliers, puis mise en ligne. Vous validez chaque étape avant de passer à la suivante."
+        "answer": "Quatre phases : cadrage, conception et architecture, développement par sprints, puis mise en production. Vous validez chaque étape clé avant de passer à la suivante, avec un livrable identifié à chaque phase."
       },
       {
-        "question": "Comment obtenir un devis ?",
-        "answer": "Le devis est gratuit et sans engagement. Décrivez votre projet via le formulaire ou WhatsApp : je vous recontacte pour cadrer le besoin, puis je vous envoie un devis détaillé (périmètre, délais, prix). Aucun paiement n'est demandé avant votre validation."
+        "question": "Comment obtenir un devis et quel est le coût d'entrée ?",
+        "answer": "Le devis est totalement gratuit et sans engagement. Décrivez votre projet via le formulaire ou directement par WhatsApp : je vous recontacte sous 24h ouvrées pour cadrer le besoin, puis je vous adresse une proposition chiffrée transparente (périmètre, délais, étapes de validation). Aucun paiement n'est demandé avant votre accord formel."
       },
       {
-        "question": "Assurez-vous la maintenance après la mise en ligne ?",
-        "answer": "Oui, en option : mises à jour, corrections de bugs, sauvegardes et évolutions. Les modalités (fréquence, périmètre, prix) sont définies dans le devis, et un accompagnement ponctuel reste possible même sans contrat."
+        "question": "Assurez-vous le support et la maintenance après la livraison ?",
+        "answer": "Oui : une assistance de garantie de 30 jours est incluse après chaque livraison. Au-delà, des formules de maintenance préventive (mises à jour de sécurité, sauvegardes déportées, ajustements réguliers) sont disponibles pour assurer la longévité de votre outil."
       },
       {
-        "question": "Qui gère l'hébergement et le nom de domaine ?",
-        "answer": "Je vous oriente vers un hébergeur adapté à votre budget et je peux m'occuper de la mise en ligne. Le nom de domaine et l'hébergement sont enregistrés à votre nom : vous restez propriétaire de votre site et de ses données."
+        "question": "Qui est propriétaire du nom de domaine, de l'hébergement et du code source ?",
+        "answer": "Vous restez propriétaire à 100 %. Le nom de domaine et l'infrastructure d'hébergement sont enregistrés à votre nom, et à la livraison finale l'intégralité du code source vous est transmise sans clause restrictive. Vous n'êtes jamais captif."
       },
       {
-        "question": "Je n'ai pas de textes ni de photos, est-ce un problème ?",
-        "answer": "Non. Je vous aide à structurer le contenu (textes, images, pages) et je vous indique ce qu'il faut préparer. Le contenu est une étape du projet, pas un prérequisite."
+        "question": "Je n'ai pas de textes ni de visuels finalisés, est-ce un obstacle ?",
+        "answer": "Absolument pas. Je vous guide pour structurer vos argumentaires clés, définir l'ordre logique des pages et sélectionner des visuels professionnels cohérents. Le contenu s'élabore avec vous dès l'étape de maquettage initial."
       }
     ]
   },
   "about": {
+    "index": "À PROPOS",
     "title": "À propos",
-    "subtitle": "Votre partenaire technique pour des produits digitaux d'excellence",
-    "description": "Je suis Sofiane ASMA, développeur web & mobile full-stack. Je crée des sites web professionnels pour les petites entreprises et développe des applications web, dashboards et plateformes SaaS sur-mesure. Je travaille directement avec vous, sans intermédiaire, du premier échange jusqu'à la mise en ligne.",
+    "subtitle": "Ingénieur Full-Stack : conception et réalisation intégrale de vos produits numériques.",
+    "description": "Je suis Sofiane ASMA, ingénieur Full-Stack. Je conçois et livre des sites web professionnels pour les entreprises exigeantes, ainsi que des applications web, dashboards et plateformes SaaS sur-mesure. Je travaille directement avec vous, sans intermédiaire, du premier échange jusqu'à la mise en ligne.",
     "highlights": [
-      "Sites web pensés pour la conversion et le mobile",
+      "Conception et réalisation intégrale, sans sous-traitance",
       "Développement Next.js / React / Node.js",
       "Communication directe et réactive",
       "Livraison claire avec étapes et validation"
     ],
-    "role": "Développeur Full-Stack",
+    "role": "Ingénieur Full-Stack",
     "expertise": {
       "web": "Web",
       "desktop": "Desktop",
@@ -293,8 +356,20 @@
     "cta": "Travaillons ensemble"
   },
   "contact": {
+    "index": "06 / ENTRER EN LIAISON",
     "title": "Contact",
-    "subtitle": "Parlons de votre projet. Réponse sous 24h ouvrées.",
+    "subtitle": "Partagez les grandes lignes de votre projet. Je vous réponds personnellement avec une première estimation de faisabilité, sous 24h ouvrées.",
+    "whatsappCard": {
+      "title": "Besoin d'un retour immédiat ?",
+      "description": "Pour discuter de vive voix, poser une question technique rapide ou envoyer vos documents de cadrage sans formulaire.",
+      "cta": "Ouvrir WhatsApp direct (+213 551 79 73 13)"
+    },
+    "coordinates": {
+      "label": "COORDONNÉES DIRECTES",
+      "email": "contact@sofianeasma.me",
+      "phone": "+213 551 79 73 13",
+      "reach": "Algérie & Remote Worldwide"
+    },
     "form": {
       "name": "Nom complet",
       "email": "Adresse email",
@@ -340,7 +415,7 @@
     }
   },
   "footer": {
-    "tagline": "Développeur web & mobile full-stack : création de sites web pour petites entreprises et applications sur-mesure.",
+    "tagline": "Ingénierie logicielle & création de site web : plateformes pour entreprises exigeantes, applications web et SaaS sur-mesure.",
     "quickLinks": "Liens rapides",
     "websiteOffer": "Création de site web",
     "services": "Services",

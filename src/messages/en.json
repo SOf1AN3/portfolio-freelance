@@ -1,13 +1,16 @@
 {
   "metadata": {
-    "title": "Sofiane ASMA — Websites for small businesses & custom web apps",
-    "description": "Freelance full-stack developer: professional websites for small businesses, custom web apps, dashboards and SaaS platforms.",
-    "ogTitle": "Sofiane ASMA — Websites that win clients",
-    "ogDescription": "Fast, professional websites for small businesses, plus custom web apps and SaaS. Clear scope, quick launch.",
+    "title": "Sofiane ASMA — Website development & software engineering",
+    "description": "Freelance full-stack software engineer: professional website development, custom web apps, dashboards and SaaS platforms for small businesses and demanding companies.",
+    "ogTitle": "Sofiane ASMA — Exceptional websites & software engineering",
+    "ogDescription": "Fast, professional websites for businesses, plus custom web apps and SaaS. Clear quote, quick launch.",
     "keywords": [
       "small business website",
       "professional website",
       "freelance web developer",
+      "web applications",
+      "freelance",
+      "full-stack software engineer",
       "Next.js",
       "React",
       "SaaS",
@@ -28,12 +31,46 @@
     "mainNav": "Main navigation"
   },
   "hero": {
+    "eyebrow": "SOFTWARE ENGINEERING & DIGITAL ARCHITECTURE",
     "badge": "Available for new projects",
-    "title": "Professional websites for small businesses",
-    "highlight": "Full-stack web & mobile developer",
-    "subtitle": "Medical practice, shop, craft business or consultancy: I build a fast, easy-to-manage website designed to turn your visitors into customers. Custom web apps and SaaS platforms come second.",
+    "title": "Exceptional websites & software engineering for demanding businesses",
+    "highlight": "Full-Stack Software Engineer",
+    "subtitle": "Medical practices, consultancies, shops and established businesses: I design and build fast, easy-to-manage platforms meant to turn your visitors into lasting clients. Custom web apps and SaaS platforms included.",
     "ctaPrimary": "Discuss my project",
-    "ctaSecondary": "See my work",
+    "ctaSecondary": "Explore the work",
+    "profile": {
+      "label": "ENGINEER PROFILE",
+      "role": "Full-Stack Software Engineer",
+      "description": "Architectural design and end-to-end delivery, with no subcontracting.",
+      "specs": [
+        { "label": "SCOPE", "value": "Web / Desktop" },
+        { "label": "MOBILE", "value": "iOS & Android" },
+        { "label": "BASE", "value": "Remote" }
+      ]
+    },
+    "metrics": [
+      {
+        "label": "ACTIVE ECOSYSTEM",
+        "tag": "01 / AUDITED",
+        "value": "05",
+        "unit": "FEATURED PROJECTS LIVE",
+        "description": "Architectures running in high-availability production, monetised or in daily use."
+      },
+      {
+        "label": "ENGINEERING EXPERIENCE",
+        "tag": "02 / PROVEN",
+        "value": "+3",
+        "unit": "YEARS OF APPLIED EXPERTISE",
+        "description": "Intensive practice of modern technologies: Next.js, Node.js, PostgreSQL and custom design systems."
+      },
+      {
+        "label": "DIRECT RESPONSIVENESS",
+        "tag": "03 / GUARANTEED",
+        "value": "<24h",
+        "unit": "BUSINESS-DAY REPLY",
+        "description": "Direct exchange with the engineer in charge of your code, with no middleman and no salesperson."
+      }
+    ],
     "stats": {
       "items": [
         { "value": "5", "label": "Projects live online" },
@@ -43,30 +80,39 @@
     }
   },
   "services": {
-    "title": "Services",
-    "subtitle": "A core offer for small businesses, plus custom development for ambitious products",
+    "index": "01 / ARCHITECTURE & SERVICE OFFER",
+    "title": "Custom engineering at the service of your impact.",
+    "subtitle": "Every engagement is handled with engineering rigour: code owned end to end, zero superfluous dependency, and strict alignment with your business requirements.",
     "cta": "Talk about my project",
     "discover": "Explore the offer",
     "items": [
       {
-        "title": "Professional website development",
-        "description": "A brochure site, a booking page or a product catalogue: a fast, clear website tailored to your business, designed to generate enquiries.",
+        "index": "01 // AUTHORITATIVE SITES",
+        "duration": "2 TO 4 WEEKS",
+        "title": "Professional websites & authority showcases",
+        "description": "Built for medical practices, practitioners, law firms and consultancies: fast architecture, careful typography and a smooth path from visit to booking.",
         "features": ["Business website", "Mobile responsive", "Foundational SEO", "Launch included"],
         "link": "/creation-site-web"
       },
       {
-        "title": "Custom web apps & SaaS",
-        "description": "An internal dashboard, a client portal or a SaaS platform: software tailored to how you work, built with proven web technologies. Mobile apps (iOS/Android) on request.",
+        "index": "02 // SAAS & SYSTEMS",
+        "duration": "AGILE SPRINTS",
+        "title": "Complex web applications & SaaS",
+        "description": "Operations dashboards, secure client portals and line-of-business software. Built with Next.js, Node.js and PostgreSQL, with responsive mobile extensions.",
         "features": ["Next.js & React", "Node.js APIs", "PostgreSQL", "Dashboards", "Mobile optional"]
       },
       {
-        "title": "Redesign, performance & SEO",
-        "description": "Your current site is slow, hard to read on mobile or invisible on Google: improvements to performance, structure and organic search.",
+        "index": "03 // RESTRUCTURING",
+        "duration": "FULL AUDIT",
+        "title": "Redesign, performance & technical SEO",
+        "description": "Is your platform slow or invisible? Targeted re-engineering of the critical points: Core Web Vitals, reduced time to interactive and improved organic search.",
         "features": ["Core Web Vitals", "Technical SEO", "Migrations", "Design system"]
       },
       {
-        "title": "Maintenance & technical support",
-        "description": "Updates, fixes, backups and technical advice after launch: your site or app stays reliable over time.",
+        "index": "04 // LONGEVITY",
+        "duration": "ONGOING SUPPORT",
+        "title": "Proactive maintenance & long-term architecture",
+        "description": "Post-deployment support that protects your business against technical obsolescence, vulnerabilities and outages: active monitoring, off-site backups and continuous improvements.",
         "features": ["Fixes & improvements", "Backups", "Monitoring", "Technical advice"]
       }
     ]
@@ -141,14 +187,15 @@
     }
   },
   "projects": {
+    "index": "02 / SELECTED WORK",
     "title": "Featured projects",
-    "subtitle": "A selection of work that reflects my technical and creative approach",
+    "subtitle": "Systems shipped to production, combining strict software structure with an uncompromised user experience.",
     "viewProject": "View project",
     "live": "Visit live",
     "stack": "Tech stack",
     "focus": "Key highlights",
-"back": "Back",
-    "contactCta": "Discuss about this project",
+    "back": "Back",
+    "contactCta": "Discuss this project",
     "statuses": {
       "published": "Live online",
       "client": "Delivered for a client",
@@ -168,37 +215,42 @@
     "items": [
       {
         "title": "Dental Clinic Management SaaS",
-        "description": "Complete SaaS platform for dental practice management: appointments, patient records and billing.",
+        "description": "A complete SaaS platform for dental practice management: online booking, digital patient records and automated billing, designed to make dentists' work easier.",
         "focus": "Practitioner-friendly UX, high data security, strong performance.",
         "context": "Centralising appointments, patient records and billing for a dental practice in a single tool, accessible from any browser.",
-        "role": "Design, full-stack development and launch."
+        "role": "Design, full-stack development and launch.",
+        "challenge": "Reconciling ultra-fast data entry in the practice with strict health-data isolation and billing integrity."
       },
       {
         "title": "Papernote",
-        "description": "AI-powered SaaS tool for reviewing, analyzing and summarizing academic research papers.",
+        "description": "An AI-powered SaaS tool for accelerated review, comparative analysis and synthesis of complex academic publications and theses.",
         "focus": "AI integration, fast complex document processing, clean interface.",
         "context": "Reading and summarising scientific papers faster: summary, detailed analysis and scoring in a single pass.",
-        "role": "Design, full-stack development and launch, AI model integration."
+        "role": "Design, full-stack development and launch, AI model integration.",
+        "challenge": "Analysing and summarising academic documents of several hundred pages accurately, within short response times."
       },
       {
         "title": "Delyx Delivery",
-        "description": "Motorbike delivery platform across Algeria: customers describe their errand, pick their courier, follow the ride live and pay in cash.",
+        "description": "A motorbike delivery platform across Algeria: customers describe their errand, pick their courier, follow the route live by geolocation and pay cash on arrival.",
         "focus": "Courier choice and favourites, real-time tracking, upfront pricing, verified identities.",
         "context": "Running a motorbike delivery end to end: matching customers with couriers, live ride tracking and cash payment, with accounts and favourites.",
-        "role": "Design, full-stack development and launch."
+        "role": "Design, full-stack development and launch.",
+        "challenge": "Coordinating urban fleets end to end with continuous geolocation, instant fare calculation and secure identity verification."
       },
       {
         "title": "Tiberium Consulting",
-        "description": "Consulting web app with real-time messaging and a modern client-expert exchange interface.",
+        "description": "A consulting web app with real-time messaging and a premium exchange interface between expert firms and their clients.",
         "focus": "Real-time communication (WebSockets), scalable MERN architecture.",
         "context": "Connecting consultants and clients through a messaging space with real-time chat, instead of emails and phone calls.",
-        "role": "Design, full-stack development and launch, real-time features."
+        "role": "Design, full-stack development and launch, real-time features.",
+        "challenge": "Delivering latency-free real-time messaging inside a decoupled architecture, with secure transfer of confidential deliverables."
       }
     ]
   },
   "tech": {
-    "title": "Tech stack",
-    "subtitle": "Proven technologies to build robust, scalable products",
+    "index": "03 / TECHNICAL ARSENAL",
+    "title": "Proven technologies to build robust, scalable products.",
+    "subtitle": "No reckless experiment on your critical projects. Every brick is chosen for its maintenance reliability and its proven industry performance.",
     "categories": {
       "frontend": "Frontend",
       "backend": "Backend",
@@ -208,82 +260,93 @@
       "tools": "Tools & DevOps"
     },
     "categoryDescriptions": {
-      "frontend": "Modern frontend frameworks and custom design systems, built for performance and accessibility.",
-      "backend": "REST, GraphQL and real-time APIs, in Node.js, Python or Java depending on what the project needs.",
-      "mobile": "iOS and Android apps shipped to both stores, with a carefully polished UX.",
-      "data": "Relational, NoSQL and managed platforms, with schemas designed to grow with the product.",
-      "desktop": "Cross-platform desktop software in Electron, Flutter, .NET, Java or Python, from the interface down to native packaging.",
-      "tools": "Versioning, containerization and continuous delivery pipelines."
+      "frontend": "Modern frontend frameworks and custom design systems, built for pure performance, mobile comfort and accessibility.",
+      "backend": "REST, GraphQL and real-time layers, in Node.js, Python or Java depending on the project's compute requirements.",
+      "mobile": "Native or hybrid iOS and Android apps shipped to both stores, with fluid touch behaviour and precise ergonomics.",
+      "data": "Relational and managed document databases, with indexed schemas designed to carry load growth.",
+      "desktop": "Cross-platform software (macOS, Windows, Linux) in Electron, Flutter, .NET, Java or Python, from the interface down to the secure installer package.",
+      "tools": "Versioning, containerization and zero-downtime continuous deployment, with active monitoring."
     },
     "cta": {
-      "title": "Questions about a technology?",
-      "description": "I'll walk you through the benefits, trade-offs and learning curve of each option for your project.",
-      "action": "Let's talk"
+      "title": "Uncertain about your stack choice?",
+      "description": "I walk you through the trade-offs, the real infrastructure costs and the three-year maintainability of each option for your project.",
+      "action": "Talk to the engineer"
     }
   },
   "process": {
-    "title": "How I work",
-    "subtitle": "A clear, transparent method to take your project from idea to production",
+    "index": "04 / EXECUTION PROTOCOL",
+    "title": "A clear, transparent method, from idea to production.",
+    "subtitle": "No obscure jargon: you follow every phase with formal validation at each key step.",
     "steps": [
       {
+        "phase": "PHASE SCOPING",
+        "deliverable": "DELIVERABLE: QUOTE & DETAILED SCOPE",
         "title": "Discovery & Scoping",
-        "description": "Needs analysis and goal definition. We align technical vision with your business challenges."
+        "description": "Careful analysis of your business requirements and your targets. We align the technical structure with your objectives and set out a clear specification."
       },
       {
+        "phase": "PHASE DESIGN",
+        "deliverable": "DELIVERABLE: MOCKUPS & SPECIFICATIONS",
         "title": "Design & Architecture",
-        "description": "UX/UI mockups and tech stack selection. A solid plan before writing the first line of code."
+        "description": "Refined UX/UI prototyping and database modelling. Every view and user journey validated before a single line of application code is written."
       },
       {
+        "phase": "PHASE CODE",
+        "deliverable": "DELIVERABLE: DEMOS & TESTED CODE",
         "title": "Agile Development",
-        "description": "Continuous deployment and regular demos. You see progress every sprint, no surprises."
+        "description": "Development in short sprints with direct access to a staging environment. You see the progress under real conditions, with no surprises."
       },
       {
+        "phase": "PHASE DEPLOYMENT",
+        "deliverable": "DELIVERABLE: SOURCE CODE & TRAINING",
         "title": "Delivery & Maintenance",
-        "description": "Production launch, SEO optimization and support. Partnership to ensure your product's longevity."
+        "description": "Secure production launch on your domain, final SEO check and ongoing monitoring. You get an operational, warranted product."
       }
     ]
   },
   "faq": {
-    "title": "Frequently asked questions",
-    "subtitle": "Answers to the most common questions before we start",
+    "index": "05 / CLARIFICATIONS",
+    "title": "Answers to the most frequent questions.",
+    "subtitle": "Everything you need to know before starting the design of your website or application.",
     "items": [
       {
-        "question": "How long does it take to build a website?",
-        "answer": "It depends on the scope: a brochure site usually takes a few weeks, a custom application takes longer. The exact schedule is agreed when we start, before the first line of code."
+        "question": "How long does it take to build a professional website?",
+        "answer": "It depends on the functional scope: a showcase website is usually designed and shipped in 2 to 4 weeks, while a custom web app or SaaS needs more iteration cycles (often 6 to 10 weeks). The exact schedule is agreed when we start, before the first line of code."
       },
       {
         "question": "How does a project run?",
-        "answer": "Five stages: discussion and scoping, a detailed quote, design (mockups and architecture), development with regular check-ins, then launch. You validate each stage before moving to the next."
+        "answer": "Four phases: scoping, design and architecture, sprint-based development, then production launch. You validate each key step before moving to the next, with one defined deliverable per phase."
       },
       {
-        "question": "How do I get a quote?",
-        "answer": "The quote is free and non-binding. Describe your project through the form or on WhatsApp: I get back to you to scope the need, then send a detailed quote (scope, schedule, price). No payment is requested before you approve it."
+        "question": "How do I get a quote and what does it cost to start?",
+        "answer": "The quote is completely free and non-binding. Describe your project through the form or directly on WhatsApp: I get back to you within 24 business hours to scope the need, then send a transparent priced proposal (scope, schedule, validation steps). No payment is requested before your formal approval."
       },
       {
-        "question": "Do you provide maintenance after launch?",
-        "answer": "Yes, as an option: updates, bug fixes, backups and improvements. The terms (frequency, scope, price) are set in the quote, and one-off support remains available even without a contract."
+        "question": "Do you provide support and maintenance after delivery?",
+        "answer": "Yes: a 30-day warranty support is included after every delivery. Beyond that, preventive maintenance plans (security updates, off-site backups, regular minor adjustments) are available to keep your tool long-lived."
       },
       {
-        "question": "Who handles hosting and the domain name?",
-        "answer": "I point you to a host that fits your budget and can handle the launch. The domain name and hosting are registered in your name: you keep ownership of your website and its data."
+        "question": "Who owns the domain name, the hosting and the source code?",
+        "answer": "You remain 100% owner. The domain name and the hosting infrastructure are registered in your name, and at final delivery the full source code is handed over to you without restrictive clauses. You are never locked in."
       },
       {
-        "question": "I have no texts or photos, is that a problem?",
-        "answer": "No. I help you structure the content (copy, images, pages) and tell you what to prepare. Content is a stage of the project, not a prerequisite."
+        "question": "I have no finalised copy or visuals, is that an obstacle?",
+        "answer": "Not at all. I guide you in structuring your key messaging, defining the logical order of the pages and selecting coherent professional visuals. The content is worked out with you from the initial mockup stage."
       }
     ]
   },
   "about": {
+    "index": "ABOUT",
     "title": "About",
-    "subtitle": "Your technical partner for outstanding digital products",
-    "description": "I'm Sofiane ASMA, a full-stack web & mobile developer. I build professional websites for small businesses and develop custom web apps, dashboards and SaaS platforms. I work directly with you, with no middleman, from the first conversation to launch.",
+    "subtitle": "Full-Stack Engineer: end-to-end design and delivery of your digital products.",
+    "description": "I'm Sofiane ASMA, a full-stack software engineer. I build professional websites for demanding businesses, along with custom web apps, dashboards and SaaS platforms. I work directly with you, with no middleman, from the first conversation to launch.",
     "highlights": [
-      "Websites designed for conversion and mobile",
+      "Design and end-to-end delivery, with no subcontracting",
       "Next.js / React / Node.js development",
-      "Direct and responsive communication",
+      "Direct, responsive communication",
       "Clear delivery with stages and validation"
     ],
-    "role": "Full-Stack Developer",
+    "role": "Full-Stack Software Engineer",
     "expertise": {
       "web": "Web",
       "desktop": "Desktop",
@@ -292,8 +355,20 @@
     "cta": "Let's work together"
   },
   "contact": {
+    "index": "06 / GET IN TOUCH",
     "title": "Contact",
-    "subtitle": "Let's talk about your project. Reply within 24 business hours.",
+    "subtitle": "Share the broad lines of your project. I reply personally with a first feasibility assessment within 24 business hours.",
+    "whatsappCard": {
+      "title": "Need an immediate reply?",
+      "description": "To talk it through, ask a quick technical question or send your scoping documents without using the form.",
+      "cta": "Open WhatsApp directly (+213 551 79 73 13)"
+    },
+    "coordinates": {
+      "label": "DIRECT COORDINATES",
+      "email": "contact@sofianeasma.me",
+      "phone": "+213 551 79 73 13",
+      "reach": "Algeria & Remote Worldwide"
+    },
     "form": {
       "name": "Full name",
       "email": "Email address",
@@ -339,7 +414,7 @@
     }
   },
   "footer": {
-    "tagline": "Full-stack web & mobile developer: websites for small businesses and custom web applications.",
+    "tagline": "Software engineering & website development: platforms for demanding businesses, custom web apps and SaaS.",
     "quickLinks": "Quick links",
     "websiteOffer": "Website development",
     "services": "Services",
