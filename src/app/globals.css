@@ -79,8 +79,10 @@
   .text-pretty {
     text-wrap: pretty;
   }
+  /* Même propriété que Tailwind v4 (`rotate: 180deg`) : évite un cumul
+     transform+rotate qui annulerait la rotation (360°) en RTL. */
   [dir="rtl"] .rtl\:rotate-180 {
-    transform: rotate(180deg);
+    rotate: 180deg;
   }
 }
 
