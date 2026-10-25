@@ -97,7 +97,7 @@ export default async function ProjectPage({ params }: Props) {
   });
 
   return (
-    <main className="pb-16 pt-32 lg:pb-24 lg:pt-40">
+    <div className="pb-16 pt-32 lg:pb-24 lg:pt-40">
       <JsonLd data={structuredData} />
       <Container>
         <Button asChild variant="ghost" size="sm" className="-ms-2 mb-10">
@@ -157,8 +157,7 @@ export default async function ProjectPage({ params }: Props) {
             <Reveal>
               <aside className="rounded-md border border-hairline bg-deep p-6">
                 <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-emerald">
-                  <span aria-hidden="true">{"// "}</span>
-                  {project.slug}
+                  {t("challengeLabel")}
                 </p>
                 <p className="mt-4 text-base leading-relaxed text-mist">
                   {challenge}
@@ -233,6 +232,6 @@ export default async function ProjectPage({ params }: Props) {
           </section>
         </article>
       </Container>
-    </main>
+    </div>
   );
 }

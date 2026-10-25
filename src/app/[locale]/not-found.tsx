@@ -2,8 +2,8 @@ import { NotFoundClient } from "@/components/SEO/NotFoundClient";
 
 export default function NotFound() {
   return (
-    <main>
+    <div>
       <NotFoundClient />
-    </main>
+    </div>
   );
 }
