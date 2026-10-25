@@ -18,7 +18,9 @@ export default async function HomePage({
   setRequestLocale(locale);
 
   return (
-    <>
+    // Le layout rend déjà l'unique landmark `<main>` : on pose ici l'ancre de
+    // saut `#contenu` (focusable pour déplacer le focus clavier au bon endroit).
+    <div id="contenu" tabIndex={-1}>
       <HeroSection />
       <ServicesSection />
       <ProjectsSection />
@@ -27,6 +29,6 @@ export default async function HomePage({
       <FaqSection />
       <AboutSection />
       <ContactSection />
-    </>
+    </div>
   );
 }
