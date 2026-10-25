@@ -13,7 +13,6 @@ import { images } from "@/lib/images";
 import { Reveal } from "@/components/animations/Reveal";
 import { Stagger, StaggerItem } from "@/components/animations/Stagger";
 import { Parallax } from "@/components/animations/Parallax";
-import { Magnetic } from "@/components/animations/Magnetic";
 
 const EXPERTISE_KEYS = ["web", "desktop", "mobile"] as const;
 
@@ -100,14 +99,12 @@ export function AboutSection() {
               ))}
             </ul>
 
-            <Magnetic className="mt-8 inline-block">
-              <Button asChild variant="outline" size="lg">
+              <Button asChild variant="outline" size="lg" className="mt-8">
                 <Link href={sectionHref("contact")}>
                   {t("cta")}
                   <ArrowRight aria-hidden="true" className="size-4 rtl:rotate-180" />
                 </Link>
               </Button>
-            </Magnetic>
           </Reveal>
         </div>
       </Container>

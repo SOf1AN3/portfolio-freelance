@@ -22,7 +22,6 @@ import {
 import { SectionHeader } from "@/components/ui/section-header";
 import { Reveal } from "@/components/animations/Reveal";
 import { Stagger, StaggerItem } from "@/components/animations/Stagger";
-import { Magnetic } from "@/components/animations/Magnetic";
 import {
   whatsappLink,
   WHATSAPP_NUMBER,
@@ -453,23 +452,21 @@ export function ContactSection() {
                   </p>
                 </div>
 
-                <Magnetic>
-                  <Button
-                    asChild
-                    variant="whatsapp"
-                    size="lg"
-                    className="w-full gap-3"
+                <Button
+                  asChild
+                  variant="whatsapp"
+                  size="lg"
+                  className="w-full gap-3"
+                >
+                  <a
+                    href={whatsappLink(DEFAULT_WHATSAPP_MESSAGE)}
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
-                    <a
-                      href={whatsappLink(DEFAULT_WHATSAPP_MESSAGE)}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <WhatsappIcon className="size-4" />
-                      {t("whatsappCard.cta")}
-                    </a>
-                  </Button>
-                </Magnetic>
+                    <WhatsappIcon className="size-4" />
+                    {t("whatsappCard.cta")}
+                  </a>
+                </Button>
               </div>
             </div>
 

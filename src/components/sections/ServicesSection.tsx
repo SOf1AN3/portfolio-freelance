@@ -9,7 +9,6 @@ import { Container } from "@/components/ui/container";
 import { SectionHeader } from "@/components/ui/section-header";
 import { Reveal } from "@/components/animations/Reveal";
 import { Stagger, StaggerItem } from "@/components/animations/Stagger";
-import { Magnetic } from "@/components/animations/Magnetic";
 
 /** Structure verrouillée par `services.items[]` dans `src/messages/*.json`. */
 type ServiceItem = {
@@ -104,7 +103,6 @@ export function ServicesSection() {
 
         <Reveal delay={0.1}>
           <div className="mt-12 flex justify-start border-t border-hairline pt-8">
-            <Magnetic strength={0.35}>
               <Link
                 href={sectionHref("contact")}
                 className="inline-flex items-center gap-2 rounded-md border border-emerald/40 bg-emerald/10 px-5 py-3 font-mono text-[11px] uppercase tracking-[0.18em] text-emerald transition-colors duration-300 hover:bg-emerald hover:text-on-emerald focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald"
@@ -115,7 +113,6 @@ export function ServicesSection() {
                   className="size-4 shrink-0 rtl:rotate-180"
                 />
               </Link>
-            </Magnetic>
           </div>
         </Reveal>
       </Container>

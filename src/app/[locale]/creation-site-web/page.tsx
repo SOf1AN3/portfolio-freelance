@@ -21,7 +21,6 @@ import { sectionHref } from "@/lib/anchors";
 import { generateLocaleMetadata } from "@/lib/seo";
 import { whatsappLink } from "@/lib/utils";
 import { Counter } from "@/components/animations/Counter";
-import { Magnetic } from "@/components/animations/Magnetic";
 import { Parallax } from "@/components/animations/Parallax";
 import { Reveal } from "@/components/animations/Reveal";
 import { Stagger, StaggerItem } from "@/components/animations/Stagger";
@@ -131,19 +130,17 @@ function CtaButtons({
 }) {
   return (
     <div className="flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
-      <Magnetic className="w-full sm:w-auto">
-        <Button
-          asChild
-          variant="default"
-          size="lg"
-          className="w-full sm:w-auto"
-        >
-          <Link href={sectionHref("contact")}>
-            {primaryLabel}
-            <ArrowRight className="size-4 rtl:rotate-180" aria-hidden="true" />
-          </Link>
-        </Button>
-      </Magnetic>
+      <Button
+        asChild
+        variant="default"
+        size="lg"
+        className="w-full sm:w-auto"
+      >
+        <Link href={sectionHref("contact")}>
+          {primaryLabel}
+          <ArrowRight className="size-4 rtl:rotate-180" aria-hidden="true" />
+        </Link>
+      </Button>
       <Button
         asChild
         variant="outline"

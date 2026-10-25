@@ -17,7 +17,6 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { Magnetic } from "@/components/animations/Magnetic";
 import { ScrollProgress } from "@/components/animations/ScrollProgress";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 import { cn, whatsappLink, DEFAULT_WHATSAPP_MESSAGE } from "@/lib/utils";
@@ -89,10 +88,6 @@ export function Navbar({ locale }: NavbarProps) {
             <span className="font-display text-lg font-bold tracking-tight text-platinum">
               SOFIANE ASMA
             </span>
-            <span
-              aria-hidden="true"
-              className="size-1.5 rounded-full bg-emerald transition-transform duration-300 group-hover:scale-150"
-            />
           </Link>
 
           <nav className="hidden items-center xl:flex" aria-label={t("mainNav")}>
@@ -110,17 +105,20 @@ export function Navbar({ locale }: NavbarProps) {
           <div className="flex items-center gap-2">
             <LanguageSwitcher locale={locale} className="hidden sm:inline-flex" />
 
-            <Magnetic strength={0.3} className="hidden md:inline-flex">
-              <Button asChild variant="whatsapp" size="sm">
-                <a
-                  href={whatsappLink(DEFAULT_WHATSAPP_MESSAGE)}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {th("ctaPrimary")}
-                </a>
-              </Button>
-            </Magnetic>
+            <Button
+              asChild
+              variant="whatsapp"
+              size="sm"
+              className="hidden md:inline-flex"
+            >
+              <a
+                href={whatsappLink(DEFAULT_WHATSAPP_MESSAGE)}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {th("ctaPrimary")}
+              </a>
+            </Button>
 
             <Sheet open={open} onOpenChange={setOpen}>
               <SheetTrigger asChild>
@@ -147,10 +145,6 @@ export function Navbar({ locale }: NavbarProps) {
                 <SheetHeader className="border-b border-hairline p-6">
                   <SheetTitle className="flex items-center gap-2">
                     SOFIANE ASMA
-                    <span
-                      aria-hidden="true"
-                      className="size-1.5 rounded-full bg-emerald"
-                    />
                   </SheetTitle>
                 </SheetHeader>
 

@@ -15,7 +15,6 @@ import { Stagger, StaggerItem } from "@/components/animations/Stagger";
 import { Reveal } from "@/components/animations/Reveal";
 import { Counter } from "@/components/animations/Counter";
 import { Parallax } from "@/components/animations/Parallax";
-import { Magnetic } from "@/components/animations/Magnetic";
 
 type ProfileSpec = {
   label: string;
@@ -138,23 +137,21 @@ export function HeroSection() {
 
               <StaggerItem>
                 <div className="flex flex-wrap items-center gap-4 pt-2">
-                  <Magnetic strength={0.4} className="w-full sm:inline-flex">
-                    <Button
-                      asChild
-                      variant="default"
-                      size="lg"
-                      className="group w-full gap-2.5 sm:w-auto"
+                  <Button
+                    asChild
+                    variant="default"
+                    size="lg"
+                    className="group w-full gap-2.5 sm:w-auto"
+                  >
+                    <a
+                      href={whatsappLink(DEFAULT_WHATSAPP_MESSAGE)}
+                      target="_blank"
+                      rel="noopener noreferrer"
                     >
-                      <a
-                        href={whatsappLink(DEFAULT_WHATSAPP_MESSAGE)}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        {t("ctaPrimary")}
-                        <ArrowRight className="transition-transform duration-300 group-hover:translate-x-1 rtl:rotate-180 rtl:group-hover:-translate-x-1" />
-                      </a>
-                    </Button>
-                  </Magnetic>
+                      {t("ctaPrimary")}
+                      <ArrowRight className="transition-transform duration-300 group-hover:translate-x-1 rtl:rotate-180 rtl:group-hover:-translate-x-1" />
+                    </a>
+                  </Button>
 
                   <Button
                     asChild
