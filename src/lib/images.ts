@@ -1,8 +1,8 @@
-import dentalImage from "@/assets/dental.png";
-import papernoteImage from "@/assets/papernote.png";
-import delyxImage from "@/assets/delyx.png";
-import tiberiumImage from "@/assets/tiberium.png";
-import sofianeImage from "@/assets/sofiane.png";
+import dentalImage from "@/assets/dental.webp";
+import papernoteImage from "@/assets/papernote.webp";
+import delyxImage from "@/assets/delyx.webp";
+import tiberiumImage from "@/assets/tiberium.webp";
+import sofianeImage from "@/assets/sofiane.webp";
 
 export const images = {
   dental: dentalImage,

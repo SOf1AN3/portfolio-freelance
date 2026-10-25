@@ -7,7 +7,6 @@ export type Project = {
   roleKey: string; // "projects.items.N.role"
   stack: string[];
   link: string;
-  image: string;
   year: string;
   category: "saas" | "ai" | "delivery" | "consulting";
   status: "published" | "client" | "personal" | "prototype" | "wip";
@@ -28,7 +27,6 @@ export const projects: Project[] = [
     roleKey: "projects.items.0.role",
     stack: ["Next.js", "PostgreSQL", "Tailwind CSS", "TypeScript"],
     link: "https://dental-app-beta1.vercel.app/",
-    image: "/projects/dental-saas.svg",
     year: "2025",
     category: "saas",
     status: "published",
@@ -42,7 +40,6 @@ export const projects: Project[] = [
     roleKey: "projects.items.1.role",
     stack: ["Next.js", "AI Models API", "TypeScript", "Tailwind CSS"],
     link: "https://reviewer-ai-delta.vercel.app/fr",
-    image: "/projects/papernote.svg",
     year: "2025",
     category: "ai",
     status: "published",
@@ -56,7 +53,6 @@ export const projects: Project[] = [
     roleKey: "projects.items.2.role",
     stack: ["Next.js", "PostgreSQL", "TypeScript", "Tailwind CSS"],
     link: "https://delyx-delivery.vercel.app/",
-    image: "/projects/delyx-delivery.svg",
     year: "2026",
     category: "delivery",
     status: "published",
@@ -70,7 +66,6 @@ export const projects: Project[] = [
     roleKey: "projects.items.3.role",
     stack: ["MongoDB", "Express", "React", "Node.js", "Socket.io"],
     link: "https://tiberium-next.vercel.app/",
-    image: "/projects/tiberium.svg",
     year: "2024",
     category: "consulting",
     status: "published",
