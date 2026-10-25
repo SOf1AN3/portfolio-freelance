@@ -191,7 +191,7 @@ export function HeroSection() {
                       width={128}
                       height={128}
                       priority
-                      className="h-full w-full object-cover object-top opacity-90 grayscale contrast-125 transition-transform duration-700 group-hover:scale-105"
+                      className="h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
                     />
                     <span
                       aria-hidden

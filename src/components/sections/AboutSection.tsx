@@ -42,7 +42,7 @@ export function AboutSection() {
                       width={1024}
                       height={1280}
                       sizes="(max-width: 1024px) 100vw, 40vw"
-                      className="-mt-[30px] h-[calc(100%_+_60px)] w-full object-cover object-top grayscale contrast-125"
+                      className="-mt-[30px] h-[calc(100%_+_60px)] w-full object-cover object-top"
                     />
                   </Parallax>
                 </div>
