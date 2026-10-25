@@ -1,72 +1,87 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { motion } from "framer-motion";
-import { MessageSquare, PenTool, CodeXml, Rocket } from "lucide-react";
+import { motion, useReducedMotion } from "framer-motion";
 
 import { Container } from "@/components/ui/container";
-import { Badge } from "@/components/ui/badge";
+import { SectionHeader } from "@/components/ui/section-header";
+import { Reveal } from "@/components/animations/Reveal";
+import { Stagger, StaggerItem } from "@/components/animations/Stagger";
+import { EASE } from "@/lib/motion";
 
-const icons = [MessageSquare, PenTool, CodeXml, Rocket];
+/** Structure verrouillée par `process.steps[]` dans `src/messages/*.json`. */
+type ProcessStep = {
+  phase: string;
+  deliverable: string;
+  title: string;
+  description: string;
+};
 
 export function ProcessSection() {
   const t = useTranslations("process");
-  const steps = t.raw("steps") as { title: string; description: string }[];
+  // `t.raw()` renvoie `unknown` : la forme des données est garantie par les messages i18n.
+  const steps = t.raw("steps") as ProcessStep[];
+  const prefersReduced = useReducedMotion();
 
   return (
-    <section id="process" className="scroll-mt-16 py-20 lg:py-28">
+    <section id="process" className="scroll-mt-24 py-24 lg:py-32">
       <Container>
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.6 }}
-          className="mx-auto max-w-2xl text-center"
-        >
-          <Badge variant="outline" className="mb-4">
-            {t("title")}
-          </Badge>
-          <h2 className="text-balance text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
-            {t("subtitle")}
-          </h2>
-        </motion.div>
+        <Reveal>
+          <SectionHeader
+            index={t("index")}
+            title={t("title")}
+            lead={t("subtitle")}
+          />
+        </Reveal>
 
-        <div className="relative mt-16">
-          <div className="absolute left-6 top-0 hidden h-full w-px bg-gradient-to-b from-primary/50 via-primary/20 to-transparent rtl:left-auto rtl:right-6 lg:block" />
+        <div className="mt-14">
+          {/*
+            Lien visuel entre les 4 phases : filet tracé au scroll.
+            `origin-left` + variante `rtl:` (aucun left/right en dur).
+            `prefers-reduced-motion` : tracé instantané (durée 0), HTML identique.
+          */}
+          <motion.div
+            aria-hidden="true"
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={{ once: true, margin: "-10% 0px" }}
+            transition={{
+              duration: prefersReduced === true ? 0 : 1,
+              ease: EASE,
+            }}
+            className="mb-8 hidden h-px origin-left bg-hairline lg:block rtl:origin-right"
+          />
 
-          <div className="space-y-8 lg:space-y-12">
-            {steps.map((step, i) => {
-              const Icon = icons[i] || MessageSquare;
-              return (
-                <motion.div
-                  key={step.title}
-                  initial={{ opacity: 0, y: 24 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-60px" }}
-                  transition={{ duration: 0.5, delay: i * 0.1 }}
-                  className="relative flex gap-6"
-                >
-                  <div className="relative z-10 flex flex-col items-center">
-                    <div className="flex size-14 items-center justify-center rounded-2xl border border-primary/30 bg-background text-primary shadow-lg shadow-primary/10">
-                      <Icon className="size-6" />
+          <Stagger className="grid gap-6 md:grid-cols-2 lg:grid-cols-4" stagger={0.12}>
+            {steps.map((step, stepIndex) => (
+              <StaggerItem key={step.title} className="h-full">
+                <ul className="h-full">
+                  <li className="group flex h-full flex-col rounded-md border border-hairline bg-card p-6 transition-colors duration-300 hover:border-emerald/40">
+                    <div className="flex items-center justify-between gap-3 border-b border-hairline pb-3">
+                      <span className="font-display text-3xl leading-none text-platinum">
+                        {String(stepIndex + 1).padStart(2, "0")}
+                      </span>
+                      <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-emerald">
+                        {step.phase}
+                      </span>
                     </div>
-                    <span className="mt-2 text-xs font-bold text-muted-foreground">
-                      0{i + 1}
-                    </span>
-                  </div>
 
-                  <div className="flex-1 rounded-2xl border border-border bg-card p-6 transition-colors hover:border-primary/30">
-                    <h3 className="text-lg font-semibold sm:text-xl">
+                    <h3 className="mt-5 font-display text-lg leading-snug text-platinum transition-colors duration-300 group-hover:text-emerald">
                       {step.title}
                     </h3>
-                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground sm:text-base">
+
+                    <p className="mt-3 flex-1 text-sm leading-relaxed text-mist">
                       {step.description}
                     </p>
-                  </div>
-                </motion.div>
-              );
-            })}
-          </div>
+
+                    <div className="mt-5 border-t border-hairline pt-4 font-mono text-[11px] uppercase tracking-[0.18em] text-fog">
+                      {step.deliverable}
+                    </div>
+                  </li>
+                </ul>
+              </StaggerItem>
+            ))}
+          </Stagger>
         </div>
       </Container>
     </section>
