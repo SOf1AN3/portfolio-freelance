@@ -1,6 +1,6 @@
 "use client";
 
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { ArrowRight } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
@@ -14,6 +14,7 @@ import { techGroups } from "@/content/techStackData";
 
 export function TechStackSection() {
   const t = useTranslations("tech");
+  const locale = useLocale();
 
   // Rail du Marquee : une seule occurrence par technologie (les doublons
   // transverses — Java, Python, Flutter… — sont affichés une fois).
@@ -35,44 +36,73 @@ export function TechStackSection() {
         </Reveal>
 
         <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {techGroups.map((group, index) => (
-            <Reveal key={group.category} delay={index * 0.06} className="h-full">
-              <article className="flex h-full flex-col gap-4 rounded-md border border-hairline bg-card p-6">
-                <div className="flex items-center justify-between gap-3 border-b border-hairline pb-3">
-                  <h3 className="font-mono text-[11px] uppercase tracking-[0.2em] text-emerald">
-                    {t(`categories.${group.category}`)}
-                  </h3>
-                  <span className="shrink-0 font-mono text-[11px] uppercase tracking-widest text-fog">
-                    <Counter to={group.items.length} /> briques
-                  </span>
-                </div>
+          {techGroups.map((group, index) => {
+            // Décomposition de la chaîne ICU : seul le nombre (formaté pour la
+            // locale active, chiffres arabes compris) est remplacé par le
+            // <Counter> — le libellé traduit reste identique. Si le nombre
+            // n'est pas isolable, on affiche la chaîne entière sans compteur.
+            const countLabel = t("pillarCount", { count: group.items.length });
+            const countToken = new Intl.NumberFormat(locale).format(
+              group.items.length,
+            );
+            const tokenIndex = countLabel.indexOf(countToken);
+            const hasCounter = tokenIndex >= 0;
+            const countBefore = hasCounter ? countLabel.slice(0, tokenIndex) : "";
+            const countAfter = hasCounter
+              ? countLabel.slice(tokenIndex + countToken.length)
+              : "";
 
-                <p className="text-sm leading-relaxed text-mist">
-                  {t(`categoryDescriptions.${group.category}`)}
-                </p>
+            return (
+              <Reveal
+                key={group.category}
+                delay={index * 0.06}
+                className="h-full"
+              >
+                <article className="flex h-full flex-col gap-4 rounded-md border border-hairline bg-card p-6">
+                  <div className="flex items-center justify-between gap-3 border-b border-hairline pb-3">
+                    <h3 className="font-mono text-[11px] uppercase tracking-[0.2em] text-emerald">
+                      {t(`categories.${group.category}`)}
+                    </h3>
+                    <span className="shrink-0 font-mono text-[11px] uppercase tracking-widest text-fog">
+                      {hasCounter ? (
+                        <>
+                          {countBefore}
+                          <Counter to={group.items.length} />
+                          {countAfter}
+                        </>
+                      ) : (
+                        countLabel
+                      )}
+                    </span>
+                  </div>
 
-                <ul className="mt-auto flex flex-wrap items-center gap-2 pt-2">
-                  {group.items.map((item) => {
-                    const ItemIcon = item.icon;
+                  <p className="text-sm leading-relaxed text-mist">
+                    {t(`categoryDescriptions.${group.category}`)}
+                  </p>
 
-                    return (
-                      <li
-                        key={item.name}
-                        className="inline-flex items-center gap-1.5 rounded-sm border border-hairline bg-deep px-2 py-1 font-mono text-[11px] uppercase tracking-wider text-fog transition-colors duration-200 hover:border-emerald/40 hover:text-mist"
-                      >
-                        <ItemIcon
-                          aria-hidden="true"
-                          className="size-3.5 shrink-0"
-                          style={{ color: item.color }}
-                        />
-                        {item.name}
-                      </li>
-                    );
-                  })}
-                </ul>
-              </article>
-            </Reveal>
-          ))}
+                  <ul className="mt-auto flex flex-wrap items-center gap-2 pt-2">
+                    {group.items.map((item) => {
+                      const ItemIcon = item.icon;
+
+                      return (
+                        <li
+                          key={item.name}
+                          className="inline-flex items-center gap-1.5 rounded-sm border border-hairline bg-deep px-2 py-1 font-mono text-[11px] uppercase tracking-wider text-fog transition-colors duration-200 hover:border-emerald/40 hover:text-mist"
+                        >
+                          <ItemIcon
+                            aria-hidden="true"
+                            className="size-3.5 shrink-0"
+                            style={{ color: item.color }}
+                          />
+                          {item.name}
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </article>
+              </Reveal>
+            );
+          })}
         </div>
 
         {/* Rail défilant : contenu déjà listé ci-dessus, masqué au lecteur

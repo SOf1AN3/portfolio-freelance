@@ -80,7 +80,7 @@ export function ProjectsSection() {
                   {/* Encart « défi d'ingénierie » */}
                   <div className="mt-6 flex flex-col gap-2 rounded border border-hairline bg-deep p-4">
                     <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-fog">
-                      Défi d’ingénierie
+                      {t("challengeLabel")}
                     </span>
                     <p className="text-sm leading-relaxed text-mist">
                       {challenge}
