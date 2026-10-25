@@ -8,7 +8,17 @@ import { cn } from "@/lib/utils";
 
 const DropdownMenu = DropdownMenuPrimitive.Root;
 
-const DropdownMenuTrigger = DropdownMenuPrimitive.Trigger;
+function DropdownMenuTrigger({
+  className,
+  ...props
+}: React.ComponentProps<typeof DropdownMenuPrimitive.Trigger>) {
+  return (
+    <DropdownMenuPrimitive.Trigger
+      className={cn("cursor-pointer", className)}
+      {...props}
+    />
+  );
+}
 
 const DropdownMenuGroup = DropdownMenuPrimitive.Group;
 
