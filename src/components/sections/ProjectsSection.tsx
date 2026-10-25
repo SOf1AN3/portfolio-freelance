@@ -1,274 +1,134 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { motion } from "framer-motion";
 import Image from "next/image";
-import { ExternalLink, ArrowUpRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
-import { Link } from "@/i18n/navigation";
 import { Container } from "@/components/ui/container";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { projects } from "@/content/projectsData";
+import { SectionHeader } from "@/components/ui/section-header";
+import { Parallax } from "@/components/animations/Parallax";
+import { Reveal } from "@/components/animations/Reveal";
+import { Stagger, StaggerItem } from "@/components/animations/Stagger";
+import { projects, type Project } from "@/content/projectsData";
 import { getProjectImage } from "@/lib/images";
-
-const categoryColors: Record<string, string> = {
-  saas: "from-blue-500/20 to-cyan-500/10",
-  ai: "from-violet-500/20 to-fuchsia-500/10",
-  delivery: "from-rose-500/20 to-orange-500/10",
-  consulting: "from-emerald-500/20 to-teal-500/10",
-};
-
-const FEATURED_SLUG = "delyx-delivery";
-
-const categoryAccents: Record<string, string> = {
-  saas: "bg-blue-500/10 text-blue-400 border-blue-500/20",
-  ai: "bg-violet-500/10 text-violet-400 border-violet-500/20",
-  delivery: "bg-rose-500/10 text-rose-400 border-rose-500/20",
-  consulting: "bg-emerald-500/10 text-emerald-400 border-emerald-500/20",
-};
 
 export function ProjectsSection() {
   const t = useTranslations("projects");
 
-  const featured = projects.find((p) => p.slug === FEATURED_SLUG);
-  const rest = projects.filter((p) => p.slug !== FEATURED_SLUG);
-
-  function projectText(project: (typeof projects)[number]) {
+  function projectText(project: Project, index: number) {
     return {
       title: t(project.titleKey.replace("projects.", "")),
       description: t(project.descriptionKey.replace("projects.", "")),
-      focus: t(project.focusKey.replace("projects.", "")),
-      context: t(project.contextKey.replace("projects.", "")),
+      challenge: t(`items.${index}.challenge`),
       status: t(`statuses.${project.status}`),
       category: t(`categories.${project.category}`),
     };
   }
 
   return (
-    <section id="projects" className="scroll-mt-16 py-20 lg:py-28">
+    <section id="projects" className="scroll-mt-16 bg-canvas py-24 lg:py-32">
       <Container>
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.6 }}
-          className="mx-auto max-w-2xl text-center"
-        >
-          <Badge variant="outline" className="mb-4">
-            {t("title")}
-          </Badge>
-          <h2 className="text-balance text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
-            {t("subtitle")}
-          </h2>
-        </motion.div>
+        <Reveal>
+          <SectionHeader
+            index={t("index")}
+            title={t("title")}
+            lead={t("subtitle")}
+          />
+        </Reveal>
 
-        {featured && (
-          <motion.article
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.5 }}
-            whileHover={{
-              y: [0, -10, 0, -5, 0],
-              transition: { duration: 0.7, ease: "easeInOut" },
-            }}
-            className="group relative mt-14 overflow-hidden rounded-3xl border border-border bg-card transition-colors hover:border-primary/40"
-          >
-            <Link
-              href={`/projects/${featured.slug}`}
-              className="absolute inset-0 z-10"
-              aria-label={t("viewProject")}
-            />
-
-            <div className="relative aspect-video overflow-hidden bg-card">
-              <div
-                className={`absolute inset-0 bg-gradient-to-br ${categoryColors[featured.category] || categoryColors.saas}`}
-              />
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.08),transparent_70%)]" />
-              <Image
-                src={getProjectImage(featured.slug)}
-                alt={projectText(featured).title}
-                fill
-                priority
-                sizes="(max-width: 1280px) 100vw, 1280px"
-                className="transform-gpu object-cover object-top transition-transform duration-700 will-change-transform"
-              />
-              <div className="absolute inset-x-0 -bottom-px top-1/2 bg-gradient-to-t from-card to-transparent" />
-
-              <div className="absolute inset-x-0 bottom-0 flex flex-wrap items-center gap-3 p-6 sm:p-8">
-                <Badge
-                  variant="secondary"
-                  className="relative bg-background/80 backdrop-blur"
-                >
-                  {featured.year}
-                </Badge>
-                <Badge
-                  variant="outline"
-                  className="relative backdrop-blur bg-background/80 border-[#22c55e]/30 text-[#22c55e]"
-                >
-                  {projectText(featured).status}
-                </Badge>
-                <Badge
-                  variant="outline"
-                  className={`relative backdrop-blur ${categoryAccents[featured.category] || categoryAccents.saas}`}
-                >
-                  {projectText(featured).category}
-                </Badge>
-              </div>
-            </div>
-
-            <div className="relative grid gap-8 p-6 sm:p-8 lg:grid-cols-2 lg:gap-12">
-              <div>
-                <h3 className="text-2xl font-bold leading-snug sm:text-3xl">
-                  {projectText(featured).title}
-                </h3>
-                <p className="mt-4 leading-relaxed text-muted-foreground">
-                  {projectText(featured).description}
-                </p>
-
-                <div className="mt-6">
-                  <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                    {t("context")}
-                  </p>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                    {projectText(featured).context}
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex flex-col justify-between gap-6">
-                <div>
-                  <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                    {t("focus")}
-                  </p>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                    {projectText(featured).focus}
-                  </p>
-                </div>
-
-                <div className="flex flex-wrap gap-2">
-                  {featured.stack.map((tech) => (
-                    <span
-                      key={tech}
-                      className="rounded-md border border-border bg-background/60 px-2.5 py-1 text-xs font-medium text-muted-foreground"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </motion.article>
-        )}
-
-        <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {rest.map((project, i) => {
-            const { title, description, focus, category, status } =
-              projectText(project);
+        <Stagger className="mt-14 grid gap-8 lg:grid-cols-2" stagger={0.1}>
+          {projects.map((project, index) => {
+            const { title, description, challenge, status, category } =
+              projectText(project, index);
 
             return (
-              <motion.article
-                key={project.slug}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-60px" }}
-                transition={{ duration: 0.5, delay: i * 0.08 }}
-                whileHover={{
-                  y: [0, -8, 0, -4, 0],
-                  transition: { duration: 0.65, ease: "easeInOut" },
-                }}
-                className="group relative flex flex-col overflow-hidden rounded-2xl border border-border bg-card transition-colors hover:border-primary/40"
-              >
-                <Link
-                  href={`/projects/${project.slug}`}
-                  className="absolute inset-0 z-10"
-                  aria-label={t("viewProject")}
-                />
-
-                <div className="relative aspect-[2/1] overflow-hidden bg-gradient-to-br">
-                  <div
-                    className={`absolute inset-0 bg-gradient-to-br ${categoryColors[project.category] || categoryColors.saas}`}
-                  />
-                  <Image
-                    src={getProjectImage(project.slug)}
-                    alt={title}
-                    fill
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    className="object-cover object-top transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent" />
-
-                  <div className="absolute end-3 top-3 flex flex-col items-end gap-2">
-                    <Badge
-                      variant="secondary"
-                      className="bg-background/80 backdrop-blur"
-                    >
-                      {project.year}
-                    </Badge>
-                    <Badge
-                      variant="outline"
-                      className="backdrop-blur bg-background/80 border-[#22c55e]/30 text-[#22c55e]"
-                    >
-                      {status}
-                    </Badge>
+              <StaggerItem key={project.slug} className="h-full">
+                <article className="group flex h-full flex-col rounded-md border border-hairline bg-card p-8 transition-colors duration-300 hover:border-emerald/40">
+                  {/* Ligne haute : année // catégorie + statut vivant */}
+                  <div className="flex flex-wrap items-center justify-between gap-3 border-b border-hairline pb-3">
+                    <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-fog">
+                      {`${project.year} // ${category}`}
+                    </span>
+                    <Badge variant="success">{status}</Badge>
                   </div>
-                </div>
 
-                <div className="relative flex flex-1 flex-col p-5">
-                  <Badge
-                    variant="outline"
-                    className={`w-fit backdrop-blur ${categoryAccents[project.category] || categoryAccents.saas}`}
-                  >
-                    {category}
-                  </Badge>
+                  {/* Visuel encadré + parallaxe au scroll */}
+                  <div className="relative mt-6 h-56 overflow-hidden rounded-md border border-hairline bg-deep">
+                    <Parallax amount={24} className="absolute inset-x-0 -top-6">
+                      <Image
+                        src={getProjectImage(project.slug)}
+                        alt={title}
+                        sizes="(max-width: 1024px) 100vw, 50vw"
+                        className="h-[272px] w-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                      />
+                    </Parallax>
+                    <div
+                      aria-hidden="true"
+                      className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-card via-card/30 to-transparent"
+                    />
+                  </div>
 
-                  <h3 className="mt-3 text-lg font-semibold leading-snug">
-                    {title}
-                  </h3>
-                  <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-muted-foreground">
-                    {description}
-                  </p>
+                  {/* Titre + description */}
+                  <div className="mt-6 flex flex-col gap-3">
+                    <h3 className="font-display text-2xl leading-snug text-platinum transition-colors duration-300 group-hover:text-emerald">
+                      {title}
+                    </h3>
+                    <p className="leading-relaxed text-mist">{description}</p>
+                  </div>
 
-                  <p className="mt-4 line-clamp-2 text-sm text-muted-foreground/80">
-                    {focus}
-                  </p>
+                  {/* Encart « défi d'ingénierie » */}
+                  <div className="mt-6 flex flex-col gap-2 rounded border border-hairline bg-deep p-4">
+                    <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-fog">
+                      Défi d’ingénierie
+                    </span>
+                    <p className="text-sm leading-relaxed text-mist">
+                      {challenge}
+                    </p>
+                  </div>
 
-                  <div className="mt-4 flex flex-wrap gap-1.5">
-                    {project.stack.map((tech) => (
-                      <span
-                        key={tech}
-                        className="rounded-md bg-muted px-2 py-1 text-xs font-medium text-muted-foreground"
-                      >
-                        {tech}
+                  {/* Pied de carte : jetons de stack, statut, lien sortant */}
+                  <div className="mt-auto flex flex-col gap-4 border-t border-hairline pt-4">
+                    <ul
+                      aria-label={t("stack")}
+                      className="flex flex-wrap items-center gap-2"
+                    >
+                      {project.stack.map((tech) => (
+                        <li
+                          key={tech}
+                          className="rounded-sm border border-hairline bg-deep px-2 py-0.5 font-mono text-[11px] uppercase text-fog"
+                        >
+                          / {tech}
+                        </li>
+                      ))}
+                    </ul>
+
+                    <div className="flex flex-wrap items-center justify-between gap-3">
+                      <span className="font-mono text-[11px] uppercase tracking-widest text-fog">
+                        {t("status")} : {status}
                       </span>
-                    ))}
-                  </div>
-
-                  <div className="mt-5 flex flex-wrap items-center gap-2 pt-1">
-                    <Button asChild variant="outline" size="sm">
                       <a
                         href={project.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="relative z-20"
+                        aria-label={`${t("live")} : ${title}`}
+                        className="inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-widest text-platinum transition-colors duration-300 hover:text-emerald focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald"
                       >
-                        <ExternalLink className="size-4" />
-                        {t("live")}
+                        <span className="transition-transform duration-300 group-hover:translate-x-1 rtl:group-hover:-translate-x-1">
+                          {t("live")}
+                        </span>
+                        <ArrowUpRight
+                          aria-hidden="true"
+                          className="size-4 shrink-0 text-emerald rtl:rotate-180"
+                        />
                       </a>
-                    </Button>
-                    <Button asChild variant="ghost" size="sm" className="relative z-20">
-                      <Link href={`/projects/${project.slug}`}>
-                        {t("viewProject")}
-                        <ArrowUpRight className="size-4 rtl:rotate-90" />
-                      </Link>
-                    </Button>
+                    </div>
                   </div>
-                </div>
-              </motion.article>
+                </article>
+              </StaggerItem>
             );
           })}
-        </div>
+        </Stagger>
       </Container>
     </section>
   );
