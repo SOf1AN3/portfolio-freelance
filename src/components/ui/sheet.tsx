@@ -32,7 +32,7 @@ function SheetOverlay({
 }
 
 const sheetVariants = cva(
-  "fixed z-50 gap-4 bg-background p-6 shadow-2xl transition ease-in-out data-[state=closed]:duration-300 data-[state=open]:duration-500 data-[state=open]:animate-in data-[state=closed]:animate-out",
+  "fixed z-50 gap-4 rounded-md border-white/8 bg-card/85 p-6 text-platinum shadow-2xl backdrop-blur-xl transition ease-in-out data-[state=closed]:duration-300 data-[state=open]:duration-500 data-[state=open]:animate-in data-[state=closed]:animate-out",
   {
     variants: {
       side: {
@@ -65,7 +65,7 @@ function SheetContent({
         {...props}
       >
         {children}
-        <SheetPrimitive.Close className="absolute end-4 top-4 rounded-sm opacity-70 transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none">
+        <SheetPrimitive.Close className="absolute end-4 top-4 rounded-sm text-mist opacity-70 transition-opacity hover:opacity-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald disabled:pointer-events-none">
           <X className="size-5" />
           <span className="sr-only">Close</span>
         </SheetPrimitive.Close>
@@ -98,7 +98,7 @@ function SheetTitle({
 }: React.ComponentProps<typeof SheetPrimitive.Title>) {
   return (
     <SheetPrimitive.Title
-      className={cn("text-lg font-semibold text-foreground", className)}
+      className={cn("font-display text-lg font-semibold text-platinum", className)}
       {...props}
     />
   );
@@ -110,7 +110,7 @@ function SheetDescription({
 }: React.ComponentProps<typeof SheetPrimitive.Description>) {
   return (
     <SheetPrimitive.Description
-      className={cn("text-sm text-muted-foreground", className)}
+      className={cn("text-sm text-mist", className)}
       {...props}
     />
   );

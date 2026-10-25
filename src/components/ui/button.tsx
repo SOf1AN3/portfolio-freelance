@@ -5,20 +5,19 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg text-sm font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 active:scale-[0.98]",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
   {
     variants: {
       variant: {
         default:
-          "bg-primary-strong text-primary-foreground shadow-lg shadow-primary/25 hover:bg-primary-strong/90 hover:shadow-primary/40",
+          "bg-platinum font-semibold text-canvas shadow-[0_1px_12px_rgba(255,255,255,0.08)] hover:bg-[#E2E8F0]",
         secondary:
-          "bg-secondary text-secondary-foreground hover:bg-secondary/80 border border-border",
+          "border border-hairline bg-elevated text-platinum hover:border-white/20 hover:bg-card",
         outline:
-          "border border-border bg-transparent hover:bg-accent hover:text-accent-foreground",
-        ghost: "hover:bg-accent hover:text-accent-foreground",
-        link: "text-primary underline-offset-4 hover:underline",
-        whatsapp:
-          "bg-[#22c55e] text-background shadow-lg shadow-[#22c55e]/25 hover:bg-[#16a34a] hover:shadow-[#22c55e]/40",
+          "bg-card border border-hairline text-platinum hover:border-white/20 hover:bg-emerald/5",
+        ghost: "text-mist hover:bg-white/5 hover:text-platinum",
+        link: "text-emerald underline-offset-4 hover:underline",
+        whatsapp: "bg-emerald text-on-emerald hover:bg-emerald-bright",
       },
       size: {
         default: "h-11 px-5 py-2.5 min-h-[44px]",
