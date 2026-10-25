@@ -28,18 +28,24 @@ function handleAnchorClick(event: MouseEvent, instance: Lenis): void {
   const target = event.target;
   if (!(target instanceof Element)) return;
 
-  const anchor = target.closest<HTMLAnchorElement>('a[href^="#"]');
+  const anchor = target.closest<HTMLAnchorElement>("a[href]");
   if (!anchor) return;
   if (anchor.origin !== window.location.origin) return;
 
-  const hash = anchor.getAttribute("href");
-  if (!hash || hash.length < 2) return;
+  const url = new URL(anchor.href);
+  // Another page: let Next.js handle the navigation.
+  if (url.pathname !== window.location.pathname) return;
+  if (!url.hash || url.hash.length < 2) return;
 
   // Native behaviour when the target does not exist.
-  if (!document.getElementById(hash.slice(1))) return;
+  const element = document.getElementById(url.hash.slice(1));
+  if (!element) return;
 
+  // Capture phase: stop React/Next from doing an instant jump on the same page.
   event.preventDefault();
-  instance.scrollTo(hash, { offset: HEADER_OFFSET });
+  event.stopPropagation();
+  history.replaceState(null, "", url.hash);
+  instance.scrollTo(element, { offset: HEADER_OFFSET });
 }
 
 export function SmoothScrollProvider({ children }: { children: ReactNode }): JSX.Element {
@@ -63,12 +69,13 @@ export function SmoothScrollProvider({ children }: { children: ReactNode }): JSX
     rafId = requestAnimationFrame(raf);
 
     const onClick = (event: MouseEvent): void => handleAnchorClick(event, instance);
-    document.addEventListener("click", onClick);
+    // Capture phase: pre-empts Next.js' instant jump on same-page hash links.
+    document.addEventListener("click", onClick, true);
 
     lenisInstance = instance;
 
     return () => {
-      document.removeEventListener("click", onClick);
+      document.removeEventListener("click", onClick, true);
       cancelAnimationFrame(rafId);
       instance.destroy();
       if (lenisInstance === instance) {
