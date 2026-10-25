@@ -1,18 +1,29 @@
 "use client";
 
+import { useState } from "react";
 import { useTranslations } from "next-intl";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
-import { Badge } from "@/components/ui/badge";
+import { SectionHeader } from "@/components/ui/section-header";
 import { JsonLd } from "@/components/SEO/JsonLd";
+import { Reveal } from "@/components/animations/Reveal";
+import { Stagger, StaggerItem } from "@/components/animations/Stagger";
+import { EASE } from "@/lib/motion";
+import { cn } from "@/lib/utils";
 
 type FaqItem = { question: string; answer: string };
+
+/** Micro-index ledger : « 01 », « 02 », … */
+const ledgerIndex = (position: number): string =>
+  String(position).padStart(2, "0");
 
 export function FaqSection() {
   const t = useTranslations("faq");
   const items = t.raw("items") as FaqItem[];
+  /** Une seule question ouverte à la fois (`null` = tout replié). */
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const structuredData = {
     "@context": "https://schema.org",
@@ -25,41 +36,91 @@ export function FaqSection() {
   };
 
   return (
-    <section id="faq" className="scroll-mt-16 py-20 lg:py-28">
+    <section
+      id="faq"
+      className="scroll-mt-16 border-y border-hairline bg-canvas py-24 lg:py-32"
+    >
       <JsonLd data={structuredData} />
-      <Container>
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.6 }}
-          className="mx-auto max-w-2xl text-center"
-        >
-          <Badge variant="outline" className="mb-4">{t("title")}</Badge>
-          <h2 className="text-balance text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
-            {t("subtitle")}
-          </h2>
-        </motion.div>
 
-        <div className="mx-auto mt-14 max-w-3xl space-y-3">
-          {items.map((item, i) => (
-            <motion.details
-              key={item.question}
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-40px" }}
-              transition={{ duration: 0.45, delay: i * 0.05 }}
-              className="group rounded-2xl border border-border bg-card px-5 transition-colors open:border-primary/40 sm:px-6"
-            >
-              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 py-4 text-start text-sm font-medium sm:text-base [&::-webkit-details-marker]:hidden">
-                {item.question}
-                <ChevronDown aria-hidden="true" className="size-4 shrink-0 text-muted-foreground transition-transform duration-300 group-open:rotate-180" />
-              </summary>
-              <p className="pb-5 text-sm leading-relaxed text-muted-foreground sm:text-base">
-                {item.answer}
-              </p>
-            </motion.details>
-          ))}
+      <Container>
+        <div className="mx-auto flex max-w-5xl flex-col gap-12">
+          <Reveal>
+            <SectionHeader
+              index={t("index")}
+              title={t("title")}
+              lead={t("subtitle")}
+            />
+          </Reveal>
+
+          <Stagger className="flex flex-col gap-4">
+            {items.map((item, i) => {
+              const isOpen = openIndex === i;
+              const questionId = `faq-question-${i}`;
+              const panelId = `faq-panel-${i}`;
+
+              return (
+                <StaggerItem key={item.question}>
+                  <div
+                    className={cn(
+                      "rounded-md border bg-card transition-colors duration-300",
+                      isOpen ? "border-emerald/40" : "border-hairline",
+                    )}
+                  >
+                    <h3>
+                      <button
+                        type="button"
+                        id={questionId}
+                        aria-expanded={isOpen}
+                        aria-controls={panelId}
+                        onClick={() => setOpenIndex(isOpen ? null : i)}
+                        className="flex w-full items-start gap-3 px-5 py-5 text-start transition-colors duration-200 hover:bg-elevated/60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald sm:px-6"
+                      >
+                        <span
+                          aria-hidden="true"
+                          className="w-7 shrink-0 pt-1 font-mono text-xs tracking-widest text-emerald"
+                        >
+                          {ledgerIndex(i + 1)}
+                        </span>
+
+                        <span className="flex-1 text-base font-medium leading-snug text-platinum sm:text-lg">
+                          {item.question}
+                        </span>
+
+                        <span
+                          data-open={isOpen ? "" : undefined}
+                          className="shrink-0 pt-1 text-emerald transition-transform duration-300 data-[open]:rotate-180"
+                        >
+                          <ChevronDown aria-hidden="true" className="size-4" />
+                        </span>
+                      </button>
+                    </h3>
+
+                    <AnimatePresence initial={false}>
+                      {isOpen ? (
+                        <motion.div
+                          key="panel"
+                          id={panelId}
+                          role="region"
+                          aria-labelledby={questionId}
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: "auto", opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.35, ease: EASE }}
+                          className="overflow-hidden"
+                        >
+                          <div className="px-5 pb-5 sm:px-6">
+                            <p className="border-t border-hairline pt-4 text-sm leading-relaxed text-mist sm:ms-10 sm:text-base">
+                              {item.answer}
+                            </p>
+                          </div>
+                        </motion.div>
+                      ) : null}
+                    </AnimatePresence>
+                  </div>
+                </StaggerItem>
+              );
+            })}
+          </Stagger>
         </div>
       </Container>
     </section>
