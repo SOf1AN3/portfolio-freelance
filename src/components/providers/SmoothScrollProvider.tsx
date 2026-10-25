@@ -7,11 +7,9 @@ import Lenis from "lenis";
 const HEADER_OFFSET = -96;
 
 /**
- * Courbe de défilement : départ lent → accélération → freinage doux.
- * Variante assagie de `cubic-bezier(0.65, 0.05, 0, 1)` (courbe de référence
- * des sites « premium » du moment, dont landonorris.com) : on garde le
- * départ progressif et l'accélération centrale, mais on évite la rafale puis
- * la longue traînée qui donnent une impression de décrochage.
+ * Courbe de défilement : départ réactif → accélération → freinage doux.
+ * Variante resserrée (plus de répondant que la courbe lente de landonorris.com)
+ * qui garde le profil « ça accélère puis ça ralentit » sans phases molles.
  * Résolution par Newton-Raphson sur la composante x, puis évaluation en y.
  */
 function cubicBezier(x1: number, y1: number, x2: number, y2: number): (t: number) => number {
@@ -36,7 +34,7 @@ function cubicBezier(x1: number, y1: number, x2: number, y2: number): (t: number
   };
 }
 
-const easeGliding = cubicBezier(0.45, 0.05, 0.3, 1);
+const easeGliding = cubicBezier(0.3, 0.1, 0.2, 1);
 
 /** Single Lenis instance shared with the imperative `scrollToId` helper. */
 let lenisInstance: Lenis | null = null;
@@ -86,7 +84,7 @@ export function SmoothScrollProvider({ children }: { children: ReactNode }): JSX
     if (prefersReducedMotion()) return;
 
     const instance = new Lenis({
-      duration: 1.4,
+      duration: 1,
       easing: easeGliding,
       smoothWheel: true,
       touchMultiplier: 1.5,
