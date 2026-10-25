@@ -32,7 +32,6 @@
   },
   "hero": {
     "eyebrow": "SOFTWARE ENGINEERING & DIGITAL ARCHITECTURE",
-    "badge": "Available for new projects",
     "title": "Exceptional websites & software engineering for demanding businesses",
     "highlight": "Full-Stack Software Engineer",
     "subtitle": "Medical practices, consultancies, shops and established businesses: I design and build fast, easy-to-manage platforms meant to turn your visitors into lasting clients. Custom web apps and SaaS platforms included.",
@@ -70,14 +69,7 @@
         "unit": "BUSINESS-DAY REPLY",
         "description": "Direct exchange with the engineer in charge of your code, with no middleman and no salesperson."
       }
-    ],
-    "stats": {
-      "items": [
-        { "value": "5", "label": "Projects live online" },
-        { "value": "+3", "label": "Years of experience" },
-        { "value": "24h", "label": "Reply within 1 business day" }
-      ]
-    }
+    ]
   },
   "services": {
     "index": "01 / ARCHITECTURE & SERVICE OFFER",
@@ -338,7 +330,7 @@
     ]
   },
   "about": {
-    "index": "ABOUT",
+    "index": "06 / PROFILE & BACKGROUND",
     "title": "About",
     "subtitle": "Full-Stack Engineer: end-to-end design and delivery of your digital products.",
     "description": "I'm Sofiane ASMA, a full-stack software engineer. I build professional websites for demanding businesses, along with custom web apps, dashboards and SaaS platforms. I work directly with you, with no middleman, from the first conversation to launch.",
@@ -357,7 +349,7 @@
     "cta": "Let's work together"
   },
   "contact": {
-    "index": "06 / GET IN TOUCH",
+    "index": "07 / GET IN TOUCH",
     "title": "Contact",
     "subtitle": "Share the broad lines of your project. I reply personally with a first feasibility assessment within 24 business hours.",
     "whatsappCard": {
@@ -404,11 +396,6 @@
         "description": "Describe your project (min. 10 characters)"
       }
     },
-    "whatsapp": {
-      "title": "Need a quick response?",
-      "description": "Message me directly on WhatsApp to discuss your project in real time.",
-      "cta": "Open WhatsApp"
-    },
     "info": {
       "email": "Email",
       "phone": "Phone",
@@ -420,8 +407,6 @@
     "tagline": "Software engineering & website development: platforms for demanding businesses, custom web apps and SaaS.",
     "quickLinks": "Quick links",
     "websiteOffer": "Website development",
-    "services": "Services",
-    "projects": "Selected projects",
     "contactTitle": "Contact",
     "rights": "All rights reserved.",
     "builtWith": "Built with Next.js & Tailwind CSS"

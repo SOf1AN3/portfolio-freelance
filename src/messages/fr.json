@@ -33,7 +33,6 @@
   },
   "hero": {
     "eyebrow": "INGÉNIERIE & ARCHITECTURES NUMÉRIQUES",
-    "badge": "Disponible pour de nouveaux projets",
     "title": "Sites web d'exception & ingénierie logicielle pour entreprises exigeantes",
     "highlight": "Ingénieur Full-Stack & Web",
     "subtitle": "Cabinets médicaux, structures de conseil, commerces et entreprises établies : je conçois et développe des plateformes rapides, simples à piloter et pensées pour transformer durablement vos visiteurs en clients. Applications web et plateformes SaaS sur-mesure.",
@@ -71,14 +70,7 @@
         "unit": "RÉPONSE OUVRÉE",
         "description": "Échange direct avec l'ingénieur en charge de votre code, sans intermédiaire ni commercial."
       }
-    ],
-    "stats": {
-      "items": [
-        { "value": "5", "label": "Projets publiés en ligne" },
-        { "value": "+3", "label": "Ans d'expérience" },
-        { "value": "24h", "label": "Réponse sous 24h ouvrées" }
-      ]
-    }
+    ]
   },
   "services": {
     "index": "01 / ARCHITECTURE & OFFRE DE SERVICES",
@@ -212,7 +204,7 @@
       "saas": "SaaS",
       "ai": "IA",
       "delivery": "Livraison",
-      "consulting": "Consulting"
+      "consulting": "Conseil"
     },
     "items": [
       {
@@ -339,7 +331,7 @@
     ]
   },
   "about": {
-    "index": "À PROPOS",
+    "index": "06 / PROFIL & PARCOURS",
     "title": "À propos",
     "subtitle": "Ingénieur Full-Stack : conception et réalisation intégrale de vos produits numériques.",
     "description": "Je suis Sofiane ASMA, ingénieur Full-Stack. Je conçois et livre des sites web professionnels pour les entreprises exigeantes, ainsi que des applications web, dashboards et plateformes SaaS sur-mesure. Je travaille directement avec vous, sans intermédiaire, du premier échange jusqu'à la mise en ligne.",
@@ -358,7 +350,7 @@
     "cta": "Travaillons ensemble"
   },
   "contact": {
-    "index": "06 / ENTRER EN LIAISON",
+    "index": "07 / ENTRER EN LIAISON",
     "title": "Contact",
     "subtitle": "Partagez les grandes lignes de votre projet. Je vous réponds personnellement avec une première estimation de faisabilité, sous 24h ouvrées.",
     "whatsappCard": {
@@ -405,11 +397,6 @@
         "description": "Décrivez votre projet (10 caractères min.)"
       }
     },
-    "whatsapp": {
-      "title": "Besoin d'une réponse rapide ?",
-      "description": "Contactez-moi directement sur WhatsApp pour discuter de votre projet en temps réel.",
-      "cta": "Ouvrir WhatsApp"
-    },
     "info": {
       "email": "Email",
       "phone": "Téléphone",
@@ -421,8 +408,6 @@
     "tagline": "Ingénierie logicielle & création de site web : plateformes pour entreprises exigeantes, applications web et SaaS sur-mesure.",
     "quickLinks": "Liens rapides",
     "websiteOffer": "Création de site web",
-    "services": "Services",
-    "projects": "Projets sélectionnés",
     "contactTitle": "Contact",
     "rights": "Tous droits réservés.",
     "builtWith": "Conçu avec Next.js & Tailwind CSS"
